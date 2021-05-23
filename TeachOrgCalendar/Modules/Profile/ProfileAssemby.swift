@@ -11,7 +11,6 @@ private let storyboardName = "Profile"
 
 struct ProfileAssembly: Assembly {
     func assemble(container: Container) {
-        
         container.storyboardInitCompleted(ProfileViewController.self) { r, c in
             guard var presenter = r.resolve(ProfilePresenterType.self) else {
                 fatalError("Can't resolve ProfilePresenterType in Profile View Controller")
