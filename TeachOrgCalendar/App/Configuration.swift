@@ -1,8 +1,8 @@
 //
 //  Configuration.swift
-//  MVVM+C
+//  TeachOrgCalendar
 //
-//  Created by Максим Окунеев on 12/10/20.
+//  Created by Максим Окунеев on 3/28/21.
 //
 
 import UIKit

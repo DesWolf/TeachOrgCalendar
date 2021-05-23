@@ -5,4 +5,48 @@
 //  Created by Максим Окунеев on 3/28/21.
 //
 
-import Foundation
+import UIKit
+import SnapKit
+    
+final class LoginView: UIView {
+
+    // MARK: - Private properties
+    
+    let signInButton = UIButton()
+
+    // MARK: - Initializers
+
+    init() {
+        super.init(frame: .zero)
+        setupViews()
+        setConstraints()
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Public methods
+
+    
+    // MARK: - Private methods
+
+    private func setupViews() {
+        backgroundColor = .white
+        signInButton.backgroundColor = .blue
+        signInButton.layer.cornerRadius = 10
+        signInButton.setTitle(Strings.Login.loginButton, for: .normal)
+        
+        addSubview(signInButton)
+    }
+    
+    private func setConstraints() {
+        signInButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(200)
+            $0.width.equalTo(200)
+            $0.height.equalTo(40)
+        }
+    }
+}

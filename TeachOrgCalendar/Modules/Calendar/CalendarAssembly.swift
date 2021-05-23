@@ -7,25 +7,26 @@
 
 import Swinject
 
+private let storyboardName = "Calendar"
+
 struct CalendarAssembly: Assembly {
     func assemble(container: Container) {
-        container.register(ContactsPresenterType.self) { r in
-            guard let moduleAssembly = r.resolve(ModuleAssemblyType.self) else {
-                fatalError("Can't resolve moduleAssemby in Contacts Presenter")
+        
+        container.storyboardInitCompleted(CalendarViewController.self) { r, c in
+            guard var presenter = r.resolve(CalendarPresenterType.self) else {
+                fatalError("Can't resolve CalendarPresenterType in Calendar View Controller")
             }
             
-            return ContactsPresenter(moduleAssembly: moduleAssembly)
+            c.presenter = presenter
+            presenter.viewController = c
         }
         
-        container.register(ContactsViewControllerType.self) { r in
-            let viewController = ContactsViewController()
-            
-            guard let presenter = r.resolve(ContactsPresenterType.self) else {
-                fatalError("Can't resolve LoginPresenterType in Contacts View Controller")
+        container.register(CalendarPresenterType.self) { r in
+            guard let moduleAssembly = r.resolve(ModuleAssemblyType.self) else {
+                fatalError("Can't resolve moduleAssemby in Calendar Presenter")
             }
             
-            viewController.presenter = presenter
-            return viewController
+            return CalendarPresenter(moduleAssembly: moduleAssembly)
         }
     }
 }

@@ -1,8 +1,8 @@
 //
 //  AppDelegate+RootController.swift
-//  MVVM+C
+//  TeachOrgCalendar
 //
-//  Created by Максим Окунеев on 12/9/20.
+//  Created by Максим Окунеев on 3/28/21.
 //
 
 import UIKit
@@ -17,7 +17,6 @@ extension AppDelegate {
                 return
             }
             let rootController: UIViewController? = try? moduleAssembly.assembledView(for: .login)
-            
             
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.makeKeyAndVisible()

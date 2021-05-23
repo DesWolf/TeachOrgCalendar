@@ -8,16 +8,15 @@
 import UIKit
 
 protocol CalendarViewControllerType: class, PresentingView {
-    var viewModel: SecondTabViewModelType! { get set }
+    var presenter: CalendarPresenterType! { get set }
 }
 
 class CalendarViewController: UIViewController {
     
-    public var viewModel: SecondTabViewModelType!
+    public var presenter: CalendarPresenterType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 }
 

@@ -3,27 +3,129 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E6C07BC2610BE5300274235 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C07BB2610BE5300274235 /* AppDelegate.swift */; };
-		9E6C07BE2610BE5300274235 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C07BD2610BE5300274235 /* SceneDelegate.swift */; };
-		9E6C07C02610BE5300274235 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C07BF2610BE5300274235 /* ViewController.swift */; };
-		9E6C07C32610BE5300274235 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E6C07C12610BE5300274235 /* Main.storyboard */; };
-		9E6C07C52610BE5400274235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E6C07C42610BE5400274235 /* Assets.xcassets */; };
+		9E493BD92641778C00AE7E86 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E493BD82641778C00AE7E86 /* UIColor+Ext.swift */; };
+		9E633FAF2610D0AC0053BF65 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E633FAE2610D0AC0053BF65 /* UIView+Ext.swift */; };
+		9E633FB42610D2B10053BF65 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E633FB32610D2B10053BF65 /* LoginView.swift */; };
+		9E633FB72610D3470053BF65 /* StudentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E633FB62610D3470053BF65 /* StudentsView.swift */; };
+		9E633FBF2610D8220053BF65 /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E633FBE2610D8220053BF65 /* AppNavigator.swift */; };
+		9E633FC32610D9BA0053BF65 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E633FC22610D9BA0053BF65 /* UserManager.swift */; };
+		9E633FC82610E8C20053BF65 /* ManagerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E633FC72610E8C20053BF65 /* ManagerAssembly.swift */; };
 		9E6C07C82610BE5400274235 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E6C07C62610BE5400274235 /* LaunchScreen.storyboard */; };
+		9E6C083D2610C28800274235 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C07FA2610C28800274235 /* ServiceAssembly.swift */; };
+		9E6C083E2610C28800274235 /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C07FB2610C28800274235 /* ApplicationAssembly.swift */; };
+		9E6C083F2610C28800274235 /* ModuleAssemply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C07FC2610C28800274235 /* ModuleAssemply.swift */; };
+		9E6C08402610C28800274235 /* ModuleAssemblyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C07FD2610C28800274235 /* ModuleAssemblyError.swift */; };
+		9E6C08412610C28800274235 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C07FE2610C28800274235 /* Module.swift */; };
+		9E6C08422610C28800274235 /* CalendarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08022610C28800274235 /* CalendarAssembly.swift */; };
+		9E6C08432610C28800274235 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08032610C28800274235 /* CalendarViewController.swift */; };
+		9E6C08442610C28800274235 /* CalendarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08042610C28800274235 /* CalendarPresenter.swift */; };
+		9E6C08462610C28800274235 /* TabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08072610C28800274235 /* TabBarAssembly.swift */; };
+		9E6C08472610C28800274235 /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08082610C28800274235 /* TabBarPresenter.swift */; };
+		9E6C08492610C28800274235 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C080A2610C28800274235 /* TabBarViewController.swift */; };
+		9E6C084C2610C28800274235 /* StudentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C080E2610C28800274235 /* StudentsPresenter.swift */; };
+		9E6C084F2610C28800274235 /* StudentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08122610C28800274235 /* StudentsViewController.swift */; };
+		9E6C08502610C28800274235 /* StudentsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08132610C28800274235 /* StudentsAssembly.swift */; };
+		9E6C08512610C28800274235 /* ProfileAssemby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08152610C28800274235 /* ProfileAssemby.swift */; };
+		9E6C08532610C28800274235 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08172610C28800274235 /* ProfileViewController.swift */; };
+		9E6C08542610C28800274235 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08182610C28800274235 /* ProfilePresenter.swift */; };
+		9E6C085C2610C28800274235 /* LoginAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08262610C28800274235 /* LoginAssembly.swift */; };
+		9E6C085D2610C28800274235 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08272610C28800274235 /* LoginPresenter.swift */; };
+		9E6C085F2610C28800274235 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C082A2610C28800274235 /* LoginViewController.swift */; };
+		9E6C08602610C28800274235 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C082C2610C28800274235 /* Strings.swift */; };
+		9E6C08612610C28800274235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E6C082D2610C28800274235 /* Assets.xcassets */; };
+		9E6C08632610C28800274235 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08312610C28800274235 /* UILabel+Ext.swift */; };
+		9E6C08642610C28800274235 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08322610C28800274235 /* UIFont+Ext.swift */; };
+		9E6C08652610C28800274235 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08332610C28800274235 /* UIButton+Ext.swift */; };
+		9E6C08662610C28800274235 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08342610C28800274235 /* UIImage+Color.swift */; };
+		9E6C08672610C28800274235 /* WindowTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08362610C28800274235 /* WindowTransitioner.swift */; };
+		9E6C08682610C28800274235 /* Swinject+ModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08372610C28800274235 /* Swinject+ModuleAssembly.swift */; };
+		9E6C08692610C28800274235 /* NavifationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08382610C28800274235 /* NavifationView.swift */; };
+		9E6C086A2610C28800274235 /* SelfConfigurableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08392610C28800274235 /* SelfConfigurableViewModel.swift */; };
+		9E6C086B2610C28800274235 /* PresentingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C083A2610C28800274235 /* PresentingView.swift */; };
+		9E6C086C2610C28800274235 /* UIApplication+ Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C083B2610C28800274235 /* UIApplication+ Ext.swift */; };
+		9E6C086D2610C28800274235 /* PoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C083C2610C28800274235 /* PoppingView.swift */; };
+		9E6C08772610C2AB00274235 /* AppDelegate+RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08722610C2AB00274235 /* AppDelegate+RootController.swift */; };
+		9E6C08792610C2AB00274235 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08742610C2AB00274235 /* AppDelegate.swift */; };
+		9E6C087A2610C2AB00274235 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C08752610C2AB00274235 /* Configuration.swift */; };
+		9EBB6AE0264927A8003053D8 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EBB6ADF264927A8003053D8 /* TabBar.storyboard */; };
+		9EBB6AE3264927D9003053D8 /* Students.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EBB6AE2264927D9003053D8 /* Students.storyboard */; };
+		9EBB6AE6264927F3003053D8 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EBB6AE5264927F3003053D8 /* Calendar.storyboard */; };
+		9EBB6AE926492801003053D8 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EBB6AE826492801003053D8 /* Profile.storyboard */; };
+		9EBF6B4F2629E1910079871B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF6B4E2629E1910079871B /* ProfileView.swift */; };
+		9EBF6B582629E4C20079871B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF6B572629E4C20079871B /* CalendarView.swift */; };
+		9ED8B9DC263FCF270022BA1B /* EmptySelfConfigurableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED8B9DB263FCF260022BA1B /* EmptySelfConfigurableViewModel.swift */; };
+		9ED8B9DF263FD2FC0022BA1B /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED8B9DE263FD2FC0022BA1B /* Student.swift */; };
+		9ED8B9E3263FD4FE0022BA1B /* StudentViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED8B9E2263FD4FE0022BA1B /* StudentViewModelCell.swift */; };
+		9ED8B9E7263FD5AD0022BA1B /* StudentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED8B9E6263FD5AD0022BA1B /* StudentCell.swift */; };
+		9ED8B9EA263FD8FD0022BA1B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ED8B9E9263FD8FD0022BA1B /* Colors.xcassets */; };
+		F8CB0B5651143BC371E4E852 /* Pods_TeachOrgCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3E09D88E2DC53368BBC079B /* Pods_TeachOrgCalendar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		552ED8638C63EA7D7A1193DB /* Pods-TeachOrgCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeachOrgCalendar.release.xcconfig"; path = "Target Support Files/Pods-TeachOrgCalendar/Pods-TeachOrgCalendar.release.xcconfig"; sourceTree = "<group>"; };
+		9E493BD82641778C00AE7E86 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		9E633FAE2610D0AC0053BF65 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		9E633FB32610D2B10053BF65 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9E633FB62610D3470053BF65 /* StudentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsView.swift; sourceTree = "<group>"; };
+		9E633FBE2610D8220053BF65 /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
+		9E633FC22610D9BA0053BF65 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		9E633FC72610E8C20053BF65 /* ManagerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAssembly.swift; sourceTree = "<group>"; };
 		9E6C07B82610BE5300274235 /* TeachOrgCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeachOrgCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E6C07BB2610BE5300274235 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9E6C07BD2610BE5300274235 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9E6C07BF2610BE5300274235 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9E6C07C22610BE5300274235 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9E6C07C42610BE5400274235 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E6C07C72610BE5400274235 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E6C07C92610BE5400274235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E6C07FA2610C28800274235 /* ServiceAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
+		9E6C07FB2610C28800274235 /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
+		9E6C07FC2610C28800274235 /* ModuleAssemply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleAssemply.swift; sourceTree = "<group>"; };
+		9E6C07FD2610C28800274235 /* ModuleAssemblyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleAssemblyError.swift; sourceTree = "<group>"; };
+		9E6C07FE2610C28800274235 /* Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		9E6C08022610C28800274235 /* CalendarAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarAssembly.swift; sourceTree = "<group>"; };
+		9E6C08032610C28800274235 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		9E6C08042610C28800274235 /* CalendarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPresenter.swift; sourceTree = "<group>"; };
+		9E6C08072610C28800274235 /* TabBarAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarAssembly.swift; sourceTree = "<group>"; };
+		9E6C08082610C28800274235 /* TabBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
+		9E6C080A2610C28800274235 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		9E6C080E2610C28800274235 /* StudentsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentsPresenter.swift; sourceTree = "<group>"; };
+		9E6C08122610C28800274235 /* StudentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentsViewController.swift; sourceTree = "<group>"; };
+		9E6C08132610C28800274235 /* StudentsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentsAssembly.swift; sourceTree = "<group>"; };
+		9E6C08152610C28800274235 /* ProfileAssemby.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAssemby.swift; sourceTree = "<group>"; };
+		9E6C08172610C28800274235 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9E6C08182610C28800274235 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		9E6C08262610C28800274235 /* LoginAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAssembly.swift; sourceTree = "<group>"; };
+		9E6C08272610C28800274235 /* LoginPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		9E6C082A2610C28800274235 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9E6C082C2610C28800274235 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		9E6C082D2610C28800274235 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E6C08312610C28800274235 /* UILabel+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
+		9E6C08322610C28800274235 /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		9E6C08332610C28800274235 /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		9E6C08342610C28800274235 /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		9E6C08362610C28800274235 /* WindowTransitioner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowTransitioner.swift; sourceTree = "<group>"; };
+		9E6C08372610C28800274235 /* Swinject+ModuleAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Swinject+ModuleAssembly.swift"; sourceTree = "<group>"; };
+		9E6C08382610C28800274235 /* NavifationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavifationView.swift; sourceTree = "<group>"; };
+		9E6C08392610C28800274235 /* SelfConfigurableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfConfigurableViewModel.swift; sourceTree = "<group>"; };
+		9E6C083A2610C28800274235 /* PresentingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentingView.swift; sourceTree = "<group>"; };
+		9E6C083B2610C28800274235 /* UIApplication+ Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+ Ext.swift"; sourceTree = "<group>"; };
+		9E6C083C2610C28800274235 /* PoppingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoppingView.swift; sourceTree = "<group>"; };
+		9E6C08722610C2AB00274235 /* AppDelegate+RootController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+RootController.swift"; sourceTree = "<group>"; };
+		9E6C08742610C2AB00274235 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9E6C08752610C2AB00274235 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		9EBB6ADF264927A8003053D8 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		9EBB6AE2264927D9003053D8 /* Students.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Students.storyboard; sourceTree = "<group>"; };
+		9EBB6AE5264927F3003053D8 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		9EBB6AE826492801003053D8 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		9EBF6B4E2629E1910079871B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		9EBF6B572629E4C20079871B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		9ED8B9DB263FCF260022BA1B /* EmptySelfConfigurableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySelfConfigurableViewModel.swift; sourceTree = "<group>"; };
+		9ED8B9DE263FD2FC0022BA1B /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		9ED8B9E2263FD4FE0022BA1B /* StudentViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModelCell.swift; sourceTree = "<group>"; };
+		9ED8B9E6263FD5AD0022BA1B /* StudentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCell.swift; sourceTree = "<group>"; };
+		9ED8B9E9263FD8FD0022BA1B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		ED8E12C24846FA9D17E14CE4 /* Pods-TeachOrgCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeachOrgCalendar.debug.xcconfig"; path = "Target Support Files/Pods-TeachOrgCalendar/Pods-TeachOrgCalendar.debug.xcconfig"; sourceTree = "<group>"; };
+		F3E09D88E2DC53368BBC079B /* Pods_TeachOrgCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeachOrgCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +133,66 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8CB0B5651143BC371E4E852 /* Pods_TeachOrgCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		288DD44F3168AFB10AFF028B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3E09D88E2DC53368BBC079B /* Pods_TeachOrgCalendar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		911B74EE2A7D9A7E58AAFC30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ED8E12C24846FA9D17E14CE4 /* Pods-TeachOrgCalendar.debug.xcconfig */,
+				552ED8638C63EA7D7A1193DB /* Pods-TeachOrgCalendar.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9E493BD72641776200AE7E86 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				9E6C08312610C28800274235 /* UILabel+Ext.swift */,
+				9E6C08322610C28800274235 /* UIFont+Ext.swift */,
+				9E6C08332610C28800274235 /* UIButton+Ext.swift */,
+				9E6C08342610C28800274235 /* UIImage+Color.swift */,
+				9E633FAE2610D0AC0053BF65 /* UIView+Ext.swift */,
+				9E493BD82641778C00AE7E86 /* UIColor+Ext.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		9E633FBD2610D80B0053BF65 /* AppNavigator */ = {
+			isa = PBXGroup;
+			children = (
+				9E633FBE2610D8220053BF65 /* AppNavigator.swift */,
+			);
+			path = AppNavigator;
+			sourceTree = "<group>";
+		};
+		9E633FC12610D99F0053BF65 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9E633FC22610D9BA0053BF65 /* UserManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		9E6C07AF2610BE5300274235 = {
 			isa = PBXGroup;
 			children = (
 				9E6C07BA2610BE5300274235 /* TeachOrgCalendar */,
 				9E6C07B92610BE5300274235 /* Products */,
+				911B74EE2A7D9A7E58AAFC30 /* Pods */,
+				288DD44F3168AFB10AFF028B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +207,187 @@
 		9E6C07BA2610BE5300274235 /* TeachOrgCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				9E6C07BB2610BE5300274235 /* AppDelegate.swift */,
-				9E6C07BD2610BE5300274235 /* SceneDelegate.swift */,
-				9E6C07BF2610BE5300274235 /* ViewController.swift */,
-				9E6C07C12610BE5300274235 /* Main.storyboard */,
-				9E6C07C42610BE5400274235 /* Assets.xcassets */,
-				9E6C07C62610BE5400274235 /* LaunchScreen.storyboard */,
-				9E6C07C92610BE5400274235 /* Info.plist */,
+				9E633FC12610D99F0053BF65 /* Managers */,
+				9E6C08702610C2AB00274235 /* App */,
+				9E6C08302610C28800274235 /* Utilities */,
+				9E6C07F72610C28800274235 /* Common */,
+				9E6C07F92610C28800274235 /* DI */,
+				9E6C07FF2610C28800274235 /* Modules */,
+				9E6C082B2610C28800274235 /* SupportFiles */,
 			);
 			path = TeachOrgCalendar;
+			sourceTree = "<group>";
+		};
+		9E6C07F72610C28800274235 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9ED8B9DA263FCEFA0022BA1B /* Models */,
+				9E6C07F82610C28800274235 /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9E6C07F82610C28800274235 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9E6C07F92610C28800274235 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				9E633FBD2610D80B0053BF65 /* AppNavigator */,
+				9E6C07FA2610C28800274235 /* ServiceAssembly.swift */,
+				9E633FC72610E8C20053BF65 /* ManagerAssembly.swift */,
+				9E6C07FB2610C28800274235 /* ApplicationAssembly.swift */,
+				9E6C07FC2610C28800274235 /* ModuleAssemply.swift */,
+				9E6C07FD2610C28800274235 /* ModuleAssemblyError.swift */,
+				9E6C07FE2610C28800274235 /* Module.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		9E6C07FF2610C28800274235 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				9E6C08252610C28800274235 /* Login */,
+				9E6C08062610C28800274235 /* TabBar */,
+				9E6C080B2610C28800274235 /* Contacts */,
+				9E6C08012610C28800274235 /* Calendar */,
+				9E6C08142610C28800274235 /* Profile */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		9E6C08012610C28800274235 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				9E6C08022610C28800274235 /* CalendarAssembly.swift */,
+				9E6C08032610C28800274235 /* CalendarViewController.swift */,
+				9E6C08042610C28800274235 /* CalendarPresenter.swift */,
+				9EBF6B572629E4C20079871B /* CalendarView.swift */,
+				9EBB6AE5264927F3003053D8 /* Calendar.storyboard */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		9E6C08062610C28800274235 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				9E6C08072610C28800274235 /* TabBarAssembly.swift */,
+				9EBB6ADF264927A8003053D8 /* TabBar.storyboard */,
+				9E6C08082610C28800274235 /* TabBarPresenter.swift */,
+				9E6C080A2610C28800274235 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		9E6C080B2610C28800274235 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				9ED8B9E5263FD50F0022BA1B /* ViewModel */,
+				9ED8B9E1263FD4BF0022BA1B /* View */,
+				9E6C08122610C28800274235 /* StudentsViewController.swift */,
+				9E6C080E2610C28800274235 /* StudentsPresenter.swift */,
+				9E6C08132610C28800274235 /* StudentsAssembly.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		9E6C08142610C28800274235 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9E6C08152610C28800274235 /* ProfileAssemby.swift */,
+				9E6C08182610C28800274235 /* ProfilePresenter.swift */,
+				9E6C08172610C28800274235 /* ProfileViewController.swift */,
+				9EBF6B4E2629E1910079871B /* ProfileView.swift */,
+				9EBB6AE826492801003053D8 /* Profile.storyboard */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		9E6C08252610C28800274235 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9E6C08262610C28800274235 /* LoginAssembly.swift */,
+				9E6C08272610C28800274235 /* LoginPresenter.swift */,
+				9E6C082A2610C28800274235 /* LoginViewController.swift */,
+				9E633FB32610D2B10053BF65 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		9E6C082B2610C28800274235 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9E6C082C2610C28800274235 /* Strings.swift */,
+				9E6C07C62610BE5400274235 /* LaunchScreen.storyboard */,
+				9E6C07C92610BE5400274235 /* Info.plist */,
+				9E6C082D2610C28800274235 /* Assets.xcassets */,
+				9ED8B9E9263FD8FD0022BA1B /* Colors.xcassets */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		9E6C08302610C28800274235 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9E493BD72641776200AE7E86 /* UIKit */,
+				9E6C08352610C28800274235 /* Protocols */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		9E6C08352610C28800274235 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9E6C08362610C28800274235 /* WindowTransitioner.swift */,
+				9E6C08372610C28800274235 /* Swinject+ModuleAssembly.swift */,
+				9E6C08382610C28800274235 /* NavifationView.swift */,
+				9E6C08392610C28800274235 /* SelfConfigurableViewModel.swift */,
+				9E6C083A2610C28800274235 /* PresentingView.swift */,
+				9E6C083B2610C28800274235 /* UIApplication+ Ext.swift */,
+				9E6C083C2610C28800274235 /* PoppingView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9E6C08702610C2AB00274235 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9E6C08742610C2AB00274235 /* AppDelegate.swift */,
+				9E6C08722610C2AB00274235 /* AppDelegate+RootController.swift */,
+				9E6C08752610C2AB00274235 /* Configuration.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		9ED8B9DA263FCEFA0022BA1B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9ED8B9DB263FCF260022BA1B /* EmptySelfConfigurableViewModel.swift */,
+				9ED8B9DE263FD2FC0022BA1B /* Student.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9ED8B9E1263FD4BF0022BA1B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E633FB62610D3470053BF65 /* StudentsView.swift */,
+				9ED8B9E6263FD5AD0022BA1B /* StudentCell.swift */,
+				9EBB6AE2264927D9003053D8 /* Students.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9ED8B9E5263FD50F0022BA1B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9ED8B9E2263FD4FE0022BA1B /* StudentViewModelCell.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +397,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E6C07CC2610BE5400274235 /* Build configuration list for PBXNativeTarget "TeachOrgCalendar" */;
 			buildPhases = (
+				975CF64AC03BDE3C4A0221A3 /* [CP] Check Pods Manifest.lock */,
 				9E6C07B42610BE5300274235 /* Sources */,
 				9E6C07B52610BE5300274235 /* Frameworks */,
 				9E6C07B62610BE5300274235 /* Resources */,
+				F39E0701CCABB35CF2E30A46 /* [CP] Embed Pods Frameworks */,
+				D44EFAE2A0FF554FF98F7934 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,36 +450,136 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EBB6AE6264927F3003053D8 /* Calendar.storyboard in Resources */,
+				9EBB6AE0264927A8003053D8 /* TabBar.storyboard in Resources */,
+				9ED8B9EA263FD8FD0022BA1B /* Colors.xcassets in Resources */,
+				9EBB6AE3264927D9003053D8 /* Students.storyboard in Resources */,
 				9E6C07C82610BE5400274235 /* LaunchScreen.storyboard in Resources */,
-				9E6C07C52610BE5400274235 /* Assets.xcassets in Resources */,
-				9E6C07C32610BE5300274235 /* Main.storyboard in Resources */,
+				9EBB6AE926492801003053D8 /* Profile.storyboard in Resources */,
+				9E6C08612610C28800274235 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		975CF64AC03BDE3C4A0221A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TeachOrgCalendar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D44EFAE2A0FF554FF98F7934 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TeachOrgCalendar/Pods-TeachOrgCalendar-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TeachOrgCalendar/Pods-TeachOrgCalendar-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TeachOrgCalendar/Pods-TeachOrgCalendar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F39E0701CCABB35CF2E30A46 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TeachOrgCalendar/Pods-TeachOrgCalendar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TeachOrgCalendar/Pods-TeachOrgCalendar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TeachOrgCalendar/Pods-TeachOrgCalendar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9E6C07B42610BE5300274235 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E6C07C02610BE5300274235 /* ViewController.swift in Sources */,
-				9E6C07BC2610BE5300274235 /* AppDelegate.swift in Sources */,
-				9E6C07BE2610BE5300274235 /* SceneDelegate.swift in Sources */,
+				9E6C084C2610C28800274235 /* StudentsPresenter.swift in Sources */,
+				9E6C08472610C28800274235 /* TabBarPresenter.swift in Sources */,
+				9E6C08422610C28800274235 /* CalendarAssembly.swift in Sources */,
+				9E6C08692610C28800274235 /* NavifationView.swift in Sources */,
+				9E6C08532610C28800274235 /* ProfileViewController.swift in Sources */,
+				9E6C083E2610C28800274235 /* ApplicationAssembly.swift in Sources */,
+				9EBF6B582629E4C20079871B /* CalendarView.swift in Sources */,
+				9E6C08792610C2AB00274235 /* AppDelegate.swift in Sources */,
+				9E6C084F2610C28800274235 /* StudentsViewController.swift in Sources */,
+				9E6C08492610C28800274235 /* TabBarViewController.swift in Sources */,
+				9E6C08602610C28800274235 /* Strings.swift in Sources */,
+				9E6C083D2610C28800274235 /* ServiceAssembly.swift in Sources */,
+				9E6C08512610C28800274235 /* ProfileAssemby.swift in Sources */,
+				9ED8B9DF263FD2FC0022BA1B /* Student.swift in Sources */,
+				9E6C08542610C28800274235 /* ProfilePresenter.swift in Sources */,
+				9EBF6B4F2629E1910079871B /* ProfileView.swift in Sources */,
+				9E6C086B2610C28800274235 /* PresentingView.swift in Sources */,
+				9E633FB72610D3470053BF65 /* StudentsView.swift in Sources */,
+				9E6C08432610C28800274235 /* CalendarViewController.swift in Sources */,
+				9E6C08662610C28800274235 /* UIImage+Color.swift in Sources */,
+				9E6C085D2610C28800274235 /* LoginPresenter.swift in Sources */,
+				9E493BD92641778C00AE7E86 /* UIColor+Ext.swift in Sources */,
+				9E6C085F2610C28800274235 /* LoginViewController.swift in Sources */,
+				9E6C08642610C28800274235 /* UIFont+Ext.swift in Sources */,
+				9E633FBF2610D8220053BF65 /* AppNavigator.swift in Sources */,
+				9ED8B9E3263FD4FE0022BA1B /* StudentViewModelCell.swift in Sources */,
+				9E6C08672610C28800274235 /* WindowTransitioner.swift in Sources */,
+				9E6C08462610C28800274235 /* TabBarAssembly.swift in Sources */,
+				9E6C086D2610C28800274235 /* PoppingView.swift in Sources */,
+				9E6C08412610C28800274235 /* Module.swift in Sources */,
+				9E6C08772610C2AB00274235 /* AppDelegate+RootController.swift in Sources */,
+				9E633FC32610D9BA0053BF65 /* UserManager.swift in Sources */,
+				9E6C087A2610C2AB00274235 /* Configuration.swift in Sources */,
+				9E6C08402610C28800274235 /* ModuleAssemblyError.swift in Sources */,
+				9E6C08682610C28800274235 /* Swinject+ModuleAssembly.swift in Sources */,
+				9E6C08442610C28800274235 /* CalendarPresenter.swift in Sources */,
+				9E6C08652610C28800274235 /* UIButton+Ext.swift in Sources */,
+				9E633FC82610E8C20053BF65 /* ManagerAssembly.swift in Sources */,
+				9E6C083F2610C28800274235 /* ModuleAssemply.swift in Sources */,
+				9E6C086A2610C28800274235 /* SelfConfigurableViewModel.swift in Sources */,
+				9ED8B9E7263FD5AD0022BA1B /* StudentCell.swift in Sources */,
+				9E6C08502610C28800274235 /* StudentsAssembly.swift in Sources */,
+				9E633FAF2610D0AC0053BF65 /* UIView+Ext.swift in Sources */,
+				9E6C086C2610C28800274235 /* UIApplication+ Ext.swift in Sources */,
+				9E6C085C2610C28800274235 /* LoginAssembly.swift in Sources */,
+				9ED8B9DC263FCF270022BA1B /* EmptySelfConfigurableViewModel.swift in Sources */,
+				9E633FB42610D2B10053BF65 /* LoginView.swift in Sources */,
+				9E6C08632610C28800274235 /* UILabel+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9E6C07C12610BE5300274235 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9E6C07C22610BE5300274235 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9E6C07C62610BE5400274235 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,12 +709,13 @@
 		};
 		9E6C07CD2610BE5400274235 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED8E12C24846FA9D17E14CE4 /* Pods-TeachOrgCalendar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJR74JV9LN;
-				INFOPLIST_FILE = TeachOrgCalendar/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TeachOrgCalendar/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,12 +729,13 @@
 		};
 		9E6C07CE2610BE5400274235 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 552ED8638C63EA7D7A1193DB /* Pods-TeachOrgCalendar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJR74JV9LN;
-				INFOPLIST_FILE = TeachOrgCalendar/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TeachOrgCalendar/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

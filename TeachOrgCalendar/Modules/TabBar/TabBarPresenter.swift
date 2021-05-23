@@ -1,30 +1,35 @@
 //
-//  SecondTabViewModel.swift
+//  TabBarViewModel.swift
 //  TeachOrgCalendar
 //
 //  Created by Максим Окунеев on 3/28/21.
 //
 
+
 import Foundation
 
-protocol CalendarPresenterType {
+protocol TabBarPresenterType {
     // MARK: - Input
-    var viewController: CalendarViewControllerType! { get set }
+    var viewController: TabBarViewControllerType! { get set }
+    var tabBarController: TabBarController! { get set }
     
     // MARK: - Output
 }
 
-class CalendarPresenter {
+class TabBarPresenter {
     // MARK: - Input
     
     // MARK: - Output
     
-    weak var viewController: CalendarViewControllerType!
+    weak var viewController: TabBarViewControllerType!
+    weak var tabBarController: TabBarController!
     private let moduleAssembly: ModuleAssemblyType
     
     init(moduleAssembly: ModuleAssemblyType) {
         self.moduleAssembly = moduleAssembly
     }
+    
+
 }
 
-extension CalendarPresenter: CalendarPresenterType {}
+extension TabBarPresenter: TabBarPresenterType {}
