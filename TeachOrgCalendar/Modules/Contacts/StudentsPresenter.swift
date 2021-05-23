@@ -8,10 +8,7 @@
 import Foundation
 
 protocol StudentsPresenterType {
-    // MARK: - Input
     var viewController: StudentsViewControllerType! { get set }
-    
-    // MARK: - Output
     
     func model(at index: IndexPath) -> SelfConfigurableViewModel
     func numberOfRows() -> Int
@@ -20,11 +17,15 @@ protocol StudentsPresenterType {
 
 class StudentsPresenter {
     
-    // MARK: - Input
+    // MARK: - Public properties
+    
     weak var viewController: StudentsViewControllerType!
+    
+    // MARK: - Private properties
+    
     private let moduleAssembly: ModuleAssemblyType!
     
-    // MARK: - Output
+    // MARK: - Initializers
     
     init(moduleAssembly: ModuleAssemblyType) {
         self.moduleAssembly = moduleAssembly
@@ -34,7 +35,6 @@ class StudentsPresenter {
 extension StudentsPresenter: StudentsPresenterType {
 
     func viewDidLoad() {
-        print("11111")
     }
     
     func numberOfRows() -> Int {
@@ -42,7 +42,7 @@ extension StudentsPresenter: StudentsPresenterType {
     }
     
     func model(at index: IndexPath) -> SelfConfigurableViewModel {
-        // TODO: Add Firebase Storage
+        // TODO: Add Firebase Detabase
         
         return StudentCellViewModel(name: "Max", surname: "Okuneev", discipline: "English")
     }

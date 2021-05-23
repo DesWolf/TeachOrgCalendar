@@ -16,7 +16,7 @@ extension UIButton {
                                                   attributes: [NSAttributedString.Key.kern:0,
                                                                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular),
                                                                NSAttributedString.Key.paragraphStyle: NSMutableParagraphStyle().alignment = .center]),
-                                                for: .normal)
+                               for: .normal)
             return
         }
         label.font = font

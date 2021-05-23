@@ -39,6 +39,10 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
+        setupView()
+    }
+    
+    private func  setupView() {
         tabBar.barTintColor = .background
         tabBar.isTranslucent = false
         

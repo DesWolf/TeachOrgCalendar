@@ -8,19 +8,21 @@
 import Foundation
 
 protocol ProfilePresenterType {
-    // MARK: - Input
     var viewController: ProfileViewControllerType! { get set }
     
-    // MARK: - Output
 }
 
 class ProfilePresenter {
-    // MARK: - Input
     
-    // MARK: - Output
+    // MARK: - Public properties
     
     weak var viewController: ProfileViewControllerType!
+   
+    // MARK: - Private properties
+    
     private let moduleAssembly: ModuleAssemblyType
+    
+    // MARK: - Initializers
     
     init(moduleAssembly: ModuleAssemblyType) {
         self.moduleAssembly = moduleAssembly

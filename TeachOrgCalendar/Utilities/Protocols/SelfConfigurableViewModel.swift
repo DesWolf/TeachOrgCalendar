@@ -20,5 +20,4 @@ extension SelfConfigurableViewModel {
     func configure(collectionCell: UICollectionViewCell, at index: IndexPath) {}
     func configure(view: UITableViewHeaderFooterView, in section: Int) {}
     func configure(view: UIView) {}
-    
 }

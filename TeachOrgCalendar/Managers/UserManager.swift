@@ -15,7 +15,6 @@ final class UserManager {
     
     private let appNavigator: AppNavigatorType
     
-    
     init(appNavigator: AppNavigatorType) {
         self.appNavigator = appNavigator
     }

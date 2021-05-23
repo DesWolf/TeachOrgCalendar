@@ -11,7 +11,6 @@ private let storyboardName = "Students"
 
 struct StudentsAssembly: Assembly {
     func assemble(container: Container) {
-        
         container.storyboardInitCompleted(StudentsViewController.self) { r, c in
             guard var presenter = r.resolve(StudentsPresenterType.self) else {
                 fatalError("Can't resolve StudentsPresenterType in Students View Controller")

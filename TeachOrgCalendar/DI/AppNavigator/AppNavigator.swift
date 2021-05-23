@@ -13,24 +13,22 @@ protocol AppNavigatorType {
 
 enum AppNavigationRoute {
     case login
-    case mainPage //(pendingAction: TabBarPendingAction)
+    case mainPage
 }
 
 struct AppNavigator {
-    
     private let moduleAssembly: ModuleAssemblyType
     
     init(moduleAssembly: ModuleAssemblyType) {
         self.moduleAssembly = moduleAssembly
     }
-    
 }
 
 extension AppNavigator: AppNavigatorType {
     func navigate(to route: AppNavigationRoute, transitionCompletionHandler: ((Bool) -> Void)?) {
         let controller: UIViewController
         switch route {
-        case .mainPage: //(let pendingAction):
+        case .mainPage: 
             if UIApplication.rootViewController() is TabBarViewController { return }
             guard let tabBar = try? moduleAssembly.assembledView(for: .tabBar) else {
                 fatalError("Failed to instantiate tab bar at launch")

@@ -10,18 +10,18 @@ import Swinject
 import SwinjectStoryboard
 
 extension AppDelegate {
-
-        func setRootController() {
-            let container = ApplicationAssembly.assembler.resolver
-            guard let moduleAssembly = container.resolve(ModuleAssemblyType.self) else {
-                return
-            }
-            let rootController: UIViewController? = try? moduleAssembly.assembledView(for: .login)
-            
-            window = UIWindow(frame: UIScreen.main.bounds)
-            window?.makeKeyAndVisible()
-            window?.rootViewController = rootController
-        }
-}
     
- 
+    func setRootController() {
+        let container = ApplicationAssembly.assembler.resolver
+        guard let moduleAssembly = container.resolve(ModuleAssemblyType.self) else {
+            return
+        }
+        let rootController: UIViewController? = try? moduleAssembly.assembledView(for: .login)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.rootViewController = rootController
+    }
+}
+
+

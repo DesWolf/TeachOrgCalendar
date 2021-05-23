@@ -8,19 +8,20 @@
 import Foundation
 
 protocol CalendarPresenterType {
-    // MARK: - Input
     var viewController: CalendarViewControllerType! { get set }
-    
-    // MARK: - Output
 }
 
 class CalendarPresenter {
-    // MARK: - Input
     
-    // MARK: - Output
+    // MARK: - Public properties
     
     weak var viewController: CalendarViewControllerType!
+    
+    // MARK: - Private properties
+    
     private let moduleAssembly: ModuleAssemblyType
+    
+    // MARK: - Initializers
     
     init(moduleAssembly: ModuleAssemblyType) {
         self.moduleAssembly = moduleAssembly

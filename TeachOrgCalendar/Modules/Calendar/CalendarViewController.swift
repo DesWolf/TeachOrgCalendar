@@ -13,7 +13,11 @@ protocol CalendarViewControllerType: class, PresentingView {
 
 class CalendarViewController: UIViewController {
     
+    // MARK: - Public properties
+    
     public var presenter: CalendarPresenterType!
+    
+    // MARK: - Public methods
     
     override func viewDidLoad() {
         super.viewDidLoad()

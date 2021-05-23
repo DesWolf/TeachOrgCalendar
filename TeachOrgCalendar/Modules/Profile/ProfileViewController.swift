@@ -13,7 +13,11 @@ protocol ProfileViewControllerType: class, PresentingView {
 
 class ProfileViewController: UIViewController {
     
+    // MARK: - Public properties
+    
     public var presenter: ProfilePresenterType!
+    
+    // MARK: - Public methods
     
     override func loadView() {
         let view = ProfileView()

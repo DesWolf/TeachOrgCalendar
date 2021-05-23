@@ -56,5 +56,4 @@ extension UIColor {
     @nonobjc class var selectedTabItem: UIColor {
         return UIColor(named: "TabItem")!
     }
-
 }

@@ -10,7 +10,7 @@ import SnapKit
     
 final class LoginView: UIView {
 
-    // MARK: - Private properties
+    // MARK: - Public properties
     
     let signInButton = UIButton()
 
@@ -26,9 +26,6 @@ final class LoginView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    // MARK: - Public methods
-
     
     // MARK: - Private methods
 

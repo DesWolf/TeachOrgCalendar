@@ -11,7 +11,6 @@ private let storyboardName = "Calendar"
 
 struct CalendarAssembly: Assembly {
     func assemble(container: Container) {
-        
         container.storyboardInitCompleted(CalendarViewController.self) { r, c in
             guard var presenter = r.resolve(CalendarPresenterType.self) else {
                 fatalError("Can't resolve CalendarPresenterType in Calendar View Controller")

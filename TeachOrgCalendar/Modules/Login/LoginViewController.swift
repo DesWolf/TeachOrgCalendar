@@ -13,35 +13,30 @@ protocol LoginViewControllerType: class {
 }
 
 class LoginViewController: UIViewController {
+    
+    // MARK: - Public properties
+    
     var presenter: LoginPresenterType!
     var userManager: UserManagerType!
-//    var moduleAssembly: ModuleAssemblyType!
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func loadView() {
         let view = LoginView()
-        
 
         view.signInButton.addTarget(self, action: #selector(loginButtondidTap), for: .touchUpInside)
         self.view = view
         setupView()
     }
     
+    // MARK: - Public methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
     }
     
+    // MARK: - Private methods
     
     private func setupView() {
-        
     }
     
     @objc private func loginButtondidTap() {

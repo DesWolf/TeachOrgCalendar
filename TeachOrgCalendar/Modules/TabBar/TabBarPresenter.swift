@@ -9,27 +9,26 @@
 import Foundation
 
 protocol TabBarPresenterType {
-    // MARK: - Input
     var viewController: TabBarViewControllerType! { get set }
     var tabBarController: TabBarController! { get set }
-    
-    // MARK: - Output
 }
 
 class TabBarPresenter {
-    // MARK: - Input
     
-    // MARK: - Output
+    // MARK: - Public properties
     
     weak var viewController: TabBarViewControllerType!
     weak var tabBarController: TabBarController!
+    
+    // MARK: - Private properties
+    
     private let moduleAssembly: ModuleAssemblyType
+    
+    // MARK: - Initializers
     
     init(moduleAssembly: ModuleAssemblyType) {
         self.moduleAssembly = moduleAssembly
     }
-    
-
 }
 
 extension TabBarPresenter: TabBarPresenterType {}
