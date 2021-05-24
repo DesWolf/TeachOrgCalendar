@@ -157,6 +157,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9E3E56FC265C1501007D6D51 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		9E493BD72641776200AE7E86 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,9 +258,10 @@
 		9E6C07FF2610C28800274235 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9E3E56FC265C1501007D6D51 /* New Group */,
 				9E6C08252610C28800274235 /* Login */,
 				9E6C08062610C28800274235 /* TabBar */,
-				9E6C080B2610C28800274235 /* Contacts */,
+				9E6C080B2610C28800274235 /* Students */,
 				9E6C08012610C28800274235 /* Calendar */,
 				9E6C08142610C28800274235 /* Profile */,
 			);
@@ -283,7 +291,7 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		9E6C080B2610C28800274235 /* Contacts */ = {
+		9E6C080B2610C28800274235 /* Students */ = {
 			isa = PBXGroup;
 			children = (
 				9ED8B9E5263FD50F0022BA1B /* ViewModel */,
@@ -292,7 +300,7 @@
 				9E6C080E2610C28800274235 /* StudentsPresenter.swift */,
 				9E6C08132610C28800274235 /* StudentsAssembly.swift */,
 			);
-			path = Contacts;
+			path = Students;
 			sourceTree = "<group>";
 		};
 		9E6C08142610C28800274235 /* Profile */ = {
