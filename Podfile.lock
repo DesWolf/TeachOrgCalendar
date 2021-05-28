@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.4.3)
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
     - AppAuth/ExternalUserAgent (= 1.4.0)
@@ -77,11 +78,13 @@ PODS:
   - PromisesObjC (1.2.12)
   - SnapKit (5.0.1)
   - SwiftLint (0.43.0)
+  - SwiftyJSON (5.0.1)
   - Swinject (2.7.1)
   - SwinjectStoryboard (2.2.0):
     - Swinject (~> 2.7.1)
 
 DEPENDENCIES:
+  - Alamofire
   - FBSDKCoreKit
   - FBSDKLoginKit
   - Firebase/Auth
@@ -89,11 +92,13 @@ DEPENDENCIES:
   - GoogleSignIn
   - SnapKit
   - SwiftLint
+  - SwiftyJSON
   - Swinject
   - SwinjectStoryboard (from `https://github.com/Swinject/SwinjectStoryboard.git`, commit `0ca45c83a8aa398c153d8a036c95abb4343cfa0c`)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - AppAuth
     - FBSDKCoreKit
     - FBSDKLoginKit
@@ -112,6 +117,7 @@ SPEC REPOS:
     - PromisesObjC
     - SnapKit
     - SwiftLint
+    - SwiftyJSON
     - Swinject
 
 EXTERNAL SOURCES:
@@ -125,6 +131,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/Swinject/SwinjectStoryboard.git
 
 SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   FBSDKCoreKit: fada1a6a0076724678993ff05a633848765ff18c
   FBSDKLoginKit: d5ffe6d808897019ccf16feb6f0a7ab260bc5cd6
@@ -143,9 +150,10 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftLint: 0c645fdc6feed3e390c1701ab3cc669f88b42752
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectStoryboard: f0d5b1c16459949d6ff1cbb6610107946b18e1f8
 
-PODFILE CHECKSUM: 51ccf8a1250ef1f599467601282f152c3350947a
+PODFILE CHECKSUM: 35b6fa43ab1a5bd3468e8bf174c306d0c0539ac9
 
 COCOAPODS: 1.10.1

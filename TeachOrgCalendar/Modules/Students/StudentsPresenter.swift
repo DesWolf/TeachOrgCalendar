@@ -21,20 +21,27 @@ class StudentsPresenter {
     
     weak var viewController: StudentsViewControllerType!
     
+    
     // MARK: - Private properties
     
     private let moduleAssembly: ModuleAssemblyType!
+    private let service: WeatherServiceType
     
     // MARK: - Initializers
     
-    init(moduleAssembly: ModuleAssemblyType) {
+    init(moduleAssembly: ModuleAssemblyType, service: WeatherServiceType) {
         self.moduleAssembly = moduleAssembly
+        self.service = service
     }
 }
 
 extension StudentsPresenter: StudentsPresenterType {
 
     func viewDidLoad() {
+        
+        service.load { result in
+            print(result)
+        }
     }
     
     func numberOfRows() -> Int {

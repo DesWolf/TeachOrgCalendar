@@ -9,9 +9,12 @@ import UIKit
 
 struct Configuration {
 
-//    static let domain = "" // dev
-//    static let domain = "" //  test
-//    static let domain = "" // prod
+    static let domain = "https://api.openweathermap.org"// dev
+    //    static let domain = "" //  test
+    //    static let domain = "" // prod
+    static let apiBaseUrl = "\(domain)/data/2.5/"
+    static let token = "5413b464dd02b162651d5d7f9c6f7174"
+    static let requestTimeoutInterval: TimeInterval = 30
 
 }
 

@@ -25,7 +25,11 @@ struct StudentsAssembly: Assembly {
                 fatalError("Can't resolve moduleAssemby in Students Presenter")
             }
             
-            return StudentsPresenter(moduleAssembly: moduleAssembly)
+            guard let service = r.resolve(WeatherServiceType.self) else {
+                fatalError("Could not resolve Tariffs service")
+            }
+            
+            return StudentsPresenter(moduleAssembly: moduleAssembly, service: service)
         }
     }
 }

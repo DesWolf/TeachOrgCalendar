@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E15D55D26610847006F41A2 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D55C26610847006F41A2 /* NetworkProvider.swift */; };
+		9E15D55F26610889006F41A2 /* NetworkProvider+Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D55E26610889006F41A2 /* NetworkProvider+Log.swift */; };
+		9E15D561266108B9006F41A2 /* NetworkProvider+Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D560266108B9006F41A2 /* NetworkProvider+Completion.swift */; };
+		9E15D563266108E1006F41A2 /* ApiRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D562266108E1006F41A2 /* ApiRequestType.swift */; };
+		9E15D56526610911006F41A2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D56426610911006F41A2 /* NetworkError.swift */; };
+		9E15D5672661092D006F41A2 /* EncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D5662661092D006F41A2 /* EncodingError.swift */; };
+		9E15D56926610964006F41A2 /* HeaderResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D56826610964006F41A2 /* HeaderResponce.swift */; };
+		9E15D56B26610980006F41A2 /* HeaderAditionalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D56A26610980006F41A2 /* HeaderAditionalInfo.swift */; };
+		9E15D56D2661099D006F41A2 /* ApiResponceFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D56C2661099D006F41A2 /* ApiResponceFormat.swift */; };
+		9E15D57026610BED006F41A2 /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D56F26610BED006F41A2 /* WeatherRequest.swift */; };
+		9E15D57326611005006F41A2 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D57226611005006F41A2 /* WeatherService.swift */; };
+		9E15D57526612219006F41A2 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D57426612219006F41A2 /* Weather.swift */; };
+		9E15D577266124C3006F41A2 /* WeatherResponseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D576266124C3006F41A2 /* WeatherResponseItem.swift */; };
+		9E15D57926612513006F41A2 /* PagingCounterUnwrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D57826612513006F41A2 /* PagingCounterUnwrapper.swift */; };
+		9E15D57C26612B3A006F41A2 /* URLRequest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15D57B26612B3A006F41A2 /* URLRequest+Ext.swift */; };
+		9E3E56FF265C15F4007D6D51 /* StudentProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3E56FE265C15F4007D6D51 /* StudentProfileAssembly.swift */; };
+		9E3E5701265C1602007D6D51 /* StudentProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3E5700265C1602007D6D51 /* StudentProfilePresenter.swift */; };
+		9E3E5703265C1615007D6D51 /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3E5702265C1615007D6D51 /* StudentProfileViewController.swift */; };
+		9E3E5705265C162B007D6D51 /* StudentProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3E5704265C162B007D6D51 /* StudentProfileView.swift */; };
 		9E493BD92641778C00AE7E86 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E493BD82641778C00AE7E86 /* UIColor+Ext.swift */; };
 		9E633FAF2610D0AC0053BF65 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E633FAE2610D0AC0053BF65 /* UIView+Ext.swift */; };
 		9E633FB42610D2B10053BF65 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E633FB32610D2B10053BF65 /* LoginView.swift */; };
@@ -67,6 +86,25 @@
 
 /* Begin PBXFileReference section */
 		552ED8638C63EA7D7A1193DB /* Pods-TeachOrgCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeachOrgCalendar.release.xcconfig"; path = "Target Support Files/Pods-TeachOrgCalendar/Pods-TeachOrgCalendar.release.xcconfig"; sourceTree = "<group>"; };
+		9E15D55C26610847006F41A2 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		9E15D55E26610889006F41A2 /* NetworkProvider+Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkProvider+Log.swift"; sourceTree = "<group>"; };
+		9E15D560266108B9006F41A2 /* NetworkProvider+Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkProvider+Completion.swift"; sourceTree = "<group>"; };
+		9E15D562266108E1006F41A2 /* ApiRequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestType.swift; sourceTree = "<group>"; };
+		9E15D56426610911006F41A2 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		9E15D5662661092D006F41A2 /* EncodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodingError.swift; sourceTree = "<group>"; };
+		9E15D56826610964006F41A2 /* HeaderResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderResponce.swift; sourceTree = "<group>"; };
+		9E15D56A26610980006F41A2 /* HeaderAditionalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderAditionalInfo.swift; sourceTree = "<group>"; };
+		9E15D56C2661099D006F41A2 /* ApiResponceFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponceFormat.swift; sourceTree = "<group>"; };
+		9E15D56F26610BED006F41A2 /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
+		9E15D57226611005006F41A2 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		9E15D57426612219006F41A2 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		9E15D576266124C3006F41A2 /* WeatherResponseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponseItem.swift; sourceTree = "<group>"; };
+		9E15D57826612513006F41A2 /* PagingCounterUnwrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCounterUnwrapper.swift; sourceTree = "<group>"; };
+		9E15D57B26612B3A006F41A2 /* URLRequest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Ext.swift"; sourceTree = "<group>"; };
+		9E3E56FE265C15F4007D6D51 /* StudentProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfileAssembly.swift; sourceTree = "<group>"; };
+		9E3E5700265C1602007D6D51 /* StudentProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfilePresenter.swift; sourceTree = "<group>"; };
+		9E3E5702265C1615007D6D51 /* StudentProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
+		9E3E5704265C162B007D6D51 /* StudentProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfileView.swift; sourceTree = "<group>"; };
 		9E493BD82641778C00AE7E86 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		9E633FAE2610D0AC0053BF65 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		9E633FB32610D2B10053BF65 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -157,11 +195,48 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		9E3E56FC265C1501007D6D51 /* New Group */ = {
+		9E15D559266105FA006F41A2 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				9E15D56826610964006F41A2 /* HeaderResponce.swift */,
+				9E15D56A26610980006F41A2 /* HeaderAditionalInfo.swift */,
+				9E15D55C26610847006F41A2 /* NetworkProvider.swift */,
+				9E15D56C2661099D006F41A2 /* ApiResponceFormat.swift */,
+				9E15D55E26610889006F41A2 /* NetworkProvider+Log.swift */,
+				9E15D560266108B9006F41A2 /* NetworkProvider+Completion.swift */,
+				9E15D562266108E1006F41A2 /* ApiRequestType.swift */,
+				9E15D56426610911006F41A2 /* NetworkError.swift */,
+				9E15D5662661092D006F41A2 /* EncodingError.swift */,
 			);
-			path = "New Group";
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		9E15D56E26610A28006F41A2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9E6C07F92610C28800274235 /* DI */,
+				9E15D559266105FA006F41A2 /* NetworkManager */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		9E15D57A26612B25006F41A2 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				9E15D57B26612B3A006F41A2 /* URLRequest+Ext.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		9E3E56FD265C15BD007D6D51 /* StudentProfile */ = {
+			isa = PBXGroup;
+			children = (
+				9E3E56FE265C15F4007D6D51 /* StudentProfileAssembly.swift */,
+				9E3E5700265C1602007D6D51 /* StudentProfilePresenter.swift */,
+				9E3E5702265C1615007D6D51 /* StudentProfileViewController.swift */,
+				9E3E5704265C162B007D6D51 /* StudentProfileView.swift */,
+			);
+			path = StudentProfile;
 			sourceTree = "<group>";
 		};
 		9E493BD72641776200AE7E86 /* UIKit */ = {
@@ -214,12 +289,12 @@
 		9E6C07BA2610BE5300274235 /* TeachOrgCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				9E633FC12610D99F0053BF65 /* Managers */,
 				9E6C08702610C2AB00274235 /* App */,
 				9E6C08302610C28800274235 /* Utilities */,
 				9E6C07F72610C28800274235 /* Common */,
-				9E6C07F92610C28800274235 /* DI */,
+				9E633FC12610D99F0053BF65 /* Managers */,
 				9E6C07FF2610C28800274235 /* Modules */,
+				9E15D56E26610A28006F41A2 /* Service */,
 				9E6C082B2610C28800274235 /* SupportFiles */,
 			);
 			path = TeachOrgCalendar;
@@ -258,7 +333,7 @@
 		9E6C07FF2610C28800274235 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				9E3E56FC265C1501007D6D51 /* New Group */,
+				9E3E56FD265C15BD007D6D51 /* StudentProfile */,
 				9E6C08252610C28800274235 /* Login */,
 				9E6C08062610C28800274235 /* TabBar */,
 				9E6C080B2610C28800274235 /* Students */,
@@ -272,8 +347,8 @@
 			isa = PBXGroup;
 			children = (
 				9E6C08022610C28800274235 /* CalendarAssembly.swift */,
-				9E6C08032610C28800274235 /* CalendarViewController.swift */,
 				9E6C08042610C28800274235 /* CalendarPresenter.swift */,
+				9E6C08032610C28800274235 /* CalendarViewController.swift */,
 				9EBF6B572629E4C20079871B /* CalendarView.swift */,
 				9EBB6AE5264927F3003053D8 /* Calendar.storyboard */,
 			);
@@ -284,9 +359,9 @@
 			isa = PBXGroup;
 			children = (
 				9E6C08072610C28800274235 /* TabBarAssembly.swift */,
-				9EBB6ADF264927A8003053D8 /* TabBar.storyboard */,
 				9E6C08082610C28800274235 /* TabBarPresenter.swift */,
 				9E6C080A2610C28800274235 /* TabBarViewController.swift */,
+				9EBB6ADF264927A8003053D8 /* TabBar.storyboard */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -294,6 +369,8 @@
 		9E6C080B2610C28800274235 /* Students */ = {
 			isa = PBXGroup;
 			children = (
+				9E15D56F26610BED006F41A2 /* WeatherRequest.swift */,
+				9E15D57226611005006F41A2 /* WeatherService.swift */,
 				9ED8B9E5263FD50F0022BA1B /* ViewModel */,
 				9ED8B9E1263FD4BF0022BA1B /* View */,
 				9E6C08122610C28800274235 /* StudentsViewController.swift */,
@@ -341,6 +418,7 @@
 		9E6C08302610C28800274235 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				9E15D57A26612B25006F41A2 /* Foundation */,
 				9E493BD72641776200AE7E86 /* UIKit */,
 				9E6C08352610C28800274235 /* Protocols */,
 			);
@@ -351,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				9E6C08362610C28800274235 /* WindowTransitioner.swift */,
+				9E15D57826612513006F41A2 /* PagingCounterUnwrapper.swift */,
 				9E6C08372610C28800274235 /* Swinject+ModuleAssembly.swift */,
 				9E6C08382610C28800274235 /* NavifationView.swift */,
 				9E6C08392610C28800274235 /* SelfConfigurableViewModel.swift */,
@@ -376,6 +455,8 @@
 			children = (
 				9ED8B9DB263FCF260022BA1B /* EmptySelfConfigurableViewModel.swift */,
 				9ED8B9DE263FD2FC0022BA1B /* Student.swift */,
+				9E15D57426612219006F41A2 /* Weather.swift */,
+				9E15D576266124C3006F41A2 /* WeatherResponseItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -535,34 +616,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E6C084C2610C28800274235 /* StudentsPresenter.swift in Sources */,
+				9E15D56526610911006F41A2 /* NetworkError.swift in Sources */,
 				9E6C08472610C28800274235 /* TabBarPresenter.swift in Sources */,
+				9E15D561266108B9006F41A2 /* NetworkProvider+Completion.swift in Sources */,
 				9E6C08422610C28800274235 /* CalendarAssembly.swift in Sources */,
 				9E6C08692610C28800274235 /* NavifationView.swift in Sources */,
+				9E15D5672661092D006F41A2 /* EncodingError.swift in Sources */,
 				9E6C08532610C28800274235 /* ProfileViewController.swift in Sources */,
+				9E15D57326611005006F41A2 /* WeatherService.swift in Sources */,
 				9E6C083E2610C28800274235 /* ApplicationAssembly.swift in Sources */,
+				9E3E5705265C162B007D6D51 /* StudentProfileView.swift in Sources */,
 				9EBF6B582629E4C20079871B /* CalendarView.swift in Sources */,
 				9E6C08792610C2AB00274235 /* AppDelegate.swift in Sources */,
 				9E6C084F2610C28800274235 /* StudentsViewController.swift in Sources */,
 				9E6C08492610C28800274235 /* TabBarViewController.swift in Sources */,
 				9E6C08602610C28800274235 /* Strings.swift in Sources */,
 				9E6C083D2610C28800274235 /* ServiceAssembly.swift in Sources */,
+				9E15D57926612513006F41A2 /* PagingCounterUnwrapper.swift in Sources */,
 				9E6C08512610C28800274235 /* ProfileAssemby.swift in Sources */,
 				9ED8B9DF263FD2FC0022BA1B /* Student.swift in Sources */,
+				9E15D56D2661099D006F41A2 /* ApiResponceFormat.swift in Sources */,
 				9E6C08542610C28800274235 /* ProfilePresenter.swift in Sources */,
 				9EBF6B4F2629E1910079871B /* ProfileView.swift in Sources */,
+				9E15D563266108E1006F41A2 /* ApiRequestType.swift in Sources */,
+				9E15D55F26610889006F41A2 /* NetworkProvider+Log.swift in Sources */,
 				9E6C086B2610C28800274235 /* PresentingView.swift in Sources */,
 				9E633FB72610D3470053BF65 /* StudentsView.swift in Sources */,
 				9E6C08432610C28800274235 /* CalendarViewController.swift in Sources */,
 				9E6C08662610C28800274235 /* UIImage+Color.swift in Sources */,
 				9E6C085D2610C28800274235 /* LoginPresenter.swift in Sources */,
 				9E493BD92641778C00AE7E86 /* UIColor+Ext.swift in Sources */,
+				9E3E5701265C1602007D6D51 /* StudentProfilePresenter.swift in Sources */,
 				9E6C085F2610C28800274235 /* LoginViewController.swift in Sources */,
+				9E3E5703265C1615007D6D51 /* StudentProfileViewController.swift in Sources */,
 				9E6C08642610C28800274235 /* UIFont+Ext.swift in Sources */,
 				9E633FBF2610D8220053BF65 /* AppNavigator.swift in Sources */,
 				9ED8B9E3263FD4FE0022BA1B /* StudentViewModelCell.swift in Sources */,
+				9E15D55D26610847006F41A2 /* NetworkProvider.swift in Sources */,
 				9E6C08672610C28800274235 /* WindowTransitioner.swift in Sources */,
 				9E6C08462610C28800274235 /* TabBarAssembly.swift in Sources */,
 				9E6C086D2610C28800274235 /* PoppingView.swift in Sources */,
+				9E15D57C26612B3A006F41A2 /* URLRequest+Ext.swift in Sources */,
 				9E6C08412610C28800274235 /* Module.swift in Sources */,
 				9E6C08772610C2AB00274235 /* AppDelegate+RootController.swift in Sources */,
 				9E633FC32610D9BA0053BF65 /* UserManager.swift in Sources */,
@@ -570,18 +664,24 @@
 				9E6C08402610C28800274235 /* ModuleAssemblyError.swift in Sources */,
 				9E6C08682610C28800274235 /* Swinject+ModuleAssembly.swift in Sources */,
 				9E6C08442610C28800274235 /* CalendarPresenter.swift in Sources */,
+				9E15D577266124C3006F41A2 /* WeatherResponseItem.swift in Sources */,
 				9E6C08652610C28800274235 /* UIButton+Ext.swift in Sources */,
+				9E15D57026610BED006F41A2 /* WeatherRequest.swift in Sources */,
 				9E633FC82610E8C20053BF65 /* ManagerAssembly.swift in Sources */,
 				9E6C083F2610C28800274235 /* ModuleAssemply.swift in Sources */,
 				9E6C086A2610C28800274235 /* SelfConfigurableViewModel.swift in Sources */,
 				9ED8B9E7263FD5AD0022BA1B /* StudentCell.swift in Sources */,
+				9E15D56926610964006F41A2 /* HeaderResponce.swift in Sources */,
 				9E6C08502610C28800274235 /* StudentsAssembly.swift in Sources */,
 				9E633FAF2610D0AC0053BF65 /* UIView+Ext.swift in Sources */,
+				9E3E56FF265C15F4007D6D51 /* StudentProfileAssembly.swift in Sources */,
 				9E6C086C2610C28800274235 /* UIApplication+ Ext.swift in Sources */,
+				9E15D56B26610980006F41A2 /* HeaderAditionalInfo.swift in Sources */,
 				9E6C085C2610C28800274235 /* LoginAssembly.swift in Sources */,
 				9ED8B9DC263FCF270022BA1B /* EmptySelfConfigurableViewModel.swift in Sources */,
 				9E633FB42610D2B10053BF65 /* LoginView.swift in Sources */,
 				9E6C08632610C28800274235 /* UILabel+Ext.swift in Sources */,
+				9E15D57526612219006F41A2 /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

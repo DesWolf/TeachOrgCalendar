@@ -15,4 +15,8 @@ struct Strings {
         static let password = "Password"
     }
     
+    struct Errors {
+        static let noInternetConnection = "Отсутствует интернет-соединение"
+    }
+    
 }

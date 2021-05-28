@@ -7,9 +7,7 @@ target ‘TeachOrgCalendar’ do
 	# Codestyle
 	pod 'SwiftLint'
 	
-	# Analytics
-
-
+	# Analyticsß
 	
 	# DI
 	pod 'Swinject'
@@ -17,6 +15,8 @@ target ‘TeachOrgCalendar’ do
 
 	
 	# Networking
+	pod 'Alamofire'
+	pod 'SwiftyJSON'
 
 
 	#Auth

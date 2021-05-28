@@ -11,5 +11,6 @@ import Swinject
 struct ServiceAssembly: Assembly {
     func assemble(container: Container) {
         container.register(ModuleAssemblyType.self) { r in ModuleAssembly(resolver: r) }.inObjectScope(.container)
+        container.register(WeatherServiceType.self) { _ in WeatherService() }
     }
 }
