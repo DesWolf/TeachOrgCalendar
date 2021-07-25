@@ -12,7 +12,7 @@ private let storyboardName = "Students"
 struct StudentsAssembly: Assembly {
     func assemble(container: Container) {
         container.storyboardInitCompleted(StudentsViewController.self) { r, c in
-            guard var presenter = r.resolve(StudentsPresenterType.self) else {
+            guard var presenter = r.resolve(StudentsPresenterProtocol.self) else {
                 fatalError("Can't resolve StudentsPresenterType in Students View Controller")
             }
             
@@ -20,8 +20,8 @@ struct StudentsAssembly: Assembly {
             presenter.viewController = c
         }
         
-        container.register(StudentsPresenterType.self) { r in
-            guard let moduleAssembly = r.resolve(ModuleAssemblyType.self) else {
+        container.register(StudentsPresenterProtocol.self) { r in
+            guard let moduleAssembly = r.resolve(ModuleAssembly.self) else {
                 fatalError("Can't resolve moduleAssemby in Students Presenter")
             }
             

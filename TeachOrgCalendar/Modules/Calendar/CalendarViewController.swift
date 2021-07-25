@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol CalendarViewControllerType: class, PresentingView {
-    var presenter: CalendarPresenterType! { get set }
+protocol CalendarViewProtocol: AnyObject, PresentingView {
+    var presenter: CalendarPresenterProtocol! { get set }
 }
 
 class CalendarViewController: UIViewController {
     
     // MARK: - Public properties
     
-    public var presenter: CalendarPresenterType!
+    public var presenter: CalendarPresenterProtocol!
     
     // MARK: - Public methods
     
@@ -24,4 +24,4 @@ class CalendarViewController: UIViewController {
     }
 }
 
-extension CalendarViewController: CalendarViewControllerType {}
+extension CalendarViewController: CalendarViewProtocol {}

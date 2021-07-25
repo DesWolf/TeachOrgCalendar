@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol ProfilePresenterType {
-    var viewController: ProfileViewControllerType! { get set }
+protocol ProfilePresenterProtocol {
+    var viewController: ProfileViewProtocol! { get set }
     
 }
 
@@ -16,17 +16,17 @@ class ProfilePresenter {
     
     // MARK: - Public properties
     
-    weak var viewController: ProfileViewControllerType!
+    weak var viewController: ProfileViewProtocol!
    
     // MARK: - Private properties
     
-    private let moduleAssembly: ModuleAssemblyType
+    private let moduleAssembly: ModuleAssembly
     
     // MARK: - Initializers
     
-    init(moduleAssembly: ModuleAssemblyType) {
+    init(moduleAssembly: ModuleAssembly) {
         self.moduleAssembly = moduleAssembly
     }
 }
 
-extension ProfilePresenter: ProfilePresenterType {}
+extension ProfilePresenter: ProfilePresenterProtocol {}

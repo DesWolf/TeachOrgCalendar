@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol ProfileViewControllerType: class, PresentingView {
-    var presenter: ProfilePresenterType! { get set }
+protocol ProfileViewProtocol: AnyObject, PresentingView {
+    var presenter: ProfilePresenterProtocol! { get set }
 }
 
 class ProfileViewController: UIViewController {
     
     // MARK: - Public properties
     
-    public var presenter: ProfilePresenterType!
+    public var presenter: ProfilePresenterProtocol!
     
     // MARK: - Public methods
     
@@ -31,4 +31,4 @@ class ProfileViewController: UIViewController {
     }
 }
 
-extension ProfileViewController: ProfileViewControllerType {}
+extension ProfileViewController: ProfileViewProtocol {}

@@ -12,7 +12,7 @@ private let storyboardName = "Profile"
 struct ProfileAssembly: Assembly {
     func assemble(container: Container) {
         container.storyboardInitCompleted(ProfileViewController.self) { r, c in
-            guard var presenter = r.resolve(ProfilePresenterType.self) else {
+            guard var presenter = r.resolve(ProfilePresenterProtocol.self) else {
                 fatalError("Can't resolve ProfilePresenterType in Profile View Controller")
             }
             
@@ -20,8 +20,8 @@ struct ProfileAssembly: Assembly {
             presenter.viewController = c
         }
         
-        container.register(ProfilePresenterType.self) { r in
-            guard let moduleAssembly = r.resolve(ModuleAssemblyType.self) else {
+        container.register(ProfilePresenterProtocol.self) { r in
+            guard let moduleAssembly = r.resolve(ModuleAssembly.self) else {
                 fatalError("Can't resolve moduleAssemby in Profile Presenter")
             }
             

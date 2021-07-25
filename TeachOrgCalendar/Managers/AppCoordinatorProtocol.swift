@@ -7,11 +7,12 @@
 
 import Foundation
 
-protocol UserManagerType {
+protocol AppCoordinatorProtocol {
     func navigateToMainScreen()
+    func navigateToLogin()
 }
 
-final class UserManager {
+final class AppCoordinator {
     
     private let appNavigator: AppNavigatorType
     
@@ -22,6 +23,10 @@ final class UserManager {
     func navigateToMainScreen() {
         appNavigator.navigate(to: .mainPage, transitionCompletionHandler: nil)
     }
+    
+    func navigateToLogin() {
+        appNavigator.navigate(to: .login, transitionCompletionHandler: nil)
+    }
 }
 
-extension UserManager: UserManagerType { }
+extension AppCoordinator: AppCoordinatorProtocol { }

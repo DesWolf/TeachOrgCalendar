@@ -6,18 +6,23 @@
 //
 
 import UIKit
+import GoogleSignIn
 
-protocol LoginViewControllerType: class {
-    var presenter: LoginPresenterType! { get set }
-    var userManager: UserManagerType! { get set }
+protocol LoginViewProtocol: AnyObject {
+    var presenter: LoginPresenterProtocol! { get set }
+    var appCoordinator: AppCoordinatorProtocol! { get set }
+    var authManager: AuthManager! { get set }
+    var authNotifier: AuthObserver! { get set }
 }
 
 class LoginViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var presenter: LoginPresenterType!
-    var userManager: UserManagerType!
+    var presenter: LoginPresenterProtocol!
+    var appCoordinator: AppCoordinatorProtocol!
+    var authManager: AuthManager!
+    var authNotifier: AuthObserver!
     
     override func loadView() {
         let view = LoginView()
@@ -32,16 +37,30 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        
+        authNotifier.subscribe(self)
+//        GIDSignIn.sharedInstance()?.presentingViewController = self
     }
     
     // MARK: - Private methods
     
     private func setupView() {
+        
     }
     
     @objc private func loginButtondidTap() {
-        userManager.navigateToMainScreen()
+        authManager.signIn(viewController: self)
     }
 }
 
-extension LoginViewController: LoginViewControllerType { }
+extension LoginViewController: LoginViewProtocol { }
+
+extension LoginViewController: AuthNotifier {
+    func sinInComplete(result: Bool) {
+        if result {
+            appCoordinator.navigateToMainScreen()
+        } else {
+            print("SignIn Faild")
+        }
+    }
+}

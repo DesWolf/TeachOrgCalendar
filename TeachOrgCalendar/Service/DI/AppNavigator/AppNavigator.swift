@@ -17,9 +17,9 @@ enum AppNavigationRoute {
 }
 
 struct AppNavigator {
-    private let moduleAssembly: ModuleAssemblyType
+    private let moduleAssembly: ModuleAssembly
     
-    init(moduleAssembly: ModuleAssemblyType) {
+    init(moduleAssembly: ModuleAssembly) {
         self.moduleAssembly = moduleAssembly
     }
 }

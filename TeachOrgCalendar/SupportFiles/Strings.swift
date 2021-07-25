@@ -9,10 +9,11 @@ import Foundation
 
 struct Strings {
     struct Login {
-        static let title = "LOGIN PAGE"
-        static let loginButton = "LOGIN"
-        static let userName = "Username"
-        static let password = "Password"
+        static let greetingsTitle = "Добро пожаловать в TeachOrg"
+        static let loginButton = "SignIn"
     }
     
+    struct Errors {
+        static let noInternetConnection = "Отсутствует интернет-соединение"
+    }
 }

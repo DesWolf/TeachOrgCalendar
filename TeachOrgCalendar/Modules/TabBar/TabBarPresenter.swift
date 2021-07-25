@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol TabBarPresenterType {
-    var viewController: TabBarViewControllerType! { get set }
+protocol TabBarPresenterProtocol {
+    var viewController: TabBarViewProtocol! { get set }
     var tabBarController: TabBarController! { get set }
 }
 
@@ -17,18 +17,18 @@ class TabBarPresenter {
     
     // MARK: - Public properties
     
-    weak var viewController: TabBarViewControllerType!
+    weak var viewController: TabBarViewProtocol!
     weak var tabBarController: TabBarController!
     
     // MARK: - Private properties
     
-    private let moduleAssembly: ModuleAssemblyType
+    private let moduleAssembly: ModuleAssembly
     
     // MARK: - Initializers
     
-    init(moduleAssembly: ModuleAssemblyType) {
+    init(moduleAssembly: ModuleAssembly) {
         self.moduleAssembly = moduleAssembly
     }
 }
 
-extension TabBarPresenter: TabBarPresenterType {}
+extension TabBarPresenter: TabBarPresenterProtocol {}

@@ -1,23 +1,22 @@
 //
-//  LoginPresenter.swift
+//  StudentProfilePresenter.swift
 //  TeachOrgCalendar
 //
-//  Created by Максим Окунеев on 3/28/21.
+//  Created by Максим Окунеев on 5/24/21.
 //
 
 import Foundation
 
-protocol LoginPresenterProtocol {
-    var viewController: LoginViewController! { get set }
-    
+protocol StudentProfilePresenterProtocol {
+    var viewController: StudentProfileViewController! { get set }
     func viewDidLoad()
 }
 
-class LoginPresenter {
+class StudentProfilePresenter {
     
     // MARK: - Public properties
     
-    weak var viewController: LoginViewController!
+    weak var viewController: StudentProfileViewController!
     
     // MARK: - Private properties
     
@@ -30,8 +29,8 @@ class LoginPresenter {
     }
 }
 
-extension LoginPresenter: LoginPresenterProtocol {
+extension StudentProfilePresenter: StudentProfilePresenterProtocol {
     func viewDidLoad() {
-        print("test")
+
     }
 }

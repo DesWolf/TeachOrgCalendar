@@ -12,7 +12,7 @@ private let storyboardName = "Calendar"
 struct CalendarAssembly: Assembly {
     func assemble(container: Container) {
         container.storyboardInitCompleted(CalendarViewController.self) { r, c in
-            guard var presenter = r.resolve(CalendarPresenterType.self) else {
+            guard var presenter = r.resolve(CalendarPresenterProtocol.self) else {
                 fatalError("Can't resolve CalendarPresenterType in Calendar View Controller")
             }
             
@@ -20,8 +20,8 @@ struct CalendarAssembly: Assembly {
             presenter.viewController = c
         }
         
-        container.register(CalendarPresenterType.self) { r in
-            guard let moduleAssembly = r.resolve(ModuleAssemblyType.self) else {
+        container.register(CalendarPresenterProtocol.self) { r in
+            guard let moduleAssembly = r.resolve(ModuleAssembly.self) else {
                 fatalError("Can't resolve moduleAssemby in Calendar Presenter")
             }
             

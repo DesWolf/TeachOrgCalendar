@@ -8,6 +8,7 @@
 import Foundation
 
 enum Module {
+    case launch
     case login
     case tabBar
     case students
