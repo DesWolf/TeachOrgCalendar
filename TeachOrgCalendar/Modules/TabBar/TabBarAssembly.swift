@@ -13,14 +13,14 @@ private let storyboardName = "TabBar"
 
 class TabBarAssembly: Assembly {
     func assemble(container: Container) {
-        container.register(TabBarViewControllerType.self) { r in
+        container.register(TabBarViewProtocol.self) { r in
             let storyboard = SwinjectStoryboard.create(name: storyboardName, bundle: nil, container: r)
             let controller = storyboard.instantiateInitialViewController()
             
-            guard let view = controller as? TabBarViewControllerType else {
+            guard let view = controller as? TabBarViewProtocol else {
                 fatalError("Tab Bar Controller does not conform to Tab Bar protocol")
             }
-            guard let presenter = r.resolve(TabBarPresenterType.self) else {
+            guard let presenter = r.resolve(TabBarPresenterProtocol.self) else {
                 fatalError("Can't resolve TabBarViewModel in Tab Bar Controller")
             }
             
@@ -30,8 +30,8 @@ class TabBarAssembly: Assembly {
         
         container.storyboardInitCompleted(TabBarViewController.self) { (r, c) in }
         
-        container.register(TabBarPresenterType.self) { r in
-            guard let moduleAssembly = r.resolve(ModuleAssemblyType.self) else {
+        container.register(TabBarPresenterProtocol.self) { r in
+            guard let moduleAssembly = r.resolve(ModuleAssembly.self) else {
                 fatalError("Can't resolve moduleAssemby in Main View Controller")
             }
             

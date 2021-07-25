@@ -8,8 +8,8 @@
 import Swinject
 
 extension Assembly {
-    func moduleAssembly(_ r: Resolver) -> ModuleAssemblyType {
-        guard let moduleAssembly = r.resolve(ModuleAssemblyType.self) else {
+    func moduleAssembly(_ r: Resolver) -> ModuleAssembly {
+        guard let moduleAssembly = r.resolve(ModuleAssembly.self) else {
             fatalError("Failed to resolve module assembly")
         }
         return moduleAssembly

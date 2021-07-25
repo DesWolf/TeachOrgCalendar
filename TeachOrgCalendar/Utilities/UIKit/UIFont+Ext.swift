@@ -9,7 +9,7 @@ import UIKit
 
 extension UIFont {
     class var title: UIFont {
-      return UIFont.systemFont(ofSize: 35.0, weight: .semibold)
+      return UIFont.systemFont(ofSize: 28.0, weight: .semibold)
     }
     
     class var button: UIFont {

@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol StudentsViewControllerType: class, PresentingView {
-    var presenter: StudentsPresenterType! { get set }
+protocol StudentsViewProtocol: AnyObject, PresentingView {
+    var presenter: StudentsPresenterProtocol! { get set }
 }
 
 class StudentsViewController: UIViewController {
     
     // MARK: - Public properties
     
-    public var presenter: StudentsPresenterType!
+    public var presenter: StudentsPresenterProtocol!
     
     // MARK: - Private properties
     
@@ -47,7 +47,7 @@ class StudentsViewController: UIViewController {
     }
 }
 
-extension StudentsViewController: StudentsViewControllerType {}
+extension StudentsViewController: StudentsViewProtocol {}
 
 // MARK: - TableView Delegate, DataSource
 

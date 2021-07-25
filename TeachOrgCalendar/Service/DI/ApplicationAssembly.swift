@@ -20,7 +20,9 @@ final class ApplicationAssembly {
             CalendarAssembly(),
             ProfileAssembly(),
             ServiceAssembly(),
-            ManagerAssembly()
+            ManagerAssembly(),
+            NotifiersAssembly(),
+            LaunchAssembly()
         ]
     )
 }

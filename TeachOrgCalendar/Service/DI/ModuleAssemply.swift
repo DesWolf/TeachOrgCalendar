@@ -9,11 +9,11 @@ import UIKit
 import Swinject
 import SwinjectStoryboard
 
-protocol ModuleAssemblyType {
+protocol ModuleAssembly {
     func assembledView(for: Module) throws -> UIViewController
 }
 
-class ModuleAssembly {
+class ModuleAssemblyImpl {
     private let resolver: Resolver
     
     init(resolver: Resolver) {
@@ -28,20 +28,22 @@ class ModuleAssembly {
     }
 }
 
-extension ModuleAssembly: ModuleAssemblyType {
+extension ModuleAssemblyImpl: ModuleAssembly {
     
     func assembledView(for module: Module) throws -> UIViewController {
         switch module {
+        case .launch:
+            return try resolveView(for: LaunchViewProtocol.self)
         case .login:
-            return try resolveView(for: LoginViewControllerType.self)
+            return try resolveView(for: LoginViewProtocol.self)
         case .tabBar:
-            return try resolveView(for: TabBarViewControllerType.self)
+            return try resolveView(for: TabBarViewProtocol.self)
         case .students:
-            return try resolveView(for: StudentsViewControllerType.self)
+            return try resolveView(for: StudentsViewProtocol.self)
         case .calendar:
-            return try resolveView(for: CalendarViewControllerType.self)
+            return try resolveView(for: CalendarViewProtocol.self)
         case .profile:
-            return try resolveView(for: ProfileViewControllerType.self)
+            return try resolveView(for: ProfileViewProtocol.self)
         }
     }
 }

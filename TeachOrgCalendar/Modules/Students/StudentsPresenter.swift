@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol StudentsPresenterType {
-    var viewController: StudentsViewControllerType! { get set }
+protocol StudentsPresenterProtocol {
+    var viewController: StudentsViewProtocol! { get set }
     
     func model(at index: IndexPath) -> SelfConfigurableViewModel
     func numberOfRows() -> Int
@@ -19,29 +19,24 @@ class StudentsPresenter {
     
     // MARK: - Public properties
     
-    weak var viewController: StudentsViewControllerType!
+    weak var viewController: StudentsViewProtocol!
     
     
     // MARK: - Private properties
     
-    private let moduleAssembly: ModuleAssemblyType!
-    private let service: WeatherServiceType
+    private let moduleAssembly: ModuleAssembly!
     
     // MARK: - Initializers
     
-    init(moduleAssembly: ModuleAssemblyType, service: WeatherServiceType) {
+    init(moduleAssembly: ModuleAssembly) {
         self.moduleAssembly = moduleAssembly
-        self.service = service
     }
 }
 
-extension StudentsPresenter: StudentsPresenterType {
+extension StudentsPresenter: StudentsPresenterProtocol {
 
     func viewDidLoad() {
         
-        service.load { result in
-            print(result)
-        }
     }
     
     func numberOfRows() -> Int {

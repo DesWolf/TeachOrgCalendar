@@ -7,18 +7,18 @@
 
 import UIKit
 
-protocol StudentProfileViewControllerType: class {
-    var presenter: StudentProfilePresenterType! { get set }
+protocol StudentProfileViewControllerType: AnyObject {
+    var presenter: StudentProfilePresenterProtocol! { get set }
 }
 
 class StudentProfileViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var presenter: StudentProfilePresenterType!
+    var presenter: StudentProfilePresenterProtocol!
     
     override func loadView() {
-        let view = LoginView()
+        let view = StudentProfileView()
 
         self.view = view
         setupView()

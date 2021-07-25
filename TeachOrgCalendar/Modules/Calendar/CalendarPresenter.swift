@@ -7,25 +7,25 @@
 
 import Foundation
 
-protocol CalendarPresenterType {
-    var viewController: CalendarViewControllerType! { get set }
+protocol CalendarPresenterProtocol {
+    var viewController: CalendarViewProtocol! { get set }
 }
 
 class CalendarPresenter {
     
     // MARK: - Public properties
     
-    weak var viewController: CalendarViewControllerType!
+    weak var viewController: CalendarViewProtocol!
     
     // MARK: - Private properties
     
-    private let moduleAssembly: ModuleAssemblyType
+    private let moduleAssembly: ModuleAssembly
     
     // MARK: - Initializers
     
-    init(moduleAssembly: ModuleAssemblyType) {
+    init(moduleAssembly: ModuleAssembly) {
         self.moduleAssembly = moduleAssembly
     }
 }
 
-extension CalendarPresenter: CalendarPresenterType {}
+extension CalendarPresenter: CalendarPresenterProtocol {}

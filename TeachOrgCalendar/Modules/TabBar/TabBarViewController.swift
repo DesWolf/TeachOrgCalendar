@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-protocol TabBarViewControllerType: class, PresentingView, NavigatingView {
-    var presenter: TabBarPresenterType! { get set }
+protocol TabBarViewProtocol: AnyObject, PresentingView, NavigatingView {
+    var presenter: TabBarPresenterProtocol! { get set }
 }
 
-protocol TabBarController: class {
+protocol TabBarController: AnyObject {
     func navigateToDownloads(disablingTabs: Bool)
     func disableTabs()
     func enableTabs()
@@ -32,7 +32,7 @@ enum TabType {
 
 class TabBarViewController: UITabBarController {
 
-    var presenter: TabBarPresenterType!
+    var presenter: TabBarPresenterProtocol!
     
     private var prevSelectedVC: UIViewController?
     
@@ -66,4 +66,4 @@ extension TabBarViewController: UITabBarControllerDelegate {
     }
 }
 
-extension TabBarViewController: TabBarViewControllerType {}
+extension TabBarViewController: TabBarViewProtocol {}

@@ -1,22 +1,23 @@
 //
-//  StudentProfilePresenter.swift
+//  LaunchViewPresenter.swift
 //  TeachOrgCalendar
 //
-//  Created by Максим Окунеев on 5/24/21.
+//  Created by Максим Окунеев on 7/25/21.
 //
 
 import Foundation
 
-protocol StudentProfilePresenterProtocol {
-    var viewController: StudentProfileViewController! { get set }
+protocol LaunchPresenterProtocol {
+    var viewController: LaunchViewProtocol! { get set }
+    
     func viewDidLoad()
 }
 
-class StudentProfilePresenter {
+class LaunchPresenter {
     
     // MARK: - Public properties
     
-    weak var viewController: StudentProfileViewController!
+    weak var viewController: LaunchViewProtocol!
     
     // MARK: - Private properties
     
@@ -29,8 +30,8 @@ class StudentProfilePresenter {
     }
 }
 
-extension StudentProfilePresenter: StudentProfilePresenterProtocol {
+extension LaunchPresenter: LaunchPresenterProtocol {
     func viewDidLoad() {
-
+        
     }
 }
