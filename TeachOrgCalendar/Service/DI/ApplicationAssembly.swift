@@ -17,6 +17,7 @@ final class ApplicationAssembly {
             LoginAssembly(),
             TabBarAssembly(),
             StudentsAssembly(),
+            AddStudentAssembly(),
             CalendarAssembly(),
             ProfileAssembly(),
             ServiceAssembly(),

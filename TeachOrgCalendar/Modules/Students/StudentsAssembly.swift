@@ -12,12 +12,17 @@ private let storyboardName = "Students"
 struct StudentsAssembly: Assembly {
     func assemble(container: Container) {
         container.storyboardInitCompleted(StudentsViewController.self) { r, c in
-            guard var presenter = r.resolve(StudentsPresenterProtocol.self) else {
+            guard let presenter = r.resolve(StudentsPresenterProtocol.self) else {
                 fatalError("Can't resolve StudentsPresenterType in Students View Controller")
             }
             
+            guard let appCoordinator = r.resolve(AppCoordinatorProtocol.self) else {
+                fatalError("Can't resolve AppCoordinator in Students View Controller")
+            }
+            
             c.presenter = presenter
-            presenter.viewController = c
+            c.appCoordinator = appCoordinator
+            presenter.view = c
         }
         
         container.register(StudentsPresenterProtocol.self) { r in
@@ -25,7 +30,17 @@ struct StudentsAssembly: Assembly {
                 fatalError("Can't resolve moduleAssemby in Students Presenter")
             }
             
-            return StudentsPresenter(moduleAssembly: moduleAssembly)
+            guard let databaseManager = r.resolve(DatabaseManager.self) else {
+                fatalError("Can't resolve DatabaseManager in Students View Controller")
+            }
+            
+            guard let databaseNotifier = r.resolve(DatabaseObserver.self) else {
+                fatalError("Can't resolve DatabaseNotifier in Students View Controller")
+            }
+            
+            return StudentsPresenter(moduleAssembly: moduleAssembly,
+                                     databaseManager: databaseManager,
+                                     databaseNotifier: databaseNotifier)
         }
     }
 }

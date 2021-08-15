@@ -1,5 +1,5 @@
 //
-//  StudentProfileView.swift
+//  AddStudentView.swift
 //  TeachOrgCalendar
 //
 //  Created by Максим Окунеев on 5/24/21.
@@ -8,14 +8,14 @@
 import UIKit
 import SnapKit
     
-final class StudentProfileView: UIView {
+final class AddStudentView: UIView {
 
     // MARK: - Public properties
     
-    let signInButton = UIButton()
+    let table = UITableView()
 
     // MARK: - Initializers
-
+    
     init() {
         super.init(frame: .zero)
         setupViews()
@@ -30,20 +30,17 @@ final class StudentProfileView: UIView {
     // MARK: - Private methods
 
     private func setupViews() {
-        backgroundColor = .white
-        signInButton.backgroundColor = .blue
-        signInButton.layer.cornerRadius = 10
-        signInButton.setTitle(Strings.Login.loginButton, for: .normal)
+        backgroundColor = .background
+        table.separatorStyle = .none
         
-        addSubview(signInButton)
+
+        addSubview(table)
     }
     
     private func setConstraints() {
-        signInButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(200)
-            $0.width.equalTo(200)
-            $0.height.equalTo(40)
+        
+        table.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  NavifationView.swift
+//  NavigationView.swift
 //  TeachOrgCalendar
 //
 //  Created by Максим Окунеев on 12/18/20.

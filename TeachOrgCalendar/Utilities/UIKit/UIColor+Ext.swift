@@ -10,50 +10,50 @@ import UIKit
 extension UIColor {
     
     @nonobjc class var background: UIColor {
-        return UIColor(named: "Background")!
+        UIColor(named: "Background")!
     }
     
     @nonobjc class var border: UIColor {
-        return UIColor(named: "Border")!
+        UIColor(named: "Border")!
     }
     
     @nonobjc class var calendarBlue: UIColor {
-        return UIColor(named: "CalendarBlue")!
+        UIColor(named: "CalendarBlue")!
     }
     
-    @nonobjc class var calendarGradient_1: UIColor {
-        return UIColor(named: "CalendarGradient_1")!
+    @nonobjc class var calendarGradient1: UIColor {
+        UIColor(named: "CalendarGradient_1")!
     }
     
-    @nonobjc class var calendarGradient_2: UIColor {
-        return UIColor(named: "CalendarGradient_2")!
+    @nonobjc class var calendarGradient2: UIColor {
+        UIColor(named: "CalendarGradient_2")!
     }
     
     @nonobjc class var calendarGray: UIColor {
-        return UIColor(named: "CalendarGray")!
+        UIColor(named: "CalendarGray")!
     }
     
     @nonobjc class var calendarGreen: UIColor {
-        return UIColor(named: "CalendarGreen")!
+        UIColor(named: "CalendarGreen")!
     }
     
     @nonobjc class var meetingCellBackGround: UIColor {
-        return UIColor(named: "MeetingCellBackGround")!
+        UIColor(named: "MeetingCellBackGround")!
     }
     
     @nonobjc class var meetingSelectCellBackGround: UIColor {
-        return UIColor(named: "MeetingSelectCellBackGround")!
+        UIColor(named: "MeetingSelectCellBackGround")!
     }
     
-    @nonobjc class var separator: UIColor {
-        return UIColor(named: "Separator")!
+    @nonobjc class var divider: UIColor {
+        UIColor(named: "Divider")!
     }
     
     @nonobjc class var tabItem: UIColor {
-        return UIColor(named: "TabItem")!
+        UIColor(named: "TabItem")!
     }
     
     @nonobjc class var selectedTabItem: UIColor {
-        return UIColor(named: "TabItem")!
+        UIColor(named: "TabItem")!
     }
 }

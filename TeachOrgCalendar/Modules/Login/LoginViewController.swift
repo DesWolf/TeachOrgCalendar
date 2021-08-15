@@ -39,7 +39,6 @@ class LoginViewController: UIViewController {
         presenter.viewDidLoad()
         
         authNotifier.subscribe(self)
-//        GIDSignIn.sharedInstance()?.presentingViewController = self
     }
     
     // MARK: - Private methods

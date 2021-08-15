@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LoginPresenterProtocol {
-    var viewController: LoginViewController! { get set }
+    var view: LoginViewProtocol! { get set }
     
     func viewDidLoad()
 }
@@ -17,7 +17,7 @@ class LoginPresenter {
     
     // MARK: - Public properties
     
-    weak var viewController: LoginViewController!
+    weak var view: LoginViewProtocol!
     
     // MARK: - Private properties
     
@@ -32,6 +32,5 @@ class LoginPresenter {
 
 extension LoginPresenter: LoginPresenterProtocol {
     func viewDidLoad() {
-        print("test")
     }
 }

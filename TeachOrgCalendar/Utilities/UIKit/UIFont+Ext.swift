@@ -12,6 +12,18 @@ extension UIFont {
       return UIFont.systemFont(ofSize: 28.0, weight: .semibold)
     }
     
+    class var mediumText: UIFont {
+      return UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+    }
+    
+    class var regularText: UIFont {
+      return UIFont.systemFont(ofSize: 15.0, weight: .regular)
+    }
+    
+    class var smallDescription: UIFont {
+      return UIFont.systemFont(ofSize: 13.0, weight: .regular)
+    }
+    
     class var button: UIFont {
       return UIFont.systemFont(ofSize: 15.0, weight: .regular)
     }

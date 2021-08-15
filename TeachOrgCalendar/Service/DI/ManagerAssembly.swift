@@ -11,17 +11,17 @@ import Swinject
 struct ManagerAssembly: Assembly {
     func assemble(container: Container) {
         
-        container.register(AppNavigatorType.self) { r in
+        container.register(AppNavigator.self) { r in
             guard let moduleAssembly = r.resolve(ModuleAssembly.self) else {
                 fatalError("Failed to resolve module assembly for App navigator")
             }
-            return AppNavigator(moduleAssembly: moduleAssembly)
+            return AppNavigatorImpl(moduleAssembly: moduleAssembly)
         }
         
         // MARK: - User manager
         container.register(AppCoordinatorProtocol.self) { r in
             
-            guard let appNavigator = r.resolve(AppNavigatorType.self) else {
+            guard let appNavigator = r.resolve(AppNavigator.self) else {
                 fatalError("Can't resolve App navigator for User manager")
             }
             let userManager = AppCoordinator(appNavigator: appNavigator)
@@ -40,5 +40,24 @@ struct ManagerAssembly: Assembly {
             return authManager
             
         }.inObjectScope(.container)
+        
+        // MARK: - Database manager
+        container.register(DatabaseManager.self) { r in
+            guard let authManager = r.resolve(AuthManager.self) else {
+                fatalError("Can't resolve Auth Manager for Database manager")
+            }
+            
+            guard let databaseNotifier = r.resolve(DatabaseNotifier.self) else {
+                fatalError("Can't resolve Auth Manager for Database manager")
+            }
+            
+            
+            let databaseManager = DatabaseManagerImpl(authManager: authManager,
+                                                      databaseNotifier: databaseNotifier)
+            
+            return databaseManager
+        
+        }.inObjectScope(.container)
+
     }
 }

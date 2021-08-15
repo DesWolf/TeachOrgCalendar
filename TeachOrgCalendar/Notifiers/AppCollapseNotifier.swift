@@ -7,29 +7,22 @@
 
 import Foundation
 
-protocol AppCollapseNotifierType: AnyObject {
+protocol AppCollapseNotifier: AnyObject {
     func appEnterBackground()
     func appWillEnterForeground()
     func appSendEventInBackground()
 }
 
-extension AppCollapseNotifierType {
-    func appSendEventInBackground() {}
-}
-
-typealias AppCollapseListenerType = AppCollapseNotifierType
-
-protocol AppCollapseObserverType: AnyObject {
-    func subscribe(_ listener: AppCollapseNotifierType)
-    func unsubscribe(_ listener: AppCollapseNotifierType)
+protocol AppCollapseObserver: AnyObject {
+    func subscribe(_ listener: AppCollapseNotifier)
+    func unsubscribe(_ listener: AppCollapseNotifier)
 }
 
 struct AppCollapseListener {
-    weak var listener: AppCollapseListenerType?
+    weak var listener: AppCollapseNotifier?
 }
 
-class AppCollapseNotifier {
-    
+class AppCollapseNotifierImpl {
     var observers: [AppCollapseListener] = []
     
     private func dropEmpty() {
@@ -38,7 +31,7 @@ class AppCollapseNotifier {
     
 }
 
-extension AppCollapseNotifier: AppCollapseNotifierType {
+extension AppCollapseNotifierImpl: AppCollapseNotifier {
     func appEnterBackground() {
         observers.forEach { $0.listener?.appEnterBackground() }
     }
@@ -52,14 +45,13 @@ extension AppCollapseNotifier: AppCollapseNotifierType {
     }
 }
 
-extension AppCollapseNotifier: AppCollapseObserverType {
-    
-    func subscribe(_ listener: AppCollapseNotifierType) {
+extension AppCollapseNotifierImpl: AppCollapseObserver {
+    func subscribe(_ listener: AppCollapseNotifier) {
         dropEmpty()
         observers.append(AppCollapseListener(listener: listener))
     }
     
-    func unsubscribe(_ listener: AppCollapseNotifierType) {
+    func unsubscribe(_ listener: AppCollapseNotifier) {
         observers.removeAll(where: { $0.listener === listener })
     }
 }

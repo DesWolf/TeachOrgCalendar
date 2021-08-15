@@ -11,19 +11,13 @@ protocol AuthNotifier: AnyObject {
     func sinInComplete(result: Bool)
 }
 
-extension AuthNotifier {
-    func appSendEventInBackground() {}
-}
-
-typealias AuthListenerType = AuthNotifier
-
 protocol AuthObserver: AnyObject {
     func subscribe(_ listener: AuthNotifier)
     func unsubscribe(_ listener: AuthNotifier)
 }
 
 struct AuthListener {
-    weak var listener: AuthListenerType?
+    weak var listener: AuthNotifier?
 }
 
 class AuthNotifierImpl {
@@ -41,7 +35,6 @@ extension AuthNotifierImpl: AuthNotifier {
 }
 
 extension AuthNotifierImpl: AuthObserver {
-    
     func subscribe(_ listener: AuthNotifier) {
         dropEmpty()
         observers.append(AuthListener(listener: listener))

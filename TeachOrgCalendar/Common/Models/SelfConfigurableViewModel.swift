@@ -15,7 +15,6 @@ protocol SelfConfigurableViewModel {
 }
 
 extension SelfConfigurableViewModel {
-    
     func configure(tableCell: UITableViewCell, at index: IndexPath) {}
     func configure(collectionCell: UICollectionViewCell, at index: IndexPath) {}
     func configure(view: UITableViewHeaderFooterView, in section: Int) {}
