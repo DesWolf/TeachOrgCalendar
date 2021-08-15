@@ -7,17 +7,17 @@
 
 import UIKit
 
-protocol FilmInfoTableCellDelegate: class {
+protocol FilmInfoTableCellDelegate: AnyObject {
     func didTap()
 }
 
-class StudentCell: UITableViewCell {
+class StudentTableCell: UITableViewCell {
     let name = UILabel()
     let surname = UILabel()
-    let discipline = UILabel()
+    let disciplines = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: StudentCell.reuseIdentifier)
+        super.init(style: style, reuseIdentifier: StudentTableCell.reuseIdentifier)
         setupViews()
         setupConstraints()
     }
@@ -40,7 +40,7 @@ class StudentCell: UITableViewCell {
         
         contentView.addSubview(name)
         contentView.addSubview(surname)
-        contentView.addSubview(discipline)
+        contentView.addSubview(disciplines)
     }
     
     private func setupConstraints() {
@@ -55,7 +55,7 @@ class StudentCell: UITableViewCell {
             $0.right.equalToSuperview().inset(20)
         }
         
-        discipline.snp.makeConstraints {
+        disciplines.snp.makeConstraints {
             $0.top.equalTo(name.snp.bottom)
             $0.right.left.equalToSuperview().inset(20)
         }

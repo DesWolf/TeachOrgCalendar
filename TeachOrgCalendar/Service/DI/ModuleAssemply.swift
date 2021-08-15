@@ -29,7 +29,6 @@ class ModuleAssemblyImpl {
 }
 
 extension ModuleAssemblyImpl: ModuleAssembly {
-    
     func assembledView(for module: Module) throws -> UIViewController {
         switch module {
         case .launch:
@@ -44,6 +43,12 @@ extension ModuleAssemblyImpl: ModuleAssembly {
             return try resolveView(for: CalendarViewProtocol.self)
         case .profile:
             return try resolveView(for: ProfileViewProtocol.self)
+        case .studentProfile(let student):
+            guard let studentProfile = resolver.resolve(AddStudentProtocol.self, argument: student) as? UIViewController else {
+                throw ModuleAssemblyError.dependencyResolvingError
+            }
+            return studentProfile
+//            return try resolveView(for: StudentProfileProtocol.self, argument: student)
         }
     }
 }

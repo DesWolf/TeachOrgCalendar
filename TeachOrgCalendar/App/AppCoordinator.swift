@@ -1,5 +1,5 @@
 //
-//  UserManager.swift
+//  AppCoordinator.swift
 //  TeachOrgCalendar
 //
 //  Created by Максим Окунеев on 3/28/21.
@@ -14,9 +14,9 @@ protocol AppCoordinatorProtocol {
 
 final class AppCoordinator {
     
-    private let appNavigator: AppNavigatorType
+    private let appNavigator: AppNavigator
     
-    init(appNavigator: AppNavigatorType) {
+    init(appNavigator: AppNavigator) {
         self.appNavigator = appNavigator
     }
     

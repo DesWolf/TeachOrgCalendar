@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AppNavigatorType {
+protocol AppNavigator {
     func navigate(to route: AppNavigationRoute, transitionCompletionHandler: ((Bool) -> Void)?)
 }
 
@@ -16,7 +16,7 @@ enum AppNavigationRoute {
     case mainPage
 }
 
-struct AppNavigator {
+struct AppNavigatorImpl {
     private let moduleAssembly: ModuleAssembly
     
     init(moduleAssembly: ModuleAssembly) {
@@ -24,7 +24,7 @@ struct AppNavigator {
     }
 }
 
-extension AppNavigator: AppNavigatorType {
+extension AppNavigatorImpl: AppNavigator {
     func navigate(to route: AppNavigationRoute, transitionCompletionHandler: ((Bool) -> Void)?) {
         let controller: UIViewController
         switch route {
@@ -46,4 +46,4 @@ extension AppNavigator: AppNavigatorType {
 }
 }
 
-extension AppNavigator: WindowTransitioner { }
+extension AppNavigatorImpl: WindowTransitioner { }

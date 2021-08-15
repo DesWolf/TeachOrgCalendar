@@ -7,45 +7,100 @@
 
 import Foundation
 
-protocol StudentsPresenterProtocol {
-    var viewController: StudentsViewProtocol! { get set }
+protocol StudentsPresenterProtocol: AnyObject {
+    var view: StudentsViewProtocol! { get set }
     
-    func model(at index: IndexPath) -> SelfConfigurableViewModel
+    func viewDidLoad()
+    func loadStudents()
+    func addStudent()
     func numberOfRows() -> Int
-    func viewDidLoad() 
+    func model(at index: Int) -> SelfConfigurableViewModel
+    func didSelect(at index: Int)
+    func deleteStudent(at index: Int)
 }
 
 class StudentsPresenter {
     
     // MARK: - Public properties
     
-    weak var viewController: StudentsViewProtocol!
-    
+    weak var view: StudentsViewProtocol!
     
     // MARK: - Private properties
     
     private let moduleAssembly: ModuleAssembly!
+    private let databaseManager: DatabaseManager!
+    private let databaseNotifier: DatabaseObserver!
+    
+    private var students: [Student] = []
     
     // MARK: - Initializers
     
-    init(moduleAssembly: ModuleAssembly) {
+    init(moduleAssembly: ModuleAssembly,
+         databaseManager: DatabaseManager,
+         databaseNotifier: DatabaseObserver) {
         self.moduleAssembly = moduleAssembly
+        self.databaseManager = databaseManager
+        self.databaseNotifier = databaseNotifier
+    }
+    
+    private func navigateToStudentProfile(student: Student?) {
+        if let newView = try? moduleAssembly.assembledView(for: .studentProfile(student: student)) {
+            newView.modalPresentationStyle = .fullScreen
+            view.push(viewController: newView, animated: true)
+        }
     }
 }
 
 extension StudentsPresenter: StudentsPresenterProtocol {
-
     func viewDidLoad() {
-        
+        loadStudents()
+        databaseNotifier.subscribe(self)
     }
     
     func numberOfRows() -> Int {
-        return 1
+        return students.count
     }
     
-    func model(at index: IndexPath) -> SelfConfigurableViewModel {
-        // TODO: Add Firebase Detabase
+    func model(at index: Int) -> SelfConfigurableViewModel {
+        var disciptinesString = ""
         
-        return StudentCellViewModel(name: "Max", surname: "Okuneev", discipline: "English")
+        students[index].disciplines?.forEach { lesson in
+            disciptinesString.append("\(lesson), ")
+        }
+        
+        return StudentCellViewModel(name: students[index].name ?? "",
+                                    surname: students[index].surname,
+                                    disciplines: disciptinesString)
+    }
+    
+    func didSelect(at index: Int) {
+//        navigateToStudentProfile(student: tempStudents[index])
+    }
+    
+    func loadStudents() {
+        databaseManager.loadListOfStudents()
+    }
+    
+    func addStudent() {
+        if let newView = try? moduleAssembly.assembledView(for: .studentProfile(student: nil)) {
+            newView.modalPresentationStyle = .fullScreen
+            view.push(viewController: newView, animated: true)
+        }
+    }
+    
+    func deleteStudent(at index: Int) {
+        guard let id = students[index].id else {
+            return
+        }
+        databaseManager.deleteStudent(id: id)
+    }
+}
+
+extension StudentsPresenter: DatabaseNotifier {
+    func listOfStudents(list: [Student]) {
+        students = list
+        DispatchQueue.main.async {
+            self.view.reloadTableView()
+        }
     }
 }

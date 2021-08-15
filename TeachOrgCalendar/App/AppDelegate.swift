@@ -15,31 +15,28 @@ import FirebaseAuthUI
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var appCollapseNotifier: AppCollapseNotifierType?
+    var appCollapseNotifier: AppCollapseNotifier?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        
+        Database.database().isPersistenceEnabled = true
+        
         setRootController()
         return true
     }
     
-    func application(_ app: UIApplication, open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
-        let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
-      if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+    func application(_ app: UIApplication, open url: URL, options:
+                        [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        
+        let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String
+      
+        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
         return true
       }
       // other URL handling goes here.
       return false
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        appCollapseNotifier?.appEnterBackground()
-    }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        appCollapseNotifier?.appWillEnterForeground()
     }
 }
 

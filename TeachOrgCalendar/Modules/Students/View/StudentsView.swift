@@ -12,7 +12,8 @@ final class StudentsView: UIView {
 
     // MARK: - Private properties
 
-    let tableView = UITableView()
+    let table = UITableView()
+    let refreshControl = UIRefreshControl()
     
     // MARK: - Initializers
 
@@ -33,13 +34,13 @@ final class StudentsView: UIView {
     // MARK: - Private methods
 
     private func setupViews() {
-        
-        addSubview(tableView)
+        addSubview(table)
+        table.addSubview(refreshControl)
     }
     
     
     private func setConstraints() {
-        tableView.snp.makeConstraints {
+        table.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }

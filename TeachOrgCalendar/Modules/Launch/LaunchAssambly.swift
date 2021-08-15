@@ -11,7 +11,7 @@ struct LaunchAssembly: Assembly {
     func assemble(container: Container) {
         container.register(LaunchPresenterProtocol.self) { r in
             guard let moduleAssembly = r.resolve(ModuleAssembly.self) else {
-                fatalError("Can't resolve moduleAssemby in Login Presenter")
+                fatalError("Can't resolve moduleAssemby in Launch Presenter")
             }
             
             return LaunchPresenter(moduleAssembly: moduleAssembly)
@@ -21,15 +21,15 @@ struct LaunchAssembly: Assembly {
             let viewController = LaunchViewController()
             
             guard let presenter = r.resolve(LaunchPresenterProtocol.self) else {
-                fatalError("Can't resolve LoginPresenterType in Login View Controller")
+                fatalError("Can't resolve LoginPresenterType in Launch View Controller")
             }
             
             guard let authManager = r.resolve(AuthManager.self) else {
-                fatalError("Can't resolve AuthManager in Login Presenter")
+                fatalError("Can't resolve AuthManager in Launch Presenter")
             }
             
             guard let appCoordinator = r.resolve(AppCoordinatorProtocol.self) else {
-                fatalError("Can't resolve UserManager in Login View Controller")
+                fatalError("Can't resolve UserManager in Launch View Controller")
             }
             
             viewController.presenter = presenter

@@ -13,8 +13,9 @@ import FirebaseGoogleAuthUI
 //import FirebaseUI
 
 protocol AuthManager {
-    func isAuthorized() -> Bool
+    var userUID: String { get }
     
+    func isAuthorized() -> Bool
     func signIn(viewController: UIViewController)
     func signOut()
 }
@@ -54,8 +55,18 @@ final class AuthManagerImpl: NSObject {
 }
 
 extension AuthManagerImpl: AuthManager {
+    var userUID: String {
+        get {
+            if let user = Auth.auth().currentUser {
+                return user.uid
+            } else {
+                return ""
+            }
+        }
+    }
+    
     func isAuthorized() -> Bool {
-        if let user = Auth.auth().currentUser {
+        if Auth.auth().currentUser != nil {
             return true
         } else {
             return false

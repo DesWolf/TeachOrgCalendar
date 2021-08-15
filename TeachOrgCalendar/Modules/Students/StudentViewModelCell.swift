@@ -10,17 +10,17 @@ import UIKit
 struct StudentCellViewModel {
     let name: String
     let surname: String?
-    let discipline: String?
+    let disciplines: String?
 }
 
 extension StudentCellViewModel: SelfConfigurableViewModel {
     func configure(tableCell: UITableViewCell, at index: IndexPath) {
-        guard let cell = tableCell as? StudentCell else { return }
+        guard let cell = tableCell as? StudentTableCell else { return }
         
         cell.accessoryType = .disclosureIndicator
         
         cell.name.text = name
         cell.surname.text = surname
-        cell.discipline.text = discipline
+        cell.disciplines.text = disciplines
     }
 }

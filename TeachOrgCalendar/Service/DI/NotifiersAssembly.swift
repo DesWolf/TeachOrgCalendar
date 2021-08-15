@@ -28,18 +28,35 @@ struct NotifiersAssembly: Assembly {
             return observer
         }
         
-        // MARK: - App collapse notifier
-        container.register(AppCollapseNotifier.self) { _ in
-            AppCollapseNotifier()
+        // MARK: - Database notifier
+        container.register(DatabaseNotifierImpl.self) { r in
+            DatabaseNotifierImpl()
         }.inObjectScope(.container)
-        container.register(AppCollapseNotifierType.self) { r in
-            guard let notifier = r.resolve(AppCollapseNotifier.self) else {
+        container.register(DatabaseNotifier.self) { r in
+            guard let notifier = r.resolve(DatabaseNotifierImpl.self) else {
                 fatalError("Failed to resolve App collapse notifier")
             }
             return notifier
         }
-        container.register(AppCollapseObserverType.self) { r in
-            guard let observer = r.resolve(AppCollapseNotifier.self) else {
+        container.register(DatabaseObserver.self) { r in
+            guard let observer = r.resolve(DatabaseNotifierImpl.self) else {
+                fatalError("Failed to resolve App collapse notifier")
+            }
+            return observer
+        }
+        
+        // MARK: - App collapse notifier
+        container.register(AppCollapseNotifierImpl.self) { _ in
+            AppCollapseNotifierImpl()
+        }.inObjectScope(.container)
+        container.register(AppCollapseNotifier.self) { r in
+            guard let notifier = r.resolve(AppCollapseNotifierImpl.self) else {
+                fatalError("Failed to resolve App collapse notifier")
+            }
+            return notifier
+        }
+        container.register(AppCollapseObserver.self) { r in
+            guard let observer = r.resolve(AppCollapseNotifierImpl.self) else {
                 fatalError("Failed to resolve App collapse notifier")
             }
             return observer

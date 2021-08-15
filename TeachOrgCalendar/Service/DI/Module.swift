@@ -12,6 +12,7 @@ enum Module {
     case login
     case tabBar
     case students
+    case studentProfile(student: Student?)
     case calendar
     case profile
 }

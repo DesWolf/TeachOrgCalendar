@@ -1,5 +1,8 @@
 platform :ios, ‘13.0’
 
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
 use_frameworks!
 
 target ‘TeachOrgCalendar’ do
@@ -11,13 +14,9 @@ target ‘TeachOrgCalendar’ do
 	
 	# DI
 	pod 'Swinject'
-	pod 'SwinjectStoryboard', :git => 'https://github.com/Swinject/SwinjectStoryboard.git', :commit => '0ca45c83a8aa398c153d8a036c95abb4343cfa0c'
-
+	pod 'SwinjectStoryboard'
 	
 	# Networking
-	pod 'Alamofire'
-	pod 'SwiftyJSON'
-
 
 	#Auth
 	pod 'Firebase'
@@ -30,12 +29,11 @@ target ‘TeachOrgCalendar’ do
 
 
 	# Data Storage
-
+	pod 'Firebase/Database'
 	
 	# UI
 	pod 'SnapKit'
 
-		
 	# Other
 	
 end
