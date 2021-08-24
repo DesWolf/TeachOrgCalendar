@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
-protocol StudentsViewProtocol: AnyObject, PresentingView, NavigatingView{
+protocol StudentsViewProtocol: AnyObject, NavigatingView {
     var presenter: StudentsPresenterProtocol! { get set }
     var appCoordinator: AppCoordinatorProtocol! { get set }
     
@@ -39,7 +38,9 @@ class StudentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-        
+        navigationController?.navigationBar.transparentNavigationBar()
+        self.title = Strings.Students.title
+
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItems = [add]
     }
@@ -102,5 +103,9 @@ extension StudentsViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             presenter.deleteStudent(at: indexPath.row)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelect(at: indexPath.row)
     }
 }

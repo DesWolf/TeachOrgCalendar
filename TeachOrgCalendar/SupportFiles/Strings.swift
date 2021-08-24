@@ -17,19 +17,34 @@ struct Strings {
         static let loginButton = "SignIn"
     }
     
+    struct Students {
+        static let title = "Ученики"
+    }
+    
     struct StudentProfile {
-        static let newUserTitle = "Новый ученик"
-        static let nameTitle = "Имя, Фимилия*"
         static let namePlaceholder = "Имя"
         static let surnamePlaceholder = "Фамилия"
         static let disciplineTitle = "Занимается по предмету"
-        static let disciplineDescription = "Выберите один или несколько предметов, по которым занимается ученик"
         static let phoneTitle = "Телефон"
-        static let phonePlaceholder = "Введите телефон"
         static let emailTitle = "Email"
-        static let emailPlaceholder = "Введите email"
         static let noteTitle = "Комментарий"
+        static let edit = "Править"
+        static let backButton = "Ученики"
+    }
+    
+    struct EditStudent {
+        static let newUserTitle = "Новый ученик"
+        static let nameTitle = "Имя, Фимилия*"
+        static let disciplineDescription = "Выберите один или несколько предметов, по которым занимается ученик"
+        static let phonePlaceholder = "Введите телефон"
+        static let emailPlaceholder = "Введите email"
         static let notePlaceholder = "Добавить комментарий"
+        
+        struct Error {
+            static let emptyName = "Имя не может быть пустым"
+            static let wrongPhone = "Введите корретный телефон"
+            static let wrongEmail = "Введите корретный email"
+        }
     }
     
     struct Errors {

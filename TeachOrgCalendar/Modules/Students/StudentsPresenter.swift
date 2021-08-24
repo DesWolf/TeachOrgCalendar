@@ -42,13 +42,6 @@ class StudentsPresenter {
         self.databaseManager = databaseManager
         self.databaseNotifier = databaseNotifier
     }
-    
-    private func navigateToStudentProfile(student: Student?) {
-        if let newView = try? moduleAssembly.assembledView(for: .studentProfile(student: student)) {
-            newView.modalPresentationStyle = .fullScreen
-            view.push(viewController: newView, animated: true)
-        }
-    }
 }
 
 extension StudentsPresenter: StudentsPresenterProtocol {
@@ -74,7 +67,11 @@ extension StudentsPresenter: StudentsPresenterProtocol {
     }
     
     func didSelect(at index: Int) {
-//        navigateToStudentProfile(student: tempStudents[index])
+         let student = students[index]
+        if let newView = try? moduleAssembly.assembledView(for: .student(student: student)) {
+            newView.modalPresentationStyle = .fullScreen
+            view.push(viewController: newView, animated: true)
+        }
     }
     
     func loadStudents() {
@@ -82,7 +79,7 @@ extension StudentsPresenter: StudentsPresenterProtocol {
     }
     
     func addStudent() {
-        if let newView = try? moduleAssembly.assembledView(for: .studentProfile(student: nil)) {
+        if let newView = try? moduleAssembly.assembledView(for: .editStudent(student: nil)) {
             newView.modalPresentationStyle = .fullScreen
             view.push(viewController: newView, animated: true)
         }

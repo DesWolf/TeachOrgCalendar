@@ -8,16 +8,19 @@
 import UIKit
 
 protocol PoppingView {
-    @discardableResult
-    func popViewController(animated: Bool) -> Bool
+    func popViewController(animated: Bool)
+    func popToRootViewController(animated: Bool)
 }
 
 extension PoppingView where Self: UIViewController {
     
-    @discardableResult
-    func popViewController(animated: Bool) -> Bool {
-        guard let navi = navigationController else { return false }
+    func popViewController(animated: Bool) {
+        guard let navi = navigationController else { return }
         navi.popViewController(animated: animated)
-        return true
+    }
+    
+    func popToRootViewController(animated: Bool) {
+        guard let navi = navigationController else { return }
+        navi.popToRootViewController(animated: true)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 protocol PresentingView {
     func present(viewController: UIViewController, animated: Bool, completion: (() -> Void)?)
     func presentWrappingInNavigation(viewController: UIViewController, animated: Bool, completion: (() -> Void)?)
+    func presentInNavigation(viewController: UIViewController, animated: Bool, completion: (() -> Void)?)
 }
 
 extension PresentingView where Self: UIViewController {
@@ -20,6 +21,12 @@ extension PresentingView where Self: UIViewController {
     func presentWrappingInNavigation(viewController: UIViewController, animated: Bool, completion: (() -> Void)? = nil) {
         let navi = UINavigationController(rootViewController: viewController)
         navi.setNavigationBarHidden(true, animated: false)
+        navi.modalPresentationStyle = .fullScreen
+        present(navi, animated: true, completion: completion)
+    }
+    
+    func presentInNavigation(viewController: UIViewController, animated: Bool, completion: (() -> Void)? = nil) {
+        let navi = UINavigationController(rootViewController: viewController)
         navi.modalPresentationStyle = .fullScreen
         present(navi, animated: true, completion: completion)
     }

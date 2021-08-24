@@ -20,7 +20,7 @@ struct LaunchAssembly: Assembly {
         container.register(LaunchViewProtocol.self) { r in
             let viewController = LaunchViewController()
             
-            guard let presenter = r.resolve(LaunchPresenterProtocol.self) else {
+            guard var presenter = r.resolve(LaunchPresenterProtocol.self) else {
                 fatalError("Can't resolve LoginPresenterType in Launch View Controller")
             }
             
@@ -31,7 +31,7 @@ struct LaunchAssembly: Assembly {
             guard let appCoordinator = r.resolve(AppCoordinatorProtocol.self) else {
                 fatalError("Can't resolve UserManager in Launch View Controller")
             }
-            
+            presenter.view = viewController
             viewController.presenter = presenter
             viewController.authManager = authManager
             viewController.appCoordinator = appCoordinator
