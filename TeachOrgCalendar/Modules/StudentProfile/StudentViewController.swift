@@ -1,0 +1,91 @@
+//
+//  StudentProfileViewController.swift
+//  TeachOrgCalendar
+//
+//  Created by Максим Окунеев on 8/15/21.
+//
+
+import UIKit
+
+protocol StudentProtocol: AnyObject, DismissingView, PresentingView, NavigatingView {
+    var presenter: StudentPresenterProtocol! { get set }
+}
+
+class StudentViewController: UIViewController {
+    
+    // MARK: - Public properties
+    
+    var presenter: AddStudentPresenterProtocol!
+    
+    override func loadView() {
+        let view = StudentView()
+        
+        view.table.delegate = self
+        view.table.dataSource = self
+        view.table.register(EditNameTableCell.self, forCellReuseIdentifier: EditNameTableCell.reuseIdentifier)
+        view.table.register(EditDisciplineTableCell.self, forCellReuseIdentifier: EditDisciplineTableCell.reuseIdentifier)
+        view.table.register(EditContactsTableCell.self, forCellReuseIdentifier: EditContactsTableCell.reuseIdentifier)
+        view.table.register(EditNoteTableCell.self, forCellReuseIdentifier: EditNoteTableCell.reuseIdentifier)
+        
+        self.view = view
+        setupView()
+    }
+    
+    // MARK: - Public methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presenter.viewDidLoad()
+        
+        let editButton = UIBarButtonItem(title: Strings.StudentProfile.edit, style: .done, target: self, action: #selector(editStudent))
+        navigationItem.rightBarButtonItems = [editButton]
+    }
+    
+    // MARK: - Private methods
+    
+    private func setupView() {
+        
+    }
+    
+    @objc private func editStudent() {
+        
+    }
+}
+
+extension StudentViewController: AddStudentProtocol { }
+
+extension StudentViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        presenter.numberOfRows()
+    }
+    
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: presenter.cellIdentifier(at: indexPath.row), for: indexPath)
+        let model = presenter.model(at: indexPath.row)
+        model.configure(tableCell: cell, at: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let nameCellHeight: CGFloat = 118
+        let disciplineCellHeight: CGFloat = 130
+        let phoneCellHeight: CGFloat = 65
+        let emailCellHeight: CGFloat = 65
+        let tabBarHeight: CGFloat = self.tabBarController?.tabBar.frame.height ?? 100
+        switch indexPath.row {
+        case 0:
+            return nameCellHeight
+        case 1:
+            return disciplineCellHeight
+        case 2:
+            return phoneCellHeight
+        case 3:
+            return emailCellHeight
+        case 4:
+            let height = self.view.frame.height - nameCellHeight - disciplineCellHeight - phoneCellHeight - emailCellHeight - tabBarHeight
+            return height
+        default:
+            return UITableView.automaticDimension
+        }
+    }
+}
