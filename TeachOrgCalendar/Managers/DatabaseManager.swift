@@ -8,10 +8,17 @@
 import Foundation
 import FirebaseDatabase
 
+enum DatabaseFolder: String {
+    case users = "users"
+    case students = "students"
+    case events = "events"
+    case userInfo = "userInfo"
+}
+
 protocol DatabaseManager: AnyObject {
     func loadListOfStudents()
-    
-    func addStudent(student: Student)
+    func student(id: String) -> Student
+    func addStudent(student: Student) -> String
     func editStudent(student: Student)
     func deleteStudent(id: String)
 }
@@ -20,6 +27,8 @@ final class DatabaseManagerImpl {
     private var ref = Database.database().reference()
     private let authManager: AuthManager
     private let databaseNotifier: DatabaseNotifier
+    
+    private var listOfstudents: [Student]?
     
     init(authManager: AuthManager,
          databaseNotifier: DatabaseNotifier) {
@@ -31,12 +40,15 @@ final class DatabaseManagerImpl {
 
 extension DatabaseManagerImpl: DatabaseManager {
     func loadListOfStudents() {
-        ref.child(authManager.userUID).observe(.value) { snapshot in
+        ref.child(DatabaseFolder.users.rawValue)
+            .child(authManager.userUID)
+            .child(DatabaseFolder.students.rawValue)
+            .observe(.value) { snapshot in
             guard let values = snapshot.value as? [String: [String: Any]] else {
                 self.databaseNotifier.listOfStudents(list: [])
                 return
-                
             }
+            
             var students: [Student] = []
             
             values.forEach { (id, data) in
@@ -52,26 +64,51 @@ extension DatabaseManagerImpl: DatabaseManager {
                 
                 students.append(student)
             }
-            
+                self.listOfstudents = students
             self.databaseNotifier.listOfStudents(list: students)
         }
     }
     
+    func student(id: String) -> Student {
+        if let student = listOfstudents?.filter({ $0.id == id }).first {
+            return student
+        } else {
+            return Student()
+        }
+    }
     
-    func addStudent(student: Student) {
-        let object: [String: Any] = ["name": student.name ?? "",
+    func addStudent(student: Student) -> String {
+        guard let newId = ref.child(DatabaseFolder.users.rawValue)
+                .child(authManager.userUID)
+                .child(DatabaseFolder.students.rawValue)
+                .childByAutoId()
+                .key else {
+            return ""
+        }
+        
+        let object: [String: Any] = ["id": newId,
+                                     "name": student.name ?? "",
                                      "surname": student.surname ?? "",
                                      //"disciplines": student.disciplines ?? [""],
                                      "phone": student.phone ?? "",
                                      "email": student.email ?? "",
                                      "note": student.note ?? ""
-                                    ]
+        ]
+        ref.child(DatabaseFolder.users.rawValue)
+            .child(authManager.userUID)
+            .child(DatabaseFolder.students.rawValue)
+            .child(newId)
+            .setValue(object)
         
-        ref.child(authManager.userUID).childByAutoId().setValue(object)
+        return newId
     }
     
     func deleteStudent(id: String) {
-        ref.child(authManager.userUID).child(id).removeValue()
+        ref.child(DatabaseFolder.users.rawValue)
+            .child(authManager.userUID)
+            .child(DatabaseFolder.students.rawValue)
+            .child(id)
+            .removeValue()
     }
     
     func editStudent(student: Student) {
@@ -87,6 +124,10 @@ extension DatabaseManagerImpl: DatabaseManager {
                             "note": student.note ?? ""
                             ]
 
-        ref.child(authManager.userUID).child(id).updateChildValues(childUpdates)
+        ref.child(DatabaseFolder.users.rawValue)
+            .child(authManager.userUID)
+            .child(DatabaseFolder.students.rawValue)
+            .child(id)
+            .updateChildValues(childUpdates)
     }
 }

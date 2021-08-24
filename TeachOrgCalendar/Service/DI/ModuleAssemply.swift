@@ -43,12 +43,16 @@ extension ModuleAssemblyImpl: ModuleAssembly {
             return try resolveView(for: CalendarViewProtocol.self)
         case .profile:
             return try resolveView(for: ProfileViewProtocol.self)
-        case .studentProfile(let student):
-            guard let studentProfile = resolver.resolve(AddStudentProtocol.self, argument: student) as? UIViewController else {
+        case .editStudent(let student):
+            guard let addOrEditStudent = resolver.resolve(EditStudentProtocol.self, argument: student) as? UIViewController else {
+                throw ModuleAssemblyError.dependencyResolvingError
+            }
+            return addOrEditStudent
+        case .student(let student):
+            guard let studentProfile = resolver.resolve(StudentViewProtocol.self, argument: student) as? UIViewController else {
                 throw ModuleAssemblyError.dependencyResolvingError
             }
             return studentProfile
-//            return try resolveView(for: StudentProfileProtocol.self, argument: student)
         }
     }
 }

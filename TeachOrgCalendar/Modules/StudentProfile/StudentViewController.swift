@@ -1,5 +1,5 @@
 //
-//  StudentProfileViewController.swift
+//  StudentViewController.swift
 //  TeachOrgCalendar
 //
 //  Created by Максим Окунеев on 8/15/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol StudentProtocol: AnyObject, DismissingView, PresentingView, NavigatingView {
+protocol StudentViewProtocol: AnyObject, DismissingView, NavigatingView, PoppingView {
     var presenter: StudentPresenterProtocol! { get set }
 }
 
@@ -15,17 +15,17 @@ class StudentViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var presenter: AddStudentPresenterProtocol!
+    var presenter: StudentPresenterProtocol!
     
     override func loadView() {
         let view = StudentView()
         
         view.table.delegate = self
         view.table.dataSource = self
-        view.table.register(EditNameTableCell.self, forCellReuseIdentifier: EditNameTableCell.reuseIdentifier)
-        view.table.register(EditDisciplineTableCell.self, forCellReuseIdentifier: EditDisciplineTableCell.reuseIdentifier)
-        view.table.register(EditContactsTableCell.self, forCellReuseIdentifier: EditContactsTableCell.reuseIdentifier)
-        view.table.register(EditNoteTableCell.self, forCellReuseIdentifier: EditNoteTableCell.reuseIdentifier)
+        view.table.register(StudentNameTableCell.self, forCellReuseIdentifier: StudentNameTableCell.reuseIdentifier)
+        view.table.register(StudentDisciplineTableCell.self, forCellReuseIdentifier: StudentDisciplineTableCell.reuseIdentifier)
+        view.table.register(StudentContactsTableCell.self, forCellReuseIdentifier: StudentContactsTableCell.reuseIdentifier)
+        view.table.register(StudentNoteTableCell.self, forCellReuseIdentifier: StudentNoteTableCell.reuseIdentifier)
         
         self.view = view
         setupView()
@@ -37,22 +37,29 @@ class StudentViewController: UIViewController {
         super.viewDidLoad()
         presenter.viewDidLoad()
         
+        navigationController?.navigationBar.transparentNavigationBar()
         let editButton = UIBarButtonItem(title: Strings.StudentProfile.edit, style: .done, target: self, action: #selector(editStudent))
-        navigationItem.rightBarButtonItems = [editButton]
+        
+        let backButton = UIBarButtonItem(title: Strings.StudentProfile.backButton, style: .done, target: self, action: #selector(backToStudents))
+        navigationItem.leftBarButtonItem = backButton
+        navigationItem.rightBarButtonItem = editButton
     }
-    
+        
     // MARK: - Private methods
     
     private func setupView() {
-        
     }
     
     @objc private func editStudent() {
-        
+        presenter.editStudent()
+    }
+    
+    @objc private func backToStudents() {
+        presenter.closeStudent()
     }
 }
 
-extension StudentViewController: AddStudentProtocol { }
+extension StudentViewController: StudentViewProtocol { }
 
 extension StudentViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,14 +67,11 @@ extension StudentViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: presenter.cellIdentifier(at: indexPath.row), for: indexPath)
-        let model = presenter.model(at: indexPath.row)
-        model.configure(tableCell: cell, at: indexPath)
-        return cell
+        return presenter.cell(at: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let nameCellHeight: CGFloat = 118
+        let nameCellHeight: CGFloat = 200
         let disciplineCellHeight: CGFloat = 130
         let phoneCellHeight: CGFloat = 65
         let emailCellHeight: CGFloat = 65

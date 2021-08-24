@@ -8,7 +8,7 @@
 import UIKit
 
 class AddDisciplineCollectionViewCell: UICollectionViewCell {
-    let addLabel = UILabel()
+    let addImageView = UIImageView()
     
     override init(frame:CGRect) {
         super.init(frame: .zero)
@@ -24,16 +24,23 @@ class AddDisciplineCollectionViewCell: UICollectionViewCell {
     
     
     private func setupViews() {
-        layer.cornerRadius = self.frame.height / 4
-        addLabel.text = "+"
-        backgroundColor = .gray
         
-        contentView.addSubview(addLabel)
+        contentView.layer.cornerRadius = 15.0
+        contentView.layer.borderWidth = 1.0
+        contentView.layer.borderColor = UIColor.calendarGray.cgColor
+        contentView.layer.backgroundColor = UIColor.lightGray.cgColor
+        contentView.layer.masksToBounds = true
+    
+        addImageView.image = #imageLiteral(resourceName: "plus")
+        
+        contentView.addSubview(addImageView)
     }
     
     private func setupConstraints() {
-        addLabel.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        
+        addImageView.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+            $0.width.height.equalTo(15)
         }
     }
 }

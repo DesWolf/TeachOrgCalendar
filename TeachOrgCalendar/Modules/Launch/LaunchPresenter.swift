@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LaunchPresenterProtocol {
-    var viewController: LaunchViewProtocol! { get set }
+    var view: LaunchViewProtocol! { get set }
     
     func viewDidLoad()
 }
@@ -17,7 +17,7 @@ class LaunchPresenter {
     
     // MARK: - Public properties
     
-    weak var viewController: LaunchViewProtocol!
+    weak var view: LaunchViewProtocol!
     
     // MARK: - Private properties
     
@@ -32,6 +32,5 @@ class LaunchPresenter {
 
 extension LaunchPresenter: LaunchPresenterProtocol {
     func viewDidLoad() {
-        
     }
 }

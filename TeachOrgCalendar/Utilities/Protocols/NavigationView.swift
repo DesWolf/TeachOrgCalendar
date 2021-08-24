@@ -31,4 +31,10 @@ extension NavigatingView where Self: UIViewController {
         navi.pushViewController(viewController, animated: animated)
         return true
     }
+    
+//    func presentInNavigation(viewController: UIViewController, animated: Bool, completion: (() -> Void)? = nil) {
+//        let navi = UINavigationController(rootViewController: viewController)
+//        navi.modalPresentationStyle = .fullScreen
+//        present(navi, animated: true, completion: completion)
+//    }
 }

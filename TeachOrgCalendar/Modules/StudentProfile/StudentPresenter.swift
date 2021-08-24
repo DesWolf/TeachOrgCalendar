@@ -7,31 +7,30 @@
 
 import UIKit
 
-protocol StudentPresenterProtocol {
-    var view: StudentProtocol! { get set }
+protocol StudentPresenterProtocol: AnyObject {
+    var view: StudentViewProtocol! { get set }
     
     func viewDidLoad()
     func cellIdentifier(at index: Int) -> String
     func numberOfRows() -> Int
-    func model(at index: Int) -> SelfConfigurableViewModel
+    func cell(at index: Int) -> UITableViewCell
     func editStudent()
+    func closeStudent()
 }
-
-
 
 class StudentPresenter: NSObject {
     
     // MARK: - Public properties
     
-    weak var view: StudentProtocol!
+    weak var view: StudentViewProtocol!
     
     // MARK: - Private properties
     
     private let moduleAssembly: ModuleAssembly
     private let databaseManager: DatabaseManager
     private var student = Student()
-    private var rowsLayout: [AddStudentRow] = []
-    private let defaultRowsLayout: [AddStudentRow] = [
+    private var rowsLayout: [StudentRow] = []
+    private let defaultRowsLayout: [StudentRow] = [
         .name,
         .discipline,
         .phone,
@@ -43,20 +42,24 @@ class StudentPresenter: NSObject {
     
     init(moduleAssembly: ModuleAssembly,
          databaseManager: DatabaseManager,
-         studentId: String) {
+         student: Student) {
         self.moduleAssembly = moduleAssembly
         self.databaseManager = databaseManager
         
-        student = databaseManager.student(id: studentId)
+        self.student = student
     }
 }
 
 extension StudentPresenter: StudentPresenterProtocol {
     func editStudent() {
-        if let newView = try? moduleAssembly.assembledView(for: .addOrEditStudent(studentId: student.id)) {
+        if let newView = try? moduleAssembly.assembledView(for: .editStudent(student: student)) {
             newView.modalPresentationStyle = .fullScreen
             view.push(viewController: newView, animated: true)
         }
+    }
+    
+    func closeStudent() {
+        view.popToRootViewController(animated: true)
     }
     
     func viewDidLoad() {
@@ -71,29 +74,47 @@ extension StudentPresenter: StudentPresenterProtocol {
         rowsLayout[index].cellIdentifier
     }
     
-    func model(at index: Int) -> SelfConfigurableViewModel {
+    func cell(at index: Int) -> UITableViewCell {
         let rowType = rowsLayout[index]
         switch rowType {
             case .name:
-                return EditNameCellViewModel(nameTextField: student.name,
-                                         surnameTextField: student.surname,
-                                         delegate: self)
+                let cell =  StudentNameTableCell()
+                
+                cell.nameTitle.text = "\(student.name ?? "") \(student.surname ?? "")"
+                
+                return cell
             case .discipline:
-                return EditDisciplineTableCellViewModel(dataSource: self, delegate: self)
+                let cell = StudentDisciplineTableCell()
+
+                cell.disciplineTitle.text = Strings.StudentProfile.disciplineTitle
+                cell.disciplineCollectionView.delegate = self
+                cell.disciplineCollectionView.dataSource = self
+                cell.disciplineCollectionView.register(DisciplineCollectionViewCell.self, forCellWithReuseIdentifier: DisciplineCollectionViewCell.reuseIdentifier)
+
+                return cell
             case .phone:
-                return EditContactsCellViewModel(contactsTitle: Strings.AddOrEditStudent.phoneTitle,
-                                             icon: #imageLiteral(resourceName: "Telephone"),
-                                             textField: student.phone,
-                                             type: .phone,
-                                             delegate: self)
+                let cell = StudentContactsTableCell()
+                
+                cell.contactsTitle.text = Strings.StudentProfile.phoneTitle
+                cell.contactIcon.image = #imageLiteral(resourceName: "tel")
+                cell.contactText.text = student.phone
+                
+                return cell
             case .email:
-                return EditContactsCellViewModel(contactsTitle: Strings.AddOrEditStudent.emailTitle,
-                                             icon: #imageLiteral(resourceName: "Mail"),
-                                             textField: student.email,
-                                             type: .email,
-                                             delegate: self)
+                let cell = StudentContactsTableCell()
+                
+                cell.contactsTitle.text = Strings.StudentProfile.emailTitle
+                cell.contactIcon.image = #imageLiteral(resourceName: "email")
+                cell.contactText.text = student.email
+                
+                return cell
             case .note:
-                return EditNoteCellViewModel(note: student.note, delegate: self)
+                let cell = StudentNoteTableCell()
+                
+                cell.noteTitle.text =  Strings.StudentProfile.noteTitle
+                cell.noteTextView.text = student.note
+                
+                return cell
         }
     }
 }
@@ -101,27 +122,19 @@ extension StudentPresenter: StudentPresenterProtocol {
 extension StudentPresenter: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let disciplines = student.disciplines else {
-            return 1
+            return 0
         }
         
-        return disciplines.count + 1
+        return disciplines.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DisciplineCollectionViewCell.reuseIdentifier, for: indexPath)
         
-        if indexPath.row == student.disciplines?.count || student.disciplines == nil {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddDisciplineCollectionViewCell.reuseIdentifier, for: indexPath)
-            let model = AddDisciplineCollectionViewModel()
-            model.configure(collectionCell: cell, at: indexPath)
-            
-            return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DisciplineCollectionViewCell.reuseIdentifier, for: indexPath)
-            
-            let model = DisciplineCollectionViewModel(discipline: student.disciplines?[indexPath.row] ?? "" )
-            model.configure(collectionCell: cell, at: indexPath)
-            
-            return cell
-        }
+        let model = DisciplineCollectionViewModel(discipline: student.disciplines?[indexPath.row] ?? "" )
+        model.configure(collectionCell: cell, at: indexPath)
+        
+        return cell
     }
 }
+

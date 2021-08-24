@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol EditStudentProtocol: AnyObject, DismissingView, PresentingView, NavigatingView, PoppingView {
+protocol EditStudentProtocol: AnyObject, NavigatingView, PoppingView {
     var studentId: String? { get set }
     var presenter: EditStudentPresenterProtocol! { get set }
 }
