@@ -38,7 +38,7 @@ class StudentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-        navigationController?.navigationBar.transparentNavigationBar()
+//        navigationController?.navigationBar.transparentNavigationBar()
         self.title = Strings.Students.title
 
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))

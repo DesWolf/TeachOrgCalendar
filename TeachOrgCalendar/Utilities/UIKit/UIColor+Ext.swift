@@ -38,11 +38,11 @@ extension UIColor {
     }
     
     @nonobjc class var meetingCellBackGround: UIColor {
-        UIColor(named: "MeetingCellBackGround")!
+        UIColor(named: "MeetingCellBackground")!
     }
     
     @nonobjc class var meetingSelectCellBackGround: UIColor {
-        UIColor(named: "MeetingSelectCellBackGround")!
+        UIColor(named: "MeetingSelectCellBackground")!
     }
     
     @nonobjc class var divider: UIColor {
@@ -54,6 +54,6 @@ extension UIColor {
     }
     
     @nonobjc class var selectedTabItem: UIColor {
-        UIColor(named: "TabItem")!
+        UIColor(named: "SelectedTabItem")!
     }
 }

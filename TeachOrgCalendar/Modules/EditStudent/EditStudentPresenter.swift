@@ -8,7 +8,7 @@
 import UIKit
 
 protocol EditStudentPresenterProtocol {
-    var view: EditStudentProtocol! { get set }
+    var view: EditStudentViewProtocol! { get set }
     
     func viewDidLoad()
     func cellIdentifier(at index: Int) -> String
@@ -18,19 +18,17 @@ protocol EditStudentPresenterProtocol {
     func cancelEdit()
 }
 
-
-
 class EditStudentPresenter: NSObject {
     
     // MARK: - Public properties
     
-    weak var view: EditStudentProtocol!
+    weak var view: EditStudentViewProtocol!
     
     // MARK: - Private properties
     
     private let moduleAssembly: ModuleAssembly
     private let databaseManager: DatabaseManager
-    private var student = Student()
+    private var student: Student?
     private var rowsLayout: [StudentRow] = []
     private let defaultRowsLayout: [StudentRow] = [
         .name,
@@ -68,6 +66,10 @@ class EditStudentPresenter: NSObject {
 
 extension EditStudentPresenter: EditStudentPresenterProtocol {
     func saveStudent() {
+        guard let student = student else {
+            return
+        }
+        
         if student.name == nil || student.name == "" {
             simpleAlert(message: Strings.EditStudent.Error.emptyName)
             return
@@ -75,7 +77,7 @@ extension EditStudentPresenter: EditStudentPresenterProtocol {
 
         if student.id == nil {
             let newId = databaseManager.addStudent(student: student)
-            student.id = newId
+            self.student?.id = newId
         } else {
             databaseManager.editStudent(student: student)
         }
@@ -103,32 +105,32 @@ extension EditStudentPresenter: EditStudentPresenterProtocol {
         let rowType = rowsLayout[index]
         switch rowType {
             case .name:
-                return EditNameCellViewModel(nameTextField: student.name,
-                                         surnameTextField: student.surname,
+                return EditNameCellViewModel(nameTextField: student?.name,
+                                         surnameTextField: student?.surname,
                                          delegate: self)
             case .discipline:
                 return EditDisciplineTableCellViewModel(dataSource: self, delegate: self)
             case .phone:
                 return EditContactsCellViewModel(contactsTitle: Strings.StudentProfile.phoneTitle,
                                              icon: #imageLiteral(resourceName: "tel"),
-                                             textField: student.phone,
+                                             textField: student?.phone,
                                              type: .phone,
                                              delegate: self)
             case .email:
                 return EditContactsCellViewModel(contactsTitle: Strings.StudentProfile.emailTitle,
                                              icon: #imageLiteral(resourceName: "email"),
-                                             textField: student.email,
+                                             textField: student?.email,
                                              type: .email,
                                              delegate: self)
             case .note:
-                return EditNoteCellViewModel(note: student.note, delegate: self)
+                return EditNoteCellViewModel(note: student?.note, delegate: self)
         }
     }
 }
 
 extension EditStudentPresenter: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let disciplines = student.disciplines else {
+        guard let disciplines = student?.disciplines else {
             return 1
         }
         
@@ -137,7 +139,7 @@ extension EditStudentPresenter: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if indexPath.row == student.disciplines?.count || student.disciplines == nil {
+        if indexPath.row == student?.disciplines?.count || student?.disciplines == nil {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddDisciplineCollectionViewCell.reuseIdentifier, for: indexPath)
             let model = AddDisciplineCollectionViewModel()
             model.configure(collectionCell: cell, at: indexPath)
@@ -146,7 +148,7 @@ extension EditStudentPresenter: UICollectionViewDelegate, UICollectionViewDataSo
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DisciplineCollectionViewCell.reuseIdentifier, for: indexPath)
             
-            let model = DisciplineCollectionViewModel(discipline: student.disciplines?[indexPath.row] ?? "" )
+            let model = DisciplineCollectionViewModel(discipline: student?.disciplines?[indexPath.row] ?? "" )
             model.configure(collectionCell: cell, at: indexPath)
             
             return cell
@@ -161,14 +163,14 @@ extension EditStudentPresenter: EditNameCellDelegate {
         guard let name = name else {
             return
         }
-        student.name = name
+        student?.name = name
     }
     
     func surnameTFdidChanged(surname: String?) {
         guard let surname = surname else {
             return
         }
-        student.surname = surname
+        student?.surname = surname
     }
 }
 
@@ -184,9 +186,9 @@ extension EditStudentPresenter: EditContactCellDelegate {
         }
         switch type {
             case .email:
-                student.email = contact
+                student?.email = contact
             case .phone:
-                student.phone = contact
+                student?.phone = contact
         }
     }
 }
@@ -196,6 +198,6 @@ extension EditStudentPresenter: EditNoteCellDelegate {
         guard let note = note else {
             return
         }
-        student.note = note
+        student?.note = note
     }
 }

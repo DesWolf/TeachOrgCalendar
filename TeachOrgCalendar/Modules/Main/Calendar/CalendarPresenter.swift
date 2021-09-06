@@ -8,14 +8,16 @@
 import Foundation
 
 protocol CalendarPresenterProtocol {
-    var viewController: CalendarViewProtocol! { get set }
+    var view: CalendarViewProtocol! { get set }
+    
+    func addEvent()
 }
 
 class CalendarPresenter {
     
     // MARK: - Public properties
     
-    weak var viewController: CalendarViewProtocol!
+    weak var view: CalendarViewProtocol!
     
     // MARK: - Private properties
     
@@ -26,6 +28,15 @@ class CalendarPresenter {
     init(moduleAssembly: ModuleAssembly) {
         self.moduleAssembly = moduleAssembly
     }
+    
+    
 }
 
-extension CalendarPresenter: CalendarPresenterProtocol {}
+extension CalendarPresenter: CalendarPresenterProtocol {
+    func addEvent() {
+        if let newView = try? moduleAssembly.assembledView(for: .editEvent(event: nil)) {
+            newView.modalPresentationStyle = .fullScreen
+            view.push(viewController: newView, animated: true)
+        }
+    }
+}

@@ -17,7 +17,7 @@ struct CalendarAssembly: Assembly {
             }
             
             c.presenter = presenter
-            presenter.viewController = c
+            presenter.view = c
         }
         
         container.register(CalendarPresenterProtocol.self) { r in

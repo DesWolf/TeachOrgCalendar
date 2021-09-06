@@ -15,5 +15,6 @@ enum Module {
     case editStudent(student: Student?)
     case student(student: Student)
     case calendar
+    case editEvent(event: Event?)
     case profile
 }

@@ -11,4 +11,17 @@ extension UIView {
     static var reuseIdentifier: String {
         return String(describing: self)
     }
+
+    func didSelect() {
+        layer.cornerRadius = 10
+        backgroundColor = .meetingSelectCellBackGround
+        layer.borderColor = UIColor.clear.cgColor
+    }
+    
+    func didDeselect() {
+        layer.cornerRadius = 10
+        backgroundColor = .meetingCellBackGround
+        layer.borderColor = UIColor.border.cgColor
+        layer.borderWidth = 0.5
+    }
 }
