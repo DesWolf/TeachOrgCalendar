@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CalendarViewProtocol: AnyObject, PresentingView {
+protocol CalendarViewProtocol: AnyObject, NavigatingView {
     var presenter: CalendarPresenterProtocol! { get set }
 }
 
@@ -21,6 +21,13 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItems = [add]
+    }
+    
+    @objc private func addTapped() {
+        presenter.addEvent()
     }
 }
 

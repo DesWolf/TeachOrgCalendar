@@ -21,6 +21,12 @@ protocol DatabaseManager: AnyObject {
     func addStudent(student: Student) -> String
     func editStudent(student: Student)
     func deleteStudent(id: String)
+    
+    func loadListOfEvents()
+    func event(id: String) -> Event
+    func addEvent(event: Event) -> String
+    func editEvent(event: Event)
+    func deleteEvent(id: String)
 }
 
 final class DatabaseManagerImpl {
@@ -39,6 +45,9 @@ final class DatabaseManagerImpl {
 }
 
 extension DatabaseManagerImpl: DatabaseManager {
+    
+    // MARK: - Student
+    
     func loadListOfStudents() {
         ref.child(DatabaseFolder.users.rawValue)
             .child(authManager.userUID)
@@ -129,5 +138,27 @@ extension DatabaseManagerImpl: DatabaseManager {
             .child(DatabaseFolder.students.rawValue)
             .child(id)
             .updateChildValues(childUpdates)
+    }
+    
+    // MARK: - Event
+    
+    func loadListOfEvents() {
+        
+    }
+    
+    func event(id: String) -> Event {
+        return Event()
+    }
+    
+    func addEvent(event: Event) -> String {
+        return ""
+    }
+    
+    func editEvent(event: Event) {
+        
+    }
+    
+    func deleteEvent(id: String) {
+        
     }
 }

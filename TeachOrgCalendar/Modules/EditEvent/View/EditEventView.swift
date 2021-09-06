@@ -1,14 +1,14 @@
 //
-//  AddStudentView.swift
+//  EditEventView.swift
 //  TeachOrgCalendar
 //
-//  Created by Максим Окунеев on 5/24/21.
+//  Created by Максим Окунеев on 8/24/21.
 //
 
 import UIKit
 import SnapKit
     
-final class EditStudentView: UIView {
+final class EditEventView: UIView {
 
     // MARK: - Public properties
     
@@ -33,12 +33,10 @@ final class EditStudentView: UIView {
         backgroundColor = .background
         table.separatorStyle = .none
         
-
         addSubview(table)
     }
     
     private func setConstraints() {
-        
         table.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }

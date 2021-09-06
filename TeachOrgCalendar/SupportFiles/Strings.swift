@@ -47,6 +47,34 @@ struct Strings {
         }
     }
     
+    struct EditEvent {
+        
+        struct Segment {
+            static let lesson = "Урок"
+            static let personal = "Личное"
+        }
+        static let name = "Название:"
+        static let namePlaceholder = "Введите название"
+        static let place = "Место:"
+        static let placePlaceholder = "Укажите место"
+        static let student = "Ученик:"
+        static let discipline = "Предмет занятий:"
+        
+        static let startEvent = "Начало:"
+        static let endEvent = "Конец:"
+        static let repeatLesson = "Повтор:"
+        static let repeatPlaceholder = "Никогда"
+        static let reminder = "Напоминание:"
+        static let price = "Стоимость занятия:"
+        static let pricePlaceHolder = "0 руб."
+        static let note = "Комментарии:"
+        
+        struct Repeat {
+            static let never = "Никогда"
+        }
+    }
+    
+    
     struct Errors {
         static let noInternetConnection = "Отсутствует интернет-соединение"
     }

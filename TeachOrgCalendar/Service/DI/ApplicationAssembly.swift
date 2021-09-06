@@ -20,6 +20,7 @@ final class ApplicationAssembly {
             StudentAssembly(),
             EditStudentAssembly(),
             CalendarAssembly(),
+            EditEventAssembly(),
             ProfileAssembly(),
             ServiceAssembly(),
             ManagerAssembly(),

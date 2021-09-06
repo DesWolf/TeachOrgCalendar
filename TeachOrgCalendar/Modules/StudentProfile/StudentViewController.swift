@@ -37,10 +37,13 @@ class StudentViewController: UIViewController {
         super.viewDidLoad()
         presenter.viewDidLoad()
         
-        navigationController?.navigationBar.transparentNavigationBar()
+//        navigationController?.navigationBar.transparentNavigationBar()
         let editButton = UIBarButtonItem(title: Strings.StudentProfile.edit, style: .done, target: self, action: #selector(editStudent))
         
         let backButton = UIBarButtonItem(title: Strings.StudentProfile.backButton, style: .done, target: self, action: #selector(backToStudents))
+        
+        navigationItem.leftBarButtonItem?.tintColor = .calendarBlue
+        navigationItem.rightBarButtonItem?.tintColor = .calendarBlue
         navigationItem.leftBarButtonItem = backButton
         navigationItem.rightBarButtonItem = editButton
     }

@@ -7,8 +7,7 @@
 
 import UIKit
 
-protocol EditStudentProtocol: AnyObject, NavigatingView, PoppingView {
-    var studentId: String? { get set }
+protocol EditStudentViewProtocol: AnyObject, NavigatingView, PoppingView {
     var presenter: EditStudentPresenterProtocol! { get set }
 }
 
@@ -17,7 +16,6 @@ class EditStudentViewController: UIViewController {
     // MARK: - Public properties
     
     var presenter: EditStudentPresenterProtocol!
-    var studentId: String?
     
     override func loadView() {
         let view = EditStudentView()
@@ -38,11 +36,14 @@ class EditStudentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-        navigationController?.navigationBar.transparentNavigationBar()
+//        navigationController?.navigationBar.transparentNavigationBar()
         self.title = Strings.EditStudent.newUserTitle
         
         let doneButton = UIBarButtonItem(title: Strings.Common.conformButton, style: .done, target: self, action: #selector(saveStudent))
         let cancelButton = UIBarButtonItem(title: Strings.Common.cancelButton, style: .done, target: self, action: #selector(cancelEdit))
+        
+        navigationItem.leftBarButtonItem?.tintColor = .calendarBlue
+        navigationItem.rightBarButtonItem?.tintColor = .calendarBlue
         navigationItem.rightBarButtonItem = doneButton
         navigationItem.leftBarButtonItem = cancelButton
     }
@@ -61,7 +62,7 @@ class EditStudentViewController: UIViewController {
     }
 }
 
-extension EditStudentViewController: EditStudentProtocol { }
+extension EditStudentViewController: EditStudentViewProtocol { }
 
 extension EditStudentViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

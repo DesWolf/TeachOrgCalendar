@@ -23,7 +23,7 @@ struct EditStudentAssembly: Assembly {
                                            student: student)
         }
         
-        container.register(EditStudentProtocol.self) { (r, student: Student?) in
+        container.register(EditStudentViewProtocol.self) { (r, student: Student?) in
             let viewController = EditStudentViewController()
             
             guard var presenter = r.resolve(EditStudentPresenterProtocol.self, argument: student) else {
