@@ -9,6 +9,7 @@ import Foundation
 
 protocol DatabaseNotifier: AnyObject {
     func listOfStudents(list: [Student])
+    func listOfEvents(list: [Event])
 }
 
 protocol DatabaseObserver: AnyObject {
@@ -31,6 +32,10 @@ class DatabaseNotifierImpl {
 extension DatabaseNotifierImpl: DatabaseNotifier {
     func listOfStudents(list: [Student]) {
         observers.forEach( {$0.listener?.listOfStudents(list: list)})
+    }
+    
+    func listOfEvents(list: [Event]) {
+        observers.forEach( {$0.listener?.listOfEvents(list: list)})
     }
 }
 

@@ -100,4 +100,6 @@ extension StudentsPresenter: DatabaseNotifier {
             self.view.reloadTableView()
         }
     }
+    
+    func listOfEvents(list: [Event]) { }
 }
