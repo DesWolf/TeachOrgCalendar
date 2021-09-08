@@ -35,6 +35,7 @@ final class DatabaseManagerImpl {
     private let databaseNotifier: DatabaseNotifier
     
     private var listOfstudents: [Student]?
+    private var listOfEvents: [Event]?
     
     init(authManager: AuthManager,
          databaseNotifier: DatabaseNotifier) {
@@ -125,7 +126,8 @@ extension DatabaseManagerImpl: DatabaseManager {
             return
         }
         
-        let childUpdates = ["name": student.name ?? "",
+        let childUpdates = ["id": id,
+                            "name": student.name ?? "",
                             "surname": student.surname ?? "",
                             //"disciplines": student.disciplines ?? [""],
                             "phone": student.phone ?? "",
@@ -143,22 +145,111 @@ extension DatabaseManagerImpl: DatabaseManager {
     // MARK: - Event
     
     func loadListOfEvents() {
-        
+        ref.child(DatabaseFolder.events.rawValue)
+            .child(authManager.userUID)
+            .child(DatabaseFolder.events.rawValue)
+            .observe(.value) { snapshot in
+            guard let values = snapshot.value as? [String: [String: Any]] else {
+                self.databaseNotifier.listOfEvents(list: [])
+                return
+            }
+            
+            var events: [Event] = []
+            
+            values.forEach { (id, data) in
+                var event = Event()
+                
+                event.id = id
+                event.name = data["name"] as? String
+                event.place = data["surname"] as? String
+                event.studentId = data["studentId"] as? String
+                event.discipline = data["discipline"] as? String
+                event.startDate = data["startDate"] as? Double
+                event.endDate = data["endDate"] as? Double
+                event.endRepeat = data["endRepeat"] as? Double
+                event.reminder = data["reminder"] as? Reminder
+                event.price = data["price"] as? Int
+                event.note = data["note"] as? String
+                event.paymentStatus = data["paymentStatus"] as? Bool
+                event.paymentDate = data["paymentDate"] as? TimeInterval
+                
+                events.append(event)
+            }
+                self.listOfEvents = events
+            self.databaseNotifier.listOfEvents(list: events)
+        }
     }
     
     func event(id: String) -> Event {
-        return Event()
+        if let event = listOfEvents?.filter({ $0.id == id }).first {
+            return event
+        } else {
+            return Event()
+        }
     }
     
     func addEvent(event: Event) -> String {
-        return ""
+        guard let newId = ref.child(DatabaseFolder.events.rawValue)
+                .child(authManager.userUID)
+                .child(DatabaseFolder.events.rawValue)
+                .childByAutoId()
+                .key else {
+            return ""
+        }
+        
+        let object: [String: Any] = ["id": newId,
+                                     "name": event.name ?? "",
+                                     "place": event.place ?? "",
+                                     "studentId": event.studentId ?? "",
+                                     "discipline": event.discipline ?? "",
+                                     "startDate": event.startDate ?? 0,
+                                     "endDate": event.endDate ?? 0,
+                                     "reminder": event.reminder ?? "",
+                                     "price": event.price ?? 0,
+                                     "note": event.note ?? "",
+                                     "paymentStatus": event.paymentStatus ?? false,
+                                     "paymentDate": event.paymentDate ?? 0
+        ]
+        ref.child(DatabaseFolder.users.rawValue)
+            .child(authManager.userUID)
+            .child(DatabaseFolder.events.rawValue)
+            .child(newId)
+            .setValue(object)
+        
+        return newId
     }
     
     func editEvent(event: Event) {
-        
+        guard let id = event.id else {
+            return
+        }
+
+        let childUpdates: [String: Any] = ["id": id,
+                            "name": event.name ?? "",
+                            "place": event.place ?? "",
+                            "studentId": event.studentId ?? "",
+                            "discipline": event.discipline ?? "",
+                            "startDate": event.startDate ?? 0,
+                            "endDate": event.endDate ?? 0,
+                            "reminder": event.reminder ?? "",
+                            "price": event.price ?? 0,
+                            "note": event.note ?? "",
+                            "paymentStatus": event.paymentStatus ?? false,
+                            "paymentDate": event.paymentDate ?? 0
+        ]
+
+        ref.child(DatabaseFolder.users.rawValue)
+            .child(authManager.userUID)
+            .child(DatabaseFolder.events.rawValue)
+            .child(id)
+            .updateChildValues(childUpdates)
     }
     
     func deleteEvent(id: String) {
-        
+        ref.child(DatabaseFolder.users.rawValue)
+            .child(authManager.userUID)
+            .child(DatabaseFolder.events.rawValue)
+            .child(id)
+            .removeValue()
     }
 }

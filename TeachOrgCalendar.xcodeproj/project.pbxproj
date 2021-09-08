@@ -38,6 +38,8 @@
 		9E43012326E523A500E63228 /* EditEventReminderAndPriceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E43012226E523A500E63228 /* EditEventReminderAndPriceTableCell.swift */; };
 		9E43012726E52A5700E63228 /* EditEventReminderAndPriceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E43012626E52A5700E63228 /* EditEventReminderAndPriceViewModel.swift */; };
 		9E43012926E52E9900E63228 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E43012826E52E9900E63228 /* Reminder.swift */; };
+		9E4542E626E7AF1B000F6D3E /* Repeatedly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4542E526E7AF1B000F6D3E /* Repeatedly.swift */; };
+		9E4542E826E7DF6C000F6D3E /* TimeInterval+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4542E726E7DF6C000F6D3E /* TimeInterval+Ext.swift */; };
 		9E493BD92641778C00AE7E86 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E493BD82641778C00AE7E86 /* UIColor+Ext.swift */; };
 		9E5FB61226B6B2CF00B4E50D /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5FB61126B6B2CF00B4E50D /* DatabaseManager.swift */; };
 		9E633FAF2610D0AC0053BF65 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E633FAE2610D0AC0053BF65 /* UIView+Ext.swift */; };
@@ -158,6 +160,8 @@
 		9E43012226E523A500E63228 /* EditEventReminderAndPriceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventReminderAndPriceTableCell.swift; sourceTree = "<group>"; };
 		9E43012626E52A5700E63228 /* EditEventReminderAndPriceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventReminderAndPriceViewModel.swift; sourceTree = "<group>"; };
 		9E43012826E52E9900E63228 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		9E4542E526E7AF1B000F6D3E /* Repeatedly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repeatedly.swift; sourceTree = "<group>"; };
+		9E4542E726E7DF6C000F6D3E /* TimeInterval+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Ext.swift"; sourceTree = "<group>"; };
 		9E493BD82641778C00AE7E86 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		9E5FB61126B6B2CF00B4E50D /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		9E633FAE2610D0AC0053BF65 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -393,6 +397,7 @@
 				9EDF5B4226D25BF500D76F23 /* NavigationBar+Ext.swift */,
 				9E78014126D4291F005967AA /* UIApplication+Ext.swift */,
 				9E78014326D51459005967AA /* UIAlertController+Ext.swift */,
+				9E4542E726E7DF6C000F6D3E /* TimeInterval+Ext.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -694,6 +699,7 @@
 				9ED8B9DE263FD2FC0022BA1B /* Student.swift */,
 				9E78015026D5930F005967AA /* Event.swift */,
 				9E43012826E52E9900E63228 /* Reminder.swift */,
+				9E4542E526E7AF1B000F6D3E /* Repeatedly.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -945,7 +951,9 @@
 				9E10794C26BDC1F500D0DA19 /* AddDisciplineCollectionViewModel.swift in Sources */,
 				9E3A1DE426C97FFB0044D17B /* StudentNoteTableCell.swift in Sources */,
 				9E6C083F2610C28800274235 /* ModuleAssemply.swift in Sources */,
+				9E4542E826E7DF6C000F6D3E /* TimeInterval+Ext.swift in Sources */,
 				9E6C086A2610C28800274235 /* SelfConfigurableViewModel.swift in Sources */,
+				9E4542E626E7AF1B000F6D3E /* Repeatedly.swift in Sources */,
 				9EDF5B4326D25BF500D76F23 /* NavigationBar+Ext.swift in Sources */,
 				9E7834FF26AD8A3900670138 /* LaunchViewController.swift in Sources */,
 				9ED8B9E7263FD5AD0022BA1B /* StudentTableCell.swift in Sources */,

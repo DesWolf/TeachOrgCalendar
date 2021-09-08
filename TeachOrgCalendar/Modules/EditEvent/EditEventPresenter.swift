@@ -32,7 +32,7 @@ class EditEventPresenter {
     
     private let moduleAssembly: ModuleAssembly
     private let databaseManager: DatabaseManager
-    private var event: Event?
+    private var event = Event()
     private var noteCellSize: CGSize = CGSize(width: 0, height: 90)
     let rowsLayout: [EditEventRow] = [
         .name,
@@ -81,9 +81,9 @@ class EditEventPresenter {
 
 extension EditEventPresenter: EditEventPresenterProtocol {
     func saveEvent() {
-        guard var event = event else {
-            return
-        }
+//        guard var event = event else {
+//            return
+//        }
         
         if event.name == nil || event.name == "" {
             simpleAlert(message: Strings.EditStudent.Error.emptyName)
@@ -129,29 +129,33 @@ extension EditEventPresenter: EditEventPresenterProtocol {
         let rowType = rowsLayout[index]
         switch rowType {
         case .name:
-            return TableCellWithTextFieldViewModel(cellTextField: event?.name,
+            return TableCellWithTextFieldViewModel(cellTextField: event.name,
                                                    elem: .name,
                                                    delegate: self)
         case .place:
-            return TableCellWithTextFieldViewModel(cellTextField: event?.place,
+            return TableCellWithTextFieldViewModel(cellTextField: event.place,
                                                    elem: .place,
                                                    delegate: self)
         case .studentInfo:
             var student = ""
             
-            if let name = event?.studentName {
-                student.append(name)
-            }
-            if let surname = event?.studentSurname {
-                student.append(" ")
-                student.append(surname)
+            if let studentId = event.studentId {
+                let studentData = databaseManager.student(id: studentId)
+                
+                if let name = studentData.name {
+                    student.append(name)
+                }
+                if let surname = studentData.surname {
+                    student.append(" ")
+                    student.append(surname)
+                }
             }
             
             let firstElem = EditEventElem(title: Strings.EditEvent.student,
                                           text: student,
                                           type: .student)
             let secondElem = EditEventElem(title: Strings.EditEvent.discipline,
-                                          text: event?.discipline,
+                                          text: event.discipline,
                                           type: .discipline)
             
             return TableCellWithStackViewModel(elements: [firstElem, secondElem],
@@ -159,26 +163,26 @@ extension EditEventPresenter: EditEventPresenterProtocol {
             
         case .time:
             let firstElem = EditEventElem(title: Strings.EditEvent.startEvent,
-                                          text: event?.startDate,
+                                          text: event.startDate?.eventDateShort(),
                                           type: .startEvent)
             let secondElem = EditEventElem(title: Strings.EditEvent.endEvent,
-                                          text: event?.endDate,
+                                          text: event.endDate?.eventDateShort(),
                                           type: .endEvent)
             
             return TableCellWithStackViewModel(elements: [firstElem, secondElem],
                                                delegate: self)
         case .repeatedly:
-            return TableCellWithTextFieldViewModel(cellTextField: event?.repeatedly,
+            return TableCellWithTextFieldViewModel(cellTextField: event.repeatedly?.rawValue,
                                                    elem: .repeatedly,
                                                    delegate: self)
         case .reminderAndPrice:
             
-            return EditEventReminderAndPriceViewModel(reminder: event?.reminder,
-                                                      price: event?.price,
+            return EditEventReminderAndPriceViewModel(reminder: event.reminder,
+                                                      price: event.price,
                                                       showPrice: showPrice,
                                                       delegate: self)
         case .note:
-            return EventNoteViewModel(cellTextView: event?.note,
+            return EventNoteViewModel(cellTextView: event.note,
                                       delegate: self)
         }
     }
@@ -186,13 +190,17 @@ extension EditEventPresenter: EditEventPresenterProtocol {
 
 extension EditEventPresenter: TableCellWithTextDelegate {
     func textFieldDidChanged(elem: EditEventElemType, text: String?) {
+        guard let text = text else {
+            return
+        }
+        
         switch elem {
         case .name:
-            event?.name = text
+            event.name = text
         case .place:
-            event?.place = text
+            event.place = text
         case .repeatedly:
-            event?.repeatedly = text
+                event.repeatedly = Repeatedly.byName(name: text)
         default:
             return
         }
@@ -222,7 +230,7 @@ extension EditEventPresenter: ViewWithTitleAndTextDelegate {
 
 extension EditEventPresenter: EventNoteTableCellDelegate {
     func textViewDidChanged(text: String?, newSize: CGSize) {
-        event?.note = text
+        event.note = text
     
         if noteCellSize.height != newSize.height {
             view.reloadNoteCell()
@@ -232,7 +240,7 @@ extension EditEventPresenter: EventNoteTableCellDelegate {
 
 extension EditEventPresenter: EditPriceDelegate {
     func textFieldDidChanged(price: Int?) {
-        event?.price = price
+        event.price = price
     }
     
     
