@@ -27,6 +27,11 @@ extension UIFont {
     class var button: UIFont {
       return UIFont.systemFont(ofSize: 15.0, weight: .regular)
     }
+    
+    class var eventTitle: UIFont {
+      return UIFont.systemFont(ofSize: 17.0, weight: .regular)
+    }
+    
 }
 
 

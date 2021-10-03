@@ -4,6 +4,7 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
+  - CVCalendar (1.7.0)
   - Firebase (8.5.0):
     - Firebase/Core (= 8.5.0)
   - Firebase/Core (8.5.0):
@@ -139,6 +140,7 @@ PODS:
     - Swinject (~> 2.7.1)
 
 DEPENDENCIES:
+  - CVCalendar
   - Firebase
   - Firebase/Core
   - Firebase/Database
@@ -155,6 +157,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AppAuth
+    - CVCalendar
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -184,6 +187,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  CVCalendar: 1174c1b43c1a258970e14c1e8b19ef4106c5900b
   Firebase: ff8c73105b90e33e1dc6c8e5445d7adc2ccdc7c1
   FirebaseAnalytics: 96325c1e0acbd2bb805c6a613028b1fe599d6a37
   FirebaseAuth: b152ea261b60eeb9419ae7e5bf34761382b33277
@@ -211,6 +215,6 @@ SPEC CHECKSUMS:
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectStoryboard: fe54ea9494a75348b1f3126e5e278e674f5684ad
 
-PODFILE CHECKSUM: f809498969bd13f79aa45b681150bff8510b4f28
+PODFILE CHECKSUM: e888128f49922fc5f1b225401005d983474b8e9b
 
 COCOAPODS: 1.10.2

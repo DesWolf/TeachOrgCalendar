@@ -145,7 +145,7 @@ extension DatabaseManagerImpl: DatabaseManager {
     // MARK: - Event
     
     func loadListOfEvents() {
-        ref.child(DatabaseFolder.events.rawValue)
+        ref.child(DatabaseFolder.users.rawValue)
             .child(authManager.userUID)
             .child(DatabaseFolder.events.rawValue)
             .observe(.value) { snapshot in
@@ -157,15 +157,19 @@ extension DatabaseManagerImpl: DatabaseManager {
             var events: [Event] = []
             
             values.forEach { (id, data) in
-                var event = Event()
+                var event = Event(name: "",
+                                  startDate: 0,
+                                  endDate: 0,
+                                  dates: [])
                 
                 event.id = id
-                event.name = data["name"] as? String
+                event.name = data["name"] as? String ?? ""
                 event.place = data["surname"] as? String
                 event.studentId = data["studentId"] as? String
                 event.discipline = data["discipline"] as? String
-                event.startDate = data["startDate"] as? Double
-                event.endDate = data["endDate"] as? Double
+                event.startDate = data["startDate"] as? Double ?? 0
+                event.endDate = data["endDate"] as? Double ?? 0
+                event.dates = data["dates"] as? [Double] ?? []
                 event.endRepeat = data["endRepeat"] as? Double
                 event.reminder = data["reminder"] as? Reminder
                 event.price = data["price"] as? Int
@@ -184,12 +188,15 @@ extension DatabaseManagerImpl: DatabaseManager {
         if let event = listOfEvents?.filter({ $0.id == id }).first {
             return event
         } else {
-            return Event()
+            return Event(name: "",
+                         startDate: 0,
+                         endDate: 0,
+                         dates: [])
         }
     }
     
     func addEvent(event: Event) -> String {
-        guard let newId = ref.child(DatabaseFolder.events.rawValue)
+        guard let newId = ref.child(DatabaseFolder.users.rawValue)
                 .child(authManager.userUID)
                 .child(DatabaseFolder.events.rawValue)
                 .childByAutoId()
@@ -198,12 +205,13 @@ extension DatabaseManagerImpl: DatabaseManager {
         }
         
         let object: [String: Any] = ["id": newId,
-                                     "name": event.name ?? "",
+                                     "name": event.name,
                                      "place": event.place ?? "",
                                      "studentId": event.studentId ?? "",
                                      "discipline": event.discipline ?? "",
-                                     "startDate": event.startDate ?? 0,
-                                     "endDate": event.endDate ?? 0,
+                                     "startDate": event.startDate,
+                                     "endDate": event.endDate,
+                                     "dates": event.dates,
                                      "reminder": event.reminder ?? "",
                                      "price": event.price ?? 0,
                                      "note": event.note ?? "",
@@ -225,12 +233,13 @@ extension DatabaseManagerImpl: DatabaseManager {
         }
 
         let childUpdates: [String: Any] = ["id": id,
-                            "name": event.name ?? "",
+                            "name": event.name,
                             "place": event.place ?? "",
                             "studentId": event.studentId ?? "",
                             "discipline": event.discipline ?? "",
-                            "startDate": event.startDate ?? 0,
-                            "endDate": event.endDate ?? 0,
+                            "startDate": event.startDate,
+                            "endDate": event.endDate,
+                            "dates": event.dates,
                             "reminder": event.reminder ?? "",
                             "price": event.price ?? 0,
                             "note": event.note ?? "",
@@ -243,6 +252,10 @@ extension DatabaseManagerImpl: DatabaseManager {
             .child(DatabaseFolder.events.rawValue)
             .child(id)
             .updateChildValues(childUpdates)
+    }
+    
+    func changePaymentStatus() {
+        
     }
     
     func deleteEvent(id: String) {

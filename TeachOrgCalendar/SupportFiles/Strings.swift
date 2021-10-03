@@ -11,6 +11,12 @@ struct Strings {
     struct Common {
         static let conformButton = "Готово"
         static let cancelButton = "Отмена"
+        static let okButton = "Ок"
+        static let agree = "Да"
+        static let disagree = "Нет"
+        static let currency = "₽"
+        static let delete = "Удалить"
+        
     }
     struct Login {
         static let greetingsTitle = "Добро пожаловать в TeachOrg"
@@ -47,12 +53,12 @@ struct Strings {
         }
     }
     
+    struct Event {
+        static let notPaid = "Не оплачено"
+        static let paid = "Оплачено"
+    }
+    
     struct EditEvent {
-        
-        struct Segment {
-            static let lesson = "Урок"
-            static let personal = "Личное"
-        }
         static let name = "Название:"
         static let namePlaceholder = "Введите название"
         static let place = "Место:"
@@ -74,6 +80,9 @@ struct Strings {
         }
     }
     
+    struct Alerts {
+        static let paymentQuestion = "Занятие оплачено?"
+    }
     
     struct Errors {
         static let noInternetConnection = "Отсутствует интернет-соединение"

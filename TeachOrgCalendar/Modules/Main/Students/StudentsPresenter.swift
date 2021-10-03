@@ -11,7 +11,7 @@ protocol StudentsPresenterProtocol: AnyObject {
     var view: StudentsViewProtocol! { get set }
     
     func viewDidLoad()
-    func loadStudents()
+    func refresh()
     func addStudent()
     func numberOfRows() -> Int
     func model(at index: Int) -> SelfConfigurableViewModel
@@ -42,12 +42,25 @@ class StudentsPresenter {
         self.databaseManager = databaseManager
         self.databaseNotifier = databaseNotifier
     }
+    
+    // MARK: - Private methods
+    
+    private func loadStudents() {
+        databaseManager.loadListOfStudents()
+    }
 }
+
+// MARK: - Public methods
 
 extension StudentsPresenter: StudentsPresenterProtocol {
     func viewDidLoad() {
         loadStudents()
         databaseNotifier.subscribe(self)
+    }
+    
+    func refresh() {
+        students.removeAll()
+        loadStudents()
     }
     
     func numberOfRows() -> Int {
@@ -72,10 +85,6 @@ extension StudentsPresenter: StudentsPresenterProtocol {
             newView.modalPresentationStyle = .fullScreen
             view.push(viewController: newView, animated: true)
         }
-    }
-    
-    func loadStudents() {
-        databaseManager.loadListOfStudents()
     }
     
     func addStudent() {

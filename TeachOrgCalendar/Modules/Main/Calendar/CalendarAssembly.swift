@@ -25,7 +25,17 @@ struct CalendarAssembly: Assembly {
                 fatalError("Can't resolve moduleAssemby in Calendar Presenter")
             }
             
-            return CalendarPresenter(moduleAssembly: moduleAssembly)
+            guard let databaseManager = r.resolve(DatabaseManager.self) else {
+                fatalError("Can't resolve DatabaseManager in Calendar Presenter")
+            }
+            
+            guard let databaseNotifier = r.resolve(DatabaseObserver.self) else {
+                fatalError("Can't resolve DatabaseNotifier in Calendar Presenter")
+            }
+            
+            return CalendarPresenter(moduleAssembly: moduleAssembly,
+                                     databaseManager: databaseManager,
+                                     databaseNotifier: databaseNotifier)
         }
     }
 }

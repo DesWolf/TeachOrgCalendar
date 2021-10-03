@@ -32,7 +32,13 @@ class EditEventPresenter {
     
     private let moduleAssembly: ModuleAssembly
     private let databaseManager: DatabaseManager
-    private var event = Event()
+    private var event = Event(
+        name: "",
+        startDate: 0,
+        endDate: 0,
+        dates: []
+    )
+
     private var noteCellSize: CGSize = CGSize(width: 0, height: 90)
     let rowsLayout: [EditEventRow] = [
         .name,
@@ -66,7 +72,7 @@ class EditEventPresenter {
     }
     
     private func simpleAlert(message: String) {
-        UIAlertController.simpleAlert(title:"Error", msg:"\(message)", target: view as! UIViewController)
+        UIAlertController.simpleAlert(title:"Error", msg:"\(message)")
     }
     
     private func find(value searchValue: EditEventRow, in array: [EditEventRow]) -> Int? {
@@ -81,11 +87,7 @@ class EditEventPresenter {
 
 extension EditEventPresenter: EditEventPresenterProtocol {
     func saveEvent() {
-//        guard var event = event else {
-//            return
-//        }
-        
-        if event.name == nil || event.name == "" {
+        if event.name == "" {
             simpleAlert(message: Strings.EditStudent.Error.emptyName)
             return
         }
@@ -129,13 +131,17 @@ extension EditEventPresenter: EditEventPresenterProtocol {
         let rowType = rowsLayout[index]
         switch rowType {
         case .name:
-            return TableCellWithTextFieldViewModel(cellTextField: event.name,
-                                                   elem: .name,
-                                                   delegate: self)
+            return TableCellWithTextFieldViewModel(
+                cellTextField: event.name,
+                elem: .name,
+                delegate: self
+            )
         case .place:
-            return TableCellWithTextFieldViewModel(cellTextField: event.place,
-                                                   elem: .place,
-                                                   delegate: self)
+            return TableCellWithTextFieldViewModel(
+                cellTextField: event.place,
+                elem: .place,
+                delegate: self
+            )
         case .studentInfo:
             var student = ""
             
@@ -151,39 +157,55 @@ extension EditEventPresenter: EditEventPresenterProtocol {
                 }
             }
             
-            let firstElem = EditEventElem(title: Strings.EditEvent.student,
-                                          text: student,
-                                          type: .student)
-            let secondElem = EditEventElem(title: Strings.EditEvent.discipline,
-                                          text: event.discipline,
-                                          type: .discipline)
+            let firstElem = EditEventElem(
+                title: Strings.EditEvent.student,
+                text: student,
+                type: .student
+            )
+            let secondElem = EditEventElem(
+                title: Strings.EditEvent.discipline,
+                text: event.discipline,
+                type: .discipline
+            )
             
-            return TableCellWithStackViewModel(elements: [firstElem, secondElem],
-                                        delegate: self)
-            
+            return TableCellWithStackViewModel(
+                elements: [firstElem, secondElem],
+                delegate: self
+            )
         case .time:
-            let firstElem = EditEventElem(title: Strings.EditEvent.startEvent,
-                                          text: event.startDate?.eventDateShort(),
-                                          type: .startEvent)
-            let secondElem = EditEventElem(title: Strings.EditEvent.endEvent,
-                                          text: event.endDate?.eventDateShort(),
-                                          type: .endEvent)
+            let firstElem = EditEventElem(
+                title: Strings.EditEvent.startEvent,
+                text: event.startDate.eventDateShort(),
+                type: .startEvent
+            )
+            let secondElem = EditEventElem(
+                title: Strings.EditEvent.endEvent,
+                text: event.endDate.eventDateShort(),
+                type: .endEvent
+            )
             
-            return TableCellWithStackViewModel(elements: [firstElem, secondElem],
-                                               delegate: self)
+            return TableCellWithStackViewModel(
+                elements: [firstElem, secondElem],
+                delegate: self
+            )
         case .repeatedly:
-            return TableCellWithTextFieldViewModel(cellTextField: event.repeatedly?.rawValue,
-                                                   elem: .repeatedly,
-                                                   delegate: self)
+            return TableCellWithTextFieldViewModel(
+                cellTextField: event.repeatedly?.rawValue,
+                elem: .repeatedly,
+                delegate: self
+            )
         case .reminderAndPrice:
-            
-            return EditEventReminderAndPriceViewModel(reminder: event.reminder,
-                                                      price: event.price,
-                                                      showPrice: showPrice,
-                                                      delegate: self)
+            return EditEventReminderAndPriceViewModel(
+                reminder: event.reminder,
+                price: event.price,
+                showPrice: showPrice,
+                delegate: self
+            )
         case .note:
-            return EventNoteViewModel(cellTextView: event.note,
-                                      delegate: self)
+            return EventNoteViewModel(
+                cellTextView: event.note,
+                delegate: self
+            )
         }
     }
 }
@@ -242,6 +264,4 @@ extension EditEventPresenter: EditPriceDelegate {
     func textFieldDidChanged(price: Int?) {
         event.price = price
     }
-    
-    
 }
