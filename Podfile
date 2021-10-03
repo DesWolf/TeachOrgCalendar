@@ -15,8 +15,6 @@ target ‘TeachOrgCalendar’ do
 	# DI
 	pod 'Swinject'
 	pod 'SwinjectStoryboard'
-	
-	# Networking
 
 	#Auth
 	pod 'Firebase'
@@ -27,12 +25,12 @@ target ‘TeachOrgCalendar’ do
 	pod 'FirebaseUI/OAuth' # Used for Sign in with Apple, Twitter, etc
 	pod 'FirebaseUI/Phone'
 
-
 	# Data Storage
 	pod 'Firebase/Database'
 	
 	# UI
 	pod 'SnapKit'
+	pod 'CVCalendar'
 
 	# Other
 	

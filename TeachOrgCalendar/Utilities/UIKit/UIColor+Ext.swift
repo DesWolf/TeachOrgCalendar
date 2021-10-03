@@ -37,12 +37,12 @@ extension UIColor {
         UIColor(named: "CalendarGreen")!
     }
     
-    @nonobjc class var meetingCellBackGround: UIColor {
-        UIColor(named: "MeetingCellBackground")!
+    @nonobjc class var deselectViewBackground: UIColor {
+        UIColor(named: "DeselectViewBackground")!
     }
     
-    @nonobjc class var meetingSelectCellBackGround: UIColor {
-        UIColor(named: "MeetingSelectCellBackground")!
+    @nonobjc class var selectViewBackground: UIColor {
+        UIColor(named: "SelectViewBackground")!
     }
     
     @nonobjc class var divider: UIColor {

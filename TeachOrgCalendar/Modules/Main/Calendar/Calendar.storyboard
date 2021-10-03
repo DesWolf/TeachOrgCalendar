@@ -1,30 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uC9-vi-IJr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uC9-vi-IJr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Calendar View Controller-->
-        <scene sceneID="0W0-eU-Rvb">
-            <objects>
-                <viewController id="n2C-3m-54s" customClass="CalendarViewController" customModule="TeachOrgCalendar" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9za-Bq-UZM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Uwi-FD-axq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="UJa-ew-jfO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="D4H-Sn-FRk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1168.1159420289855" y="107.8125"/>
-        </scene>
         <!--Calendar-->
         <scene sceneID="guK-Dr-mit">
             <objects>
@@ -38,16 +22,110 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="n2C-3m-54s" kind="relationship" relationship="rootViewController" id="5kg-R1-CoC"/>
+                        <segue destination="jSd-L7-uWh" kind="relationship" relationship="rootViewController" id="X1U-pe-BGG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AhU-pc-8lN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="257.97101449275362" y="107.8125"/>
         </scene>
+        <!--Календарь-->
+        <scene sceneID="cks-jV-Sqh">
+            <objects>
+                <viewController storyboardIdentifier="CalendarVC" id="jSd-L7-uWh" customClass="CalendarViewController" customModule="TeachOrgCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JnB-9Z-UVC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLU-fD-pyQ">
+                                <rect key="frame" x="8" y="118" width="398" height="358"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAs-3I-cJM" userLabel="Calendar View" customClass="CVCalendarView" customModule="CVCalendar">
+                                        <rect key="frame" x="8" y="0.0" width="382" height="350"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="350" id="FaI-hm-bmx"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="kAs-3I-cJM" secondAttribute="trailing" constant="8" id="KNk-4V-Atv"/>
+                                    <constraint firstItem="kAs-3I-cJM" firstAttribute="top" secondItem="FLU-fD-pyQ" secondAttribute="top" id="SfI-7l-eLA"/>
+                                    <constraint firstItem="kAs-3I-cJM" firstAttribute="leading" secondItem="FLU-fD-pyQ" secondAttribute="leading" constant="8" id="d7C-Cr-yex"/>
+                                    <constraint firstAttribute="bottom" secondItem="kAs-3I-cJM" secondAttribute="bottom" constant="8" id="mxJ-wT-e5J"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lhe-FP-L5O">
+                                <rect key="frame" x="0.0" y="518" width="414" height="295"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAP-E4-UvX">
+                                <rect key="frame" x="8" y="488" width="398" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yof-aR-rEj" userLabel="Calendar Menu View" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                                <rect key="frame" x="8" y="88" width="398" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ky8-W0-2u7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8Ds-nk-4mO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8Ds-nk-4mO" firstAttribute="trailing" secondItem="rAP-E4-UvX" secondAttribute="trailing" constant="8" id="3ha-n7-IOl"/>
+                            <constraint firstItem="lhe-FP-L5O" firstAttribute="bottom" secondItem="8Ds-nk-4mO" secondAttribute="bottom" id="3vJ-3f-jix"/>
+                            <constraint firstItem="FLU-fD-pyQ" firstAttribute="trailing" secondItem="8Ds-nk-4mO" secondAttribute="trailing" constant="-8" id="7Hw-QF-dGb"/>
+                            <constraint firstItem="FLU-fD-pyQ" firstAttribute="top" secondItem="Yof-aR-rEj" secondAttribute="bottom" id="FGX-JA-f9d"/>
+                            <constraint firstItem="lhe-FP-L5O" firstAttribute="leading" secondItem="8Ds-nk-4mO" secondAttribute="leading" id="NTx-98-ts9"/>
+                            <constraint firstItem="rAP-E4-UvX" firstAttribute="top" secondItem="FLU-fD-pyQ" secondAttribute="bottom" constant="12" id="T4C-Hx-cxm"/>
+                            <constraint firstItem="Yof-aR-rEj" firstAttribute="top" secondItem="8Ds-nk-4mO" secondAttribute="top" id="bMj-0z-giN"/>
+                            <constraint firstItem="rAP-E4-UvX" firstAttribute="leading" secondItem="8Ds-nk-4mO" secondAttribute="leading" constant="8" id="bP2-Ow-Y8l"/>
+                            <constraint firstItem="Yof-aR-rEj" firstAttribute="leading" secondItem="8Ds-nk-4mO" secondAttribute="leading" constant="8" id="dVw-XB-KFg"/>
+                            <constraint firstItem="8Ds-nk-4mO" firstAttribute="trailing" secondItem="Yof-aR-rEj" secondAttribute="trailing" constant="8" id="gmT-Ra-c4n"/>
+                            <constraint firstItem="lhe-FP-L5O" firstAttribute="trailing" secondItem="8Ds-nk-4mO" secondAttribute="trailing" id="hU7-za-X0j"/>
+                            <constraint firstItem="FLU-fD-pyQ" firstAttribute="leading" secondItem="8Ds-nk-4mO" secondAttribute="leading" constant="8" id="lH3-m3-unp"/>
+                            <constraint firstItem="lhe-FP-L5O" firstAttribute="top" secondItem="rAP-E4-UvX" secondAttribute="bottom" constant="12" id="x5Q-my-zH1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Календарь" largeTitleDisplayMode="always" id="6CX-36-bg1">
+                        <barButtonItem key="leftBarButtonItem" title="     " id="HLP-9s-YGd">
+                            <connections>
+                                <action selector="sendRequest:" destination="jSd-L7-uWh" id="Ll7-xr-cTV"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="Usx-hz-ZY8">
+                                <connections>
+                                    <action selector="addStudent:" destination="jSd-L7-uWh" id="lmF-po-Nbr"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="switchView" id="k9b-R0-p3i">
+                                <color key="tintColor" red="0.2413900793" green="0.53395974639999999" blue="0.781021297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="switchCalView:" destination="jSd-L7-uWh" id="BdF-z6-q2D"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="calendarBackgroundView" destination="FLU-fD-pyQ" id="0hU-Fp-x7A"/>
+                        <outlet property="calendarView" destination="kAs-3I-cJM" id="edL-6Z-v3p"/>
+                        <outlet property="dateLabel" destination="rAP-E4-UvX" id="6fq-bu-j0l"/>
+                        <outlet property="eventsTable" destination="lhe-FP-L5O" id="5Gu-mS-apm"/>
+                        <outlet property="menuView" destination="Yof-aR-rEj" id="jF3-sJ-c76"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lq5-qf-mf7" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1061" y="108"/>
+        </scene>
     </scenes>
     <resources>
         <image name="calendar" width="28" height="32"/>
+        <image name="switchView" width="20" height="12"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -8,7 +8,9 @@
 import Foundation
 
 enum DateFormats {
-    static let eventDateShort = "HH:MM dd.MM.YY"
+    static let eventDateShort = "HH:mm dd.MM.yy"
+    static let eventTimeShort = "HH:mm"
+    static let titleDate = "EEEE, d MMMM yyyy"
 }
 
 extension TimeInterval {
@@ -20,6 +22,25 @@ extension TimeInterval {
         let formattedDate = dateFormatter.string(from: date)
 
         return formattedDate
+    }
+    
+    func eventTimeShort() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateFormats.eventTimeShort
+
+        let date = Date(timeIntervalSince1970: self)
+        let formattedDate = dateFormatter.string(from: date)
+
+        return formattedDate
+    }
+
+    func dateToTitleStr(timeInterval: TimeInterval) -> String {
+        let date = Date(timeIntervalSince1970: timeInterval)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateFormats.titleDate
+        dateFormatter.locale = Locale(identifier: "RU_RU")
+        let str = dateFormatter.string(from: date)
+        return str
     }
     
     

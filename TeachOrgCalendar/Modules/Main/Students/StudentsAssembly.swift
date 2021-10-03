@@ -16,12 +16,7 @@ struct StudentsAssembly: Assembly {
                 fatalError("Can't resolve StudentsPresenterType in Students View Controller")
             }
             
-            guard let appCoordinator = r.resolve(AppCoordinatorProtocol.self) else {
-                fatalError("Can't resolve AppCoordinator in Students View Controller")
-            }
-            
             c.presenter = presenter
-            c.appCoordinator = appCoordinator
             presenter.view = c
         }
         
@@ -31,11 +26,11 @@ struct StudentsAssembly: Assembly {
             }
             
             guard let databaseManager = r.resolve(DatabaseManager.self) else {
-                fatalError("Can't resolve DatabaseManager in Students View Controller")
+                fatalError("Can't resolve DatabaseManager in Students Presenter")
             }
             
             guard let databaseNotifier = r.resolve(DatabaseObserver.self) else {
-                fatalError("Can't resolve DatabaseNotifier in Students View Controller")
+                fatalError("Can't resolve DatabaseNotifier in Students Presenter")
             }
             
             return StudentsPresenter(moduleAssembly: moduleAssembly,

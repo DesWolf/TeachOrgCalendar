@@ -14,13 +14,13 @@ extension UIView {
 
     func didSelect() {
         layer.cornerRadius = 10
-        backgroundColor = .meetingSelectCellBackGround
+        backgroundColor = .selectViewBackground
         layer.borderColor = UIColor.clear.cgColor
     }
     
     func didDeselect() {
         layer.cornerRadius = 10
-        backgroundColor = .meetingCellBackGround
+        backgroundColor = .deselectViewBackground
         layer.borderColor = UIColor.border.cgColor
         layer.borderWidth = 0.5
     }

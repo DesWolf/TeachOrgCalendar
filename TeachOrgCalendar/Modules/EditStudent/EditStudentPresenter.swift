@@ -60,7 +60,7 @@ class EditStudentPresenter: NSObject {
     }
     
     private func simpleAlert(message: String) {
-        UIAlertController.simpleAlert(title:"Error", msg:"\(message)", target: view as! UIViewController)
+        UIAlertController.simpleAlert(title:"Error", msg:"\(message)")
     }
 }
 

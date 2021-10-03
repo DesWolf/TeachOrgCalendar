@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E055F13270A10530057F02C /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E055F12270A10530057F02C /* String+Ext.swift */; };
 		9E10794626BDBF7400D0DA19 /* DisciplineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E10794526BDBF7400D0DA19 /* DisciplineCollectionViewCell.swift */; };
 		9E10794826BDBF9500D0DA19 /* AddDisciplineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E10794726BDBF9500D0DA19 /* AddDisciplineCollectionViewCell.swift */; };
 		9E10794C26BDC1F500D0DA19 /* AddDisciplineCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E10794B26BDC1F500D0DA19 /* AddDisciplineCollectionViewModel.swift */; };
@@ -110,16 +111,20 @@
 		9E80B2A226D6D04400D89DCA /* TableCellWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E80B2A126D6D04400D89DCA /* TableCellWithTextField.swift */; };
 		9E80B2A426D6D89800D89DCA /* TableCellWithTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E80B2A326D6D89800D89DCA /* TableCellWithTextFieldViewModel.swift */; };
 		9E80B2A626D809D200D89DCA /* ViewWithTitleAndText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E80B2A526D809D200D89DCA /* ViewWithTitleAndText.swift */; };
+		9E92427526FCFBBA00CE6746 /* CalendarViewController+TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E92427426FCFBBA00CE6746 /* CalendarViewController+TableDelegate.swift */; };
+		9E92427726FCFD4000CE6746 /* CalendarViewController+CVCalendarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E92427626FCFD4000CE6746 /* CalendarViewController+CVCalendarDelegate.swift */; };
 		9EBB6AE0264927A8003053D8 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EBB6ADF264927A8003053D8 /* TabBar.storyboard */; };
 		9EBB6AE3264927D9003053D8 /* Students.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EBB6AE2264927D9003053D8 /* Students.storyboard */; };
 		9EBB6AE6264927F3003053D8 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EBB6AE5264927F3003053D8 /* Calendar.storyboard */; };
 		9EBB6AE926492801003053D8 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EBB6AE826492801003053D8 /* Profile.storyboard */; };
+		9EBDF8A126EFC16700874860 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBDF8A026EFC16700874860 /* Date+Ext.swift */; };
 		9EBF6B4F2629E1910079871B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF6B4E2629E1910079871B /* ProfileView.swift */; };
-		9EBF6B582629E4C20079871B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF6B572629E4C20079871B /* CalendarView.swift */; };
+		9ECBFE1926EA683F0036A747 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECBFE1826EA683F0036A747 /* EventTableViewCell.swift */; };
+		9ECBFE1B26EA70C30036A747 /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECBFE1A26EA70C30036A747 /* EventCellViewModel.swift */; };
 		9ED6FF4C26DB8CC1003B65EB /* EditEventElem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED6FF4B26DB8CC1003B65EB /* EditEventElem.swift */; };
 		9ED8B9DC263FCF270022BA1B /* EmptySelfConfigurableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED8B9DB263FCF260022BA1B /* EmptySelfConfigurableViewModel.swift */; };
 		9ED8B9DF263FD2FC0022BA1B /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED8B9DE263FD2FC0022BA1B /* Student.swift */; };
-		9ED8B9E3263FD4FE0022BA1B /* StudentViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED8B9E2263FD4FE0022BA1B /* StudentViewModelCell.swift */; };
+		9ED8B9E3263FD4FE0022BA1B /* StudentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED8B9E2263FD4FE0022BA1B /* StudentCellViewModel.swift */; };
 		9ED8B9E7263FD5AD0022BA1B /* StudentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED8B9E6263FD5AD0022BA1B /* StudentTableCell.swift */; };
 		9ED8B9EA263FD8FD0022BA1B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ED8B9E9263FD8FD0022BA1B /* Colors.xcassets */; };
 		9ED9790026DC099E00E21AB9 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED978FF26DC099E00E21AB9 /* UITextField+Ext.swift */; };
@@ -129,6 +134,7 @@
 
 /* Begin PBXFileReference section */
 		552ED8638C63EA7D7A1193DB /* Pods-TeachOrgCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeachOrgCalendar.release.xcconfig"; path = "Target Support Files/Pods-TeachOrgCalendar/Pods-TeachOrgCalendar.release.xcconfig"; sourceTree = "<group>"; };
+		9E055F12270A10530057F02C /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		9E10794526BDBF7400D0DA19 /* DisciplineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineCollectionViewCell.swift; sourceTree = "<group>"; };
 		9E10794726BDBF9500D0DA19 /* AddDisciplineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisciplineCollectionViewCell.swift; sourceTree = "<group>"; };
 		9E10794B26BDC1F500D0DA19 /* AddDisciplineCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisciplineCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -235,16 +241,20 @@
 		9E80B2A126D6D04400D89DCA /* TableCellWithTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellWithTextField.swift; sourceTree = "<group>"; };
 		9E80B2A326D6D89800D89DCA /* TableCellWithTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellWithTextFieldViewModel.swift; sourceTree = "<group>"; };
 		9E80B2A526D809D200D89DCA /* ViewWithTitleAndText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithTitleAndText.swift; sourceTree = "<group>"; };
+		9E92427426FCFBBA00CE6746 /* CalendarViewController+TableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarViewController+TableDelegate.swift"; sourceTree = "<group>"; };
+		9E92427626FCFD4000CE6746 /* CalendarViewController+CVCalendarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarViewController+CVCalendarDelegate.swift"; sourceTree = "<group>"; };
 		9EBB6ADF264927A8003053D8 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		9EBB6AE2264927D9003053D8 /* Students.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Students.storyboard; sourceTree = "<group>"; };
 		9EBB6AE5264927F3003053D8 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		9EBB6AE826492801003053D8 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		9EBDF8A026EFC16700874860 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		9EBF6B4E2629E1910079871B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		9EBF6B572629E4C20079871B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		9ECBFE1826EA683F0036A747 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		9ECBFE1A26EA70C30036A747 /* EventCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellViewModel.swift; sourceTree = "<group>"; };
 		9ED6FF4B26DB8CC1003B65EB /* EditEventElem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventElem.swift; sourceTree = "<group>"; };
 		9ED8B9DB263FCF260022BA1B /* EmptySelfConfigurableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySelfConfigurableViewModel.swift; sourceTree = "<group>"; };
 		9ED8B9DE263FD2FC0022BA1B /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
-		9ED8B9E2263FD4FE0022BA1B /* StudentViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModelCell.swift; sourceTree = "<group>"; };
+		9ED8B9E2263FD4FE0022BA1B /* StudentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCellViewModel.swift; sourceTree = "<group>"; };
 		9ED8B9E6263FD5AD0022BA1B /* StudentTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableCell.swift; sourceTree = "<group>"; };
 		9ED8B9E9263FD8FD0022BA1B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9ED978FF26DC099E00E21AB9 /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
@@ -397,7 +407,9 @@
 				9EDF5B4226D25BF500D76F23 /* NavigationBar+Ext.swift */,
 				9E78014126D4291F005967AA /* UIApplication+Ext.swift */,
 				9E78014326D51459005967AA /* UIAlertController+Ext.swift */,
+				9E055F12270A10530057F02C /* String+Ext.swift */,
 				9E4542E726E7DF6C000F6D3E /* TimeInterval+Ext.swift */,
+				9EBDF8A026EFC16700874860 /* Date+Ext.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -507,10 +519,13 @@
 		9E6C08012610C28800274235 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				9ECBFE1726EA680A0036A747 /* ViewModel */,
+				9ECBFE1626EA67F90036A747 /* View */,
 				9E6C08022610C28800274235 /* CalendarAssembly.swift */,
 				9E6C08042610C28800274235 /* CalendarPresenter.swift */,
 				9E6C08032610C28800274235 /* CalendarViewController.swift */,
-				9EBF6B572629E4C20079871B /* CalendarView.swift */,
+				9E92427426FCFBBA00CE6746 /* CalendarViewController+TableDelegate.swift */,
+				9E92427626FCFD4000CE6746 /* CalendarViewController+CVCalendarDelegate.swift */,
 				9EBB6AE5264927F3003053D8 /* Calendar.storyboard */,
 			);
 			path = Calendar;
@@ -691,6 +706,22 @@
 			path = TableCell;
 			sourceTree = "<group>";
 		};
+		9ECBFE1626EA67F90036A747 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9ECBFE1826EA683F0036A747 /* EventTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9ECBFE1726EA680A0036A747 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9ECBFE1A26EA70C30036A747 /* EventCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		9ED8B9DA263FCEFA0022BA1B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -717,7 +748,7 @@
 		9ED8B9E5263FD50F0022BA1B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9ED8B9E2263FD4FE0022BA1B /* StudentViewModelCell.swift */,
+				9ED8B9E2263FD4FE0022BA1B /* StudentCellViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -863,6 +894,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E3A1DDC26C971FA0044D17B /* StudentProfileRow.swift in Sources */,
+				9ECBFE1B26EA70C30036A747 /* EventCellViewModel.swift in Sources */,
 				9E5FB61226B6B2CF00B4E50D /* DatabaseManager.swift in Sources */,
 				9E3A1DE226C97FE80044D17B /* StudentContactsTableCell.swift in Sources */,
 				9E29D02E26BB0D8C003B88CE /* EditContactsCellViewModel.swift in Sources */,
@@ -880,17 +912,18 @@
 				9E80B2A626D809D200D89DCA /* ViewWithTitleAndText.swift in Sources */,
 				9E78350126AD8A4300670138 /* LaunchView.swift in Sources */,
 				9E78014826D58EE2005967AA /* EditEventViewController.swift in Sources */,
+				9ECBFE1926EA683F0036A747 /* EventTableViewCell.swift in Sources */,
 				9E6C083E2610C28800274235 /* ApplicationAssembly.swift in Sources */,
 				9ED9790026DC099E00E21AB9 /* UITextField+Ext.swift in Sources */,
 				9E29D02826BB0D02003B88CE /* EditDisciplineTableCell.swift in Sources */,
 				9E3E5705265C162B007D6D51 /* EditStudentView.swift in Sources */,
-				9EBF6B582629E4C20079871B /* CalendarView.swift in Sources */,
 				9E6C08792610C2AB00274235 /* AppDelegate.swift in Sources */,
 				9E80B2A226D6D04400D89DCA /* TableCellWithTextField.swift in Sources */,
 				9E78014A26D58EFC005967AA /* EditEventAssembly.swift in Sources */,
 				9E43012326E523A500E63228 /* EditEventReminderAndPriceTableCell.swift in Sources */,
 				9E6C084F2610C28800274235 /* StudentsViewController.swift in Sources */,
 				9E10794E26BDC20D00D0DA19 /* DisciplineCollectionViewModel.swift in Sources */,
+				9EBDF8A126EFC16700874860 /* Date+Ext.swift in Sources */,
 				9E29D02226BB0C71003B88CE /* EditNameCellViewModel.swift in Sources */,
 				9E78015126D5930F005967AA /* Event.swift in Sources */,
 				9E6C08492610C28800274235 /* TabBarViewController.swift in Sources */,
@@ -923,7 +956,7 @@
 				9E3E5703265C1615007D6D51 /* EditStudentViewController.swift in Sources */,
 				9E6C08642610C28800274235 /* UIFont+Ext.swift in Sources */,
 				9E633FBF2610D8220053BF65 /* AppNavigator.swift in Sources */,
-				9ED8B9E3263FD4FE0022BA1B /* StudentViewModelCell.swift in Sources */,
+				9ED8B9E3263FD4FE0022BA1B /* StudentCellViewModel.swift in Sources */,
 				9E6C08672610C28800274235 /* WindowTransitioner.swift in Sources */,
 				9E29D02626BB0CE7003B88CE /* EditNameTableCell.swift in Sources */,
 				9E6C08462610C28800274235 /* TabBarAssembly.swift in Sources */,
@@ -952,6 +985,7 @@
 				9E3A1DE426C97FFB0044D17B /* StudentNoteTableCell.swift in Sources */,
 				9E6C083F2610C28800274235 /* ModuleAssemply.swift in Sources */,
 				9E4542E826E7DF6C000F6D3E /* TimeInterval+Ext.swift in Sources */,
+				9E92427526FCFBBA00CE6746 /* CalendarViewController+TableDelegate.swift in Sources */,
 				9E6C086A2610C28800274235 /* SelfConfigurableViewModel.swift in Sources */,
 				9E4542E626E7AF1B000F6D3E /* Repeatedly.swift in Sources */,
 				9EDF5B4326D25BF500D76F23 /* NavigationBar+Ext.swift in Sources */,
@@ -967,8 +1001,10 @@
 				9ED8B9DC263FCF270022BA1B /* EmptySelfConfigurableViewModel.swift in Sources */,
 				9E80B29226D6C94400D89DCA /* EditEventNoteTableCell.swift in Sources */,
 				9E43012926E52E9900E63228 /* Reminder.swift in Sources */,
+				9E055F13270A10530057F02C /* String+Ext.swift in Sources */,
 				9E633FB42610D2B10053BF65 /* LoginView.swift in Sources */,
 				9E6C08632610C28800274235 /* UILabel+Ext.swift in Sources */,
+				9E92427726FCFD4000CE6746 /* CalendarViewController+CVCalendarDelegate.swift in Sources */,
 				9E3A1DE026C97E0D0044D17B /* StudentDisciplineTableCell.swift in Sources */,
 				9E3A1DD126C943EF0044D17B /* StudentPresenter.swift in Sources */,
 			);

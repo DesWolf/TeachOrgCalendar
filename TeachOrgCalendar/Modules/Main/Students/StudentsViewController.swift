@@ -9,7 +9,6 @@ import UIKit
 
 protocol StudentsViewProtocol: AnyObject, NavigatingView {
     var presenter: StudentsPresenterProtocol! { get set }
-    var appCoordinator: AppCoordinatorProtocol! { get set }
     
     func reloadTableView()
 }
@@ -19,7 +18,6 @@ class StudentsViewController: UIViewController {
     // MARK: - Public properties
     
     var presenter: StudentsPresenterProtocol!
-    var appCoordinator: AppCoordinatorProtocol!
     
     // MARK: - Private properties
     
@@ -67,7 +65,7 @@ class StudentsViewController: UIViewController {
             return
         }
         
-        presenter.loadStudents()
+        presenter.refresh()
         view.refreshControl.endRefreshing()
     }
 }

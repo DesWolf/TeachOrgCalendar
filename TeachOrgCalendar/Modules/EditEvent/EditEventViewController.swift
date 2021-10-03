@@ -22,8 +22,8 @@ class EditEventViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private let eventSegmentControl = UISegmentedControl(items: [Strings.EditEvent.Segment.lesson,
-                                                                 Strings.EditEvent.Segment.personal])
+    private let eventSegmentControl = UISegmentedControl(items: [EventType.lesson.rawValue,
+                                                                 EventType.personal.rawValue])
     
     override func loadView() {
         let view = EditEventView()
